@@ -3,6 +3,7 @@ const fs = require("fs");
 const mongoEventFiles = fs
   .readdirSync("./mongoEvents")
   .filter((file) => file.endsWith(".js"));
+require("dotenv").config();
 
 module.exports = (client) => {
   client.dbLogin = async () => {
