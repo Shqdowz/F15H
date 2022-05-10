@@ -172,7 +172,7 @@ module.exports = {
     });
 
     collector.on("collect", async (i) => {
-      if (i.user.id === interaction.user.id) {
+      if (i.user.id == interaction.user.id) {
         switch (i.customId) {
           case "toHomepage":
             embedObject.homepage.setFooter({
@@ -264,10 +264,12 @@ module.exports = {
             break;
         }
       } else {
-        i.reply({
-          content: `These aren't your buttons!`,
-          ephemeral: true,
-        });
+        try {
+          i.reply({
+            content: `These aren't your buttons!`,
+            ephemeral: true,
+          });
+        } catch (err) {}
       }
     });
   },
