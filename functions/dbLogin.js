@@ -3,7 +3,6 @@ const fs = require("fs");
 const mongoEventFiles = fs
   .readdirSync("./mongoEvents")
   .filter((file) => file.endsWith(".js"));
-require("dotenv").config();
 
 module.exports = (client) => {
   client.dbLogin = async () => {
@@ -18,6 +17,5 @@ module.exports = (client) => {
       }
     }
     mongoose.Promise = global.Promise;
-    await mongoose.connect(process.env.dbToken, {});
   };
 };
