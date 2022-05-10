@@ -24,7 +24,6 @@ client.login(process.env.token);
 client.dbLogin();
 
 const mongoose = require("mongoose");
-const fs = require("fs");
 const mongoEventFiles = fs
   .readdirSync("./mongoEvents")
   .filter((file) => file.endsWith(".js"));
