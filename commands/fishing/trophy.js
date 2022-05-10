@@ -8,8 +8,8 @@ const rowObject = require("../../objects/rows");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("trophy")
-    .setDescription("Displays your trophy hall"),
-  /*.addUserOption((option) =>
+    .setDescription("Displays your trophy hall")
+    .addUserOption((option) =>
       option
         .setName("user")
         .setDescription("The user of who to view the trophy hall")
@@ -20,7 +20,8 @@ module.exports = {
         .setName("page")
         .setDescription("The page to view")
         .setRequired(false)
-    )*/ async execute(interaction, client) {
+    ),
+  async execute(interaction, client) {
     let user = interaction.options.getUser("user")
       ? interaction.options.getUser("user")
       : interaction.user;
@@ -238,95 +239,95 @@ module.exports = {
       .setColor("#ADD8E6")
       .setTimestamp();
 
-    const trophy1r = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("toNothing")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(true),
-      new MessageButton()
-        .setCustomId("toTrophy2")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const trophy1r = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("toNothing")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(true),
+    //   new MessageButton()
+    //     .setCustomId("toTrophy2")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const trophy2r = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("toTrophy1")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("toTrophy3")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const trophy2r = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("toTrophy1")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("toTrophy3")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const trophy3r = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("toTrophy2")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("toTrophy4")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const trophy3r = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("toTrophy2")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("toTrophy4")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const trophy4r = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("toTrophy3")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("toTrophy5")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const trophy4r = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("toTrophy3")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("toTrophy5")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const trophy5r = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("toTrophy4")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("toTrophy6")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const trophy5r = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("toTrophy4")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("toTrophy6")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const trophy6r = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("toTrophy5")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("toNothing")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(true)
-    );
+    // const trophy6r = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("toTrophy5")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("toNothing")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(true)
+    // );
 
     if (
       page === 1 ||
@@ -340,44 +341,44 @@ module.exports = {
         case 1:
           await interaction.reply({
             embeds: [trophy1],
-            components: [trophy1r],
+            //components: [trophy1r],
           });
           break;
         case 2:
           await interaction.reply({
             embeds: [trophy2],
-            components: [trophy2r],
+            //components: [trophy2r],
           });
           break;
         case 3:
           await interaction.reply({
             embeds: [trophy3],
-            components: [trophy3r],
+            //components: [trophy3r],
           });
           break;
         case 4:
           await interaction.reply({
             embeds: [trophy4],
-            components: [trophy4r],
+            //components: [trophy4r],
           });
           break;
         case 5:
           await interaction.reply({
             embeds: [trophy5],
-            components: [trophy5r],
+            //components: [trophy5r],
           });
           break;
         case 6:
           await interaction.reply({
             embeds: [trophy6],
-            components: [trophy6r],
+            //components: [trophy6r],
           });
           break;
       }
     } else if (!page) {
       await interaction.reply({
         embeds: [trophy1],
-        components: [trophy1r],
+        //components: [trophy1r],
       });
     } else {
       await interaction.reply({
@@ -386,64 +387,64 @@ module.exports = {
       });
     }
 
-    const collector = interaction.channel.createMessageComponentCollector({
-      componentType: "BUTTON",
-      time: 60000,
-    });
+    // const collector = interaction.channel.createMessageComponentCollector({
+    //   componentType: "BUTTON",
+    //   time: 60000,
+    // });
 
-    collector.on("collect", async (i) => {
-      if (i.user.id === interaction.user.id) {
-        switch (i.customId) {
-          case "toTrophy1":
-            await i.update({
-              embeds: [trophy1],
-              components: [trophy1r],
-            });
-            break;
-          case "toTrophy2":
-            await i.update({
-              embeds: [trophy2],
-              components: [trophy2r],
-            });
-            break;
-          case "toTrophy3":
-            await i.update({
-              embeds: [trophy3],
-              components: [trophy3r],
-            });
-            break;
-          case "toTrophy4":
-            await i.update({
-              embeds: [trophy4],
-              components: [trophy4r],
-            });
-            break;
-          case "toTrophy5":
-            await i.update({
-              embeds: [trophy5],
-              components: [trophy5r],
-            });
-            break;
-          case "toTrophy6":
-            await i.update({
-              embeds: [trophy6],
-              components: [trophy6r],
-            });
-            break;
-        }
-      } else {
-        i.reply({
-          content: `These aren't your buttons!`,
-          ephemeral: true,
-        });
-      }
-    });
+    // collector.on("collect", async (i) => {
+    //   if (i.user.id === interaction.user.id) {
+    //     switch (i.customId) {
+    //       case "toTrophy1":
+    //         await i.update({
+    //           embeds: [trophy1],
+    //           components: [trophy1r],
+    //         });
+    //         break;
+    //       case "toTrophy2":
+    //         await i.update({
+    //           embeds: [trophy2],
+    //           components: [trophy2r],
+    //         });
+    //         break;
+    //       case "toTrophy3":
+    //         await i.update({
+    //           embeds: [trophy3],
+    //           components: [trophy3r],
+    //         });
+    //         break;
+    //       case "toTrophy4":
+    //         await i.update({
+    //           embeds: [trophy4],
+    //           components: [trophy4r],
+    //         });
+    //         break;
+    //       case "toTrophy5":
+    //         await i.update({
+    //           embeds: [trophy5],
+    //           components: [trophy5r],
+    //         });
+    //         break;
+    //       case "toTrophy6":
+    //         await i.update({
+    //           embeds: [trophy6],
+    //           components: [trophy6r],
+    //         });
+    //         break;
+    //     }
+    //   } else {
+    //     i.reply({
+    //       content: `These aren't your buttons!`,
+    //       ephemeral: true,
+    //     });
+    //   }
+    // });
 
-    collector.on("end", () => {
-      interaction.editReply({
-        content: `Command set to inactive.`,
-        components: [rowObject.inactive],
-      });
-    });
+    // collector.on("end", () => {
+    //   interaction.editReply({
+    //     content: `Command set to inactive.`,
+    //     components: [rowObject.inactive],
+    //   });
+    // });
   },
 };

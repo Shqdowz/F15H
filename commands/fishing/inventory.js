@@ -8,8 +8,8 @@ const rowObject = require("../../objects/rows");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("inventory")
-    .setDescription("Displays your inventory"),
-  /*.addUserOption((option) =>
+    .setDescription("Displays your inventory")
+    .addUserOption((option) =>
       option
         .setName("user")
         .setDescription("The user of who to view the inventory")
@@ -20,16 +20,17 @@ module.exports = {
         .setName("page")
         .setDescription("The page to view")
         .setRequired(false)
-    )*/ async execute(interaction, client) {
-    /*let user = interaction.options.getUser("user")
+    ),
+  async execute(interaction, client) {
+    let user = interaction.options.getUser("user")
       ? interaction.options.getUser("user")
-      : interaction.user;*/
+      : interaction.user;
     let page = interaction.options.getNumber("page");
 
-    const userProfile = await client.createUser(interaction.member); // user
+    const userProfile = await client.createUser(user);
 
     const inventory1 = new MessageEmbed()
-      .setTitle(`${interaction.user.tag}'s inventory`) // user
+      .setTitle(`${user.tag}'s inventory`)
       .addFields(
         {
           name: "Common Fish",
@@ -96,93 +97,93 @@ module.exports = {
       .setColor("#ADD8E6")
       .setTimestamp();
 
-    const inventory1r = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("toNothing")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(true),
-      new MessageButton()
-        .setCustomId("toInventory2")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const inventory1r = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("toNothing")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(true),
+    //   new MessageButton()
+    //     .setCustomId("toInventory2")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const inventory2r = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("toInventory1")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("toNothing")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(true)
-    );
+    // const inventory2r = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("toInventory1")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("toNothing")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(true)
+    // );
 
-    /*if (page === 1 || page === 2) {
+    if (page === 1 || page === 2) {
       switch (page) {
         case 1:
           await interaction.reply({
             embeds: [inventory1],
-            components: [inventory1r],
+            //components: [inventory1r],
           });
           break;
         case 2:
           await interaction.reply({
             embeds: [inventory2],
-            components: [inventory2r],
+            //components: [inventory2r],
           });
           break;
       }
-    } else */ if (!page) {
+    } else if (!page) {
       await interaction.reply({
         embeds: [inventory1],
-        components: [inventory1r],
+        //components: [inventory1r],
       });
-    } /* else {
+    } else {
       await interaction.reply({
         content: `That page does not exist! Valid pages: 1, 2`,
         ephemeral: true,
       });
-    }*/
+    }
 
-    const collector = interaction.channel.createMessageComponentCollector({
-      componentType: "BUTTON",
-    });
+    // const collector = interaction.channel.createMessageComponentCollector({
+    //   componentType: "BUTTON",
+    // });
 
-    collector.on("collect", async (i) => {
-      if (i.user.id === interaction.user.id) {
-        switch (i.customId) {
-          case "toInventory1":
-            try {
-              await i.update({
-                embeds: [inventory1],
-                components: [inventory1r],
-              });
-            } catch (err) {}
-            break;
-          case "toInventory2":
-            try {
-              await i.update({
-                embeds: [inventory2],
-                components: [inventory2r],
-              });
-            } catch (err) {}
-            break;
-        }
-      } else {
-        i.reply({
-          content: `These aren't your buttons!`,
-          ephemeral: true,
-        });
-      }
-    });
+    // collector.on("collect", async (i) => {
+    //   if (i.user.id === interaction.user.id) {
+    //     switch (i.customId) {
+    //       case "toInventory1":
+    //         try {
+    //           await i.update({
+    //             embeds: [inventory1],
+    //             components: [inventory1r],
+    //           });
+    //         } catch (err) {}
+    //         break;
+    //       case "toInventory2":
+    //         try {
+    //           await i.update({
+    //             embeds: [inventory2],
+    //             components: [inventory2r],
+    //           });
+    //         } catch (err) {}
+    //         break;
+    //     }
+    //   } else {
+    //     i.reply({
+    //       content: `These aren't your buttons!`,
+    //       ephemeral: true,
+    //     });
+    //   }
+    // });
   },
 };
