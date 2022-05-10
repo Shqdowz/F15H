@@ -21,29 +21,7 @@ client.handleEvents(eventFiles, "./events");
 client.handleCommands(commandFolders, "./commands");
 
 client.login(process.env.token);
-
-const mongoose = require("mongoose");
-const mongoEventFiles = fs
-  .readdirSync("./mongoEvents")
-  .filter((file) => file.endsWith(".js"));
-
-dbLogin = async () => {
-  for (file of mongoEventFiles) {
-    const event = require(`./mongoEvents/${file}`);
-    if (event.once) {
-      mongoose.connection.once(event.name, (...args) => event.execute(...args));
-    } else {
-      mongoose.connection.on(event.name, (...args) => event.execute(...args));
-    }
-  }
-  mongoose.Promise = global.Promise;
-  await mongoose.connect(process.env.dbToken, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  });
-};
-
-dbLogin();
+client.dbLogin();
 
 // const clientId = "967030090875670598";
 // const DiscordRPC = require("discord-rpc");
