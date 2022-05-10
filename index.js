@@ -21,7 +21,6 @@ client.handleEvents(eventFiles, "./events");
 client.handleCommands(commandFolders, "./commands");
 
 client.login(process.env.token);
-client.dbLogin();
 
 const mongoose = require("mongoose");
 const mongoEventFiles = fs
@@ -47,6 +46,8 @@ module.exports = (client) => {
     });
   };
 };
+
+client.dbLogin();
 
 // const clientId = "967030090875670598";
 // const DiscordRPC = require("discord-rpc");
