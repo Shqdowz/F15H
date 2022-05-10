@@ -1,0 +1,22 @@
+{
+  "name": "f15h",
+  "version": "1.0.0",
+  "description": "Grab your equipment and go on an adventure! Collect sea animals, sell or trade them, participate in battles and become the wealthiest F15Her!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "author": "Shqdowz",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.13.0",
+    "@discordjs/rest": "^0.4.1",
+    "discord-api-types": "^0.31.2",
+    "discord-rpc": "^4.0.1",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "mongoose": "^6.3.0",
+    "nodemon": "^2.0.15"
+  }
+}
