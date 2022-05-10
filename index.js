@@ -29,7 +29,7 @@ const mongoEventFiles = fs
 
 dbLogin = async () => {
   for (file of mongoEventFiles) {
-    const event = require(`../mongoEvents/${file}`);
+    const event = require(`./mongoEvents/${file}`);
     if (event.once) {
       mongoose.connection.once(event.name, (...args) => event.execute(...args));
     } else {
