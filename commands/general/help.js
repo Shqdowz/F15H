@@ -178,73 +178,89 @@ module.exports = {
             embedObject.homepage.setFooter({
               text: `Requested by ${interaction.user.tag}`,
             });
-            await i.update({
-              embeds: [embedObject.homepage],
-              components: [rowObject.homepage],
-            });
+            try {
+              await i.update({
+                embeds: [embedObject.homepage],
+                components: [rowObject.homepage],
+              });
+            } catch (err) {}
             break;
           case "toGeneral":
             embedObject.general.setFooter({
               text: `Page 1/7 - Requested by ${interaction.user.tag}`,
             });
-            await i.update({
-              embeds: [embedObject.general],
-              components: [rowObject.general],
-            });
+            try {
+              await i.update({
+                embeds: [embedObject.general],
+                components: [rowObject.general],
+              });
+            } catch (err) {}
             break;
           case "toFishing":
             embedObject.fishing.setFooter({
               text: `Page 2/7 - Requested by ${interaction.user.tag}`,
             });
-            await i.update({
-              embeds: [embedObject.fishing],
-              components: [rowObject.fishing],
-            });
+            try {
+              await i.update({
+                embeds: [embedObject.fishing],
+                components: [rowObject.fishing],
+              });
+            } catch (err) {}
             break;
           case "toMarket":
             embedObject.market.setFooter({
               text: `Page 3/7 - Requested by ${interaction.user.tag}`,
             });
-            await i.update({
-              embeds: [embedObject.market],
-              components: [rowObject.market],
-            });
+            try {
+              await i.update({
+                embeds: [embedObject.market],
+                components: [rowObject.market],
+              });
+            } catch (err) {}
             break;
           case "toEconomy":
             embedObject.economy.setFooter({
               text: `Page 4/7 - Requested by ${interaction.user.tag}`,
             });
-            await i.update({
-              embeds: [embedObject.economy],
-              components: [rowObject.economy],
-            });
+            try {
+              await i.update({
+                embeds: [embedObject.economy],
+                components: [rowObject.economy],
+              });
+            } catch (err) {}
             break;
           case "toBattling":
             embedObject.battling.setFooter({
               text: `Page 5/7 - Requested by ${interaction.user.tag}`,
             });
-            await i.update({
-              embeds: [embedObject.battling],
-              components: [rowObject.battling],
-            });
+            try {
+              await i.update({
+                embeds: [embedObject.battling],
+                components: [rowObject.battling],
+              });
+            } catch (err) {}
             break;
           case "toLootBoxes":
             embedObject.lootBoxes.setFooter({
               text: `Page 6/7 - Requested by ${interaction.user.tag}`,
             });
-            await i.update({
-              embeds: [embedObject.lootBoxes],
-              components: [rowObject.lootBoxes],
-            });
+            try {
+              await i.update({
+                embeds: [embedObject.lootBoxes],
+                components: [rowObject.lootBoxes],
+              });
+            } catch (err) {}
             break;
           case "toUser":
             embedObject.user.setFooter({
               text: `Page 7/7 - Requested by ${interaction.user.tag}`,
             });
-            await i.update({
-              embeds: [embedObject.user],
-              components: [rowObject.user],
-            });
+            try {
+              await i.update({
+                embeds: [embedObject.user],
+                components: [rowObject.user],
+              });
+            } catch (err) {}
             break;
         }
       } else {
