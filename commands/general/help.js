@@ -10,13 +10,14 @@ let embed, row;
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("help")
-    .setDescription("Displays the help page"),
-  /*.addStringOption((option) =>
+    .setDescription("Displays the help page")
+    .addStringOption((option) =>
       option
         .setName("page")
         .setDescription("The page to view")
         .setRequired(false)
-    )*/ async execute(interaction) {
+    ),
+  async execute(interaction) {
     let page = interaction.options.getString("page");
     if (page) {
       page = page.toLowerCase();
@@ -29,7 +30,7 @@ module.exports = {
       row = rowObject.homepage;
       await interaction.reply({
         embeds: [embed],
-        components: [row],
+        //components: [row],
       });
     } else if (page >= 0 && page <= 7) {
       switch (page) {
@@ -92,7 +93,7 @@ module.exports = {
       }
       await interaction.reply({
         embeds: [embed],
-        components: [row],
+        //components: [row],
       });
     } else if (
       page === "homepage" ||
@@ -146,7 +147,7 @@ module.exports = {
 
       await interaction.reply({
         embeds: [embed],
-        components: [row],
+        //components: [row],
       });
     } else if (page === "loot boxes") {
       embedObject.lootBoxes.setFooter({
@@ -157,7 +158,7 @@ module.exports = {
 
       await interaction.reply({
         embeds: [embed],
-        components: [row],
+        //components: [row],
       });
     } else {
       await interaction.reply({
@@ -167,110 +168,110 @@ module.exports = {
       });
     }
 
-    const collector = interaction.channel.createMessageComponentCollector({
-      componentType: "BUTTON",
-    });
+    // const collector = interaction.channel.createMessageComponentCollector({
+    //   componentType: "BUTTON",
+    // });
 
-    collector.on("collect", async (i) => {
-      if (i.user.id == interaction.user.id) {
-        switch (i.customId) {
-          case "toHomepage":
-            embedObject.homepage.setFooter({
-              text: `Requested by ${interaction.user.tag}`,
-            });
-            try {
-              await i.update({
-                embeds: [embedObject.homepage],
-                components: [rowObject.homepage],
-              });
-            } catch (err) {}
-            break;
-          case "toGeneral":
-            embedObject.general.setFooter({
-              text: `Page 1/7 - Requested by ${interaction.user.tag}`,
-            });
-            try {
-              await i.update({
-                embeds: [embedObject.general],
-                components: [rowObject.general],
-              });
-            } catch (err) {}
-            break;
-          case "toFishing":
-            embedObject.fishing.setFooter({
-              text: `Page 2/7 - Requested by ${interaction.user.tag}`,
-            });
-            try {
-              await i.update({
-                embeds: [embedObject.fishing],
-                components: [rowObject.fishing],
-              });
-            } catch (err) {}
-            break;
-          case "toMarket":
-            embedObject.market.setFooter({
-              text: `Page 3/7 - Requested by ${interaction.user.tag}`,
-            });
-            try {
-              await i.update({
-                embeds: [embedObject.market],
-                components: [rowObject.market],
-              });
-            } catch (err) {}
-            break;
-          case "toEconomy":
-            embedObject.economy.setFooter({
-              text: `Page 4/7 - Requested by ${interaction.user.tag}`,
-            });
-            try {
-              await i.update({
-                embeds: [embedObject.economy],
-                components: [rowObject.economy],
-              });
-            } catch (err) {}
-            break;
-          case "toBattling":
-            embedObject.battling.setFooter({
-              text: `Page 5/7 - Requested by ${interaction.user.tag}`,
-            });
-            try {
-              await i.update({
-                embeds: [embedObject.battling],
-                components: [rowObject.battling],
-              });
-            } catch (err) {}
-            break;
-          case "toLootBoxes":
-            embedObject.lootBoxes.setFooter({
-              text: `Page 6/7 - Requested by ${interaction.user.tag}`,
-            });
-            try {
-              await i.update({
-                embeds: [embedObject.lootBoxes],
-                components: [rowObject.lootBoxes],
-              });
-            } catch (err) {}
-            break;
-          case "toUser":
-            embedObject.user.setFooter({
-              text: `Page 7/7 - Requested by ${interaction.user.tag}`,
-            });
-            try {
-              await i.update({
-                embeds: [embedObject.user],
-                components: [rowObject.user],
-              });
-            } catch (err) {}
-            break;
-        }
-      } else {
-        try {
-          i.reply({
-            content: `These aren't your buttons!`,
-            ephemeral: true,
-          });
-        } catch (err) {}
-      }
-    });
+    // collector.on("collect", async (i) => {
+    //   if (i.user.id == interaction.user.id) {
+    //     switch (i.customId) {
+    //       case "toHomepage":
+    //         embedObject.homepage.setFooter({
+    //           text: `Requested by ${interaction.user.tag}`,
+    //         });
+    //         try {
+    //           await i.update({
+    //             embeds: [embedObject.homepage],
+    //             components: [rowObject.homepage],
+    //           });
+    //         } catch (err) {}
+    //         break;
+    //       case "toGeneral":
+    //         embedObject.general.setFooter({
+    //           text: `Page 1/7 - Requested by ${interaction.user.tag}`,
+    //         });
+    //         try {
+    //           await i.update({
+    //             embeds: [embedObject.general],
+    //             components: [rowObject.general],
+    //           });
+    //         } catch (err) {}
+    //         break;
+    //       case "toFishing":
+    //         embedObject.fishing.setFooter({
+    //           text: `Page 2/7 - Requested by ${interaction.user.tag}`,
+    //         });
+    //         try {
+    //           await i.update({
+    //             embeds: [embedObject.fishing],
+    //             components: [rowObject.fishing],
+    //           });
+    //         } catch (err) {}
+    //         break;
+    //       case "toMarket":
+    //         embedObject.market.setFooter({
+    //           text: `Page 3/7 - Requested by ${interaction.user.tag}`,
+    //         });
+    //         try {
+    //           await i.update({
+    //             embeds: [embedObject.market],
+    //             components: [rowObject.market],
+    //           });
+    //         } catch (err) {}
+    //         break;
+    //       case "toEconomy":
+    //         embedObject.economy.setFooter({
+    //           text: `Page 4/7 - Requested by ${interaction.user.tag}`,
+    //         });
+    //         try {
+    //           await i.update({
+    //             embeds: [embedObject.economy],
+    //             components: [rowObject.economy],
+    //           });
+    //         } catch (err) {}
+    //         break;
+    //       case "toBattling":
+    //         embedObject.battling.setFooter({
+    //           text: `Page 5/7 - Requested by ${interaction.user.tag}`,
+    //         });
+    //         try {
+    //           await i.update({
+    //             embeds: [embedObject.battling],
+    //             components: [rowObject.battling],
+    //           });
+    //         } catch (err) {}
+    //         break;
+    //       case "toLootBoxes":
+    //         embedObject.lootBoxes.setFooter({
+    //           text: `Page 6/7 - Requested by ${interaction.user.tag}`,
+    //         });
+    //         try {
+    //           await i.update({
+    //             embeds: [embedObject.lootBoxes],
+    //             components: [rowObject.lootBoxes],
+    //           });
+    //         } catch (err) {}
+    //         break;
+    //       case "toUser":
+    //         embedObject.user.setFooter({
+    //           text: `Page 7/7 - Requested by ${interaction.user.tag}`,
+    //         });
+    //         try {
+    //           await i.update({
+    //             embeds: [embedObject.user],
+    //             components: [rowObject.user],
+    //           });
+    //         } catch (err) {}
+    //         break;
+    //     }
+    //   } else {
+    //     try {
+    //       i.reply({
+    //         content: `These aren't your buttons!`,
+    //         ephemeral: true,
+    //       });
+    //     } catch (err) {}
+    //   }
+    // });
   },
 };
