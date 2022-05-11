@@ -78,8 +78,8 @@ module.exports = {
           inline: true,
         },
         {
-          name: "Eel",
-          value: `Bronze: ${userProfile.bronzeeel}\nSilver: ${userProfile.silvereel}\nGold: ${userProfile.goldeel}`,
+          name: "Duck",
+          value: `Bronze: ${userProfile.bronzeduck}\nSilver: ${userProfile.silverduck}\nGold: ${userProfile.goldduck}`,
           inline: true,
         },
         {
@@ -178,23 +178,23 @@ module.exports = {
           inline: true,
         },
         {
+          name: "Crocodile",
+          value: `Bronze: ${userProfile.bronzecrocodile}\nSilver: ${userProfile.silvercrocodile}\nGold: ${userProfile.goldcrocodile}`,
+          inline: true,
+        },
+        {
+          name: "Flamingo",
+          value: `Bronze: ${userProfile.bronzeflamingo}\nSilver: ${userProfile.silverflamingo}\nGold: ${userProfile.goldflamingo}`,
+          inline: true,
+        },
+        {
           name: "Manatee",
           value: `Bronze: ${userProfile.bronzemanatee}\nSilver: ${userProfile.silvermanatee}\nGold: ${userProfile.goldmanatee}`,
           inline: true,
         },
         {
-          name: "Seasnake",
-          value: `Bronze: ${userProfile.bronzeseasnake}\nSilver: ${userProfile.silverseasnake}\nGold: ${userProfile.goldseasnake}`,
-          inline: true,
-        },
-        {
           name: "Turtle",
           value: `Bronze: ${userProfile.bronzeturtle}\nSilver: ${userProfile.silverturtle}\nGold: ${userProfile.goldturtle}`,
-          inline: true,
-        },
-        {
-          name: "Unicornfish",
-          value: `Bronze: ${userProfile.bronzeunicornfish}\nSilver: ${userProfile.silverunicornfish}\nGold: ${userProfile.goldunicornfish}`,
           inline: true,
         }
       )

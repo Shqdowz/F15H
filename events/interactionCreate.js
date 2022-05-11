@@ -52,13 +52,7 @@ module.exports = {
         cooldowns.push(interaction.user.id);
         setTimeout(() => {
           cooldowns.shift(0);
-        }, 3000);
-
-        const xp = Math.ceil(Math.random() * 10);
-        await User.findOneAndUpdate(
-          { _id: userProfile._id },
-          { experience: (userProfile.experience += xp) }
-        );
+        }, 2000);
 
         if (userProfile.experience > userProfile.neededExperience) {
           embed = new MessageEmbed()
@@ -84,7 +78,7 @@ module.exports = {
           );
           await User.findOneAndUpdate(
             { _id: userProfile._id },
-            { neededExperience: (userProfile.neededExperience += 50) }
+            { neededExperience: (userProfile.neededExperience += 250) }
           );
 
           await interaction.channel.send({

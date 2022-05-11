@@ -6,10 +6,10 @@ const User = require("../../schemas/user");
 
 let embed, rf;
 const commonFish = ["cod", "herring", "pufferfish", "salmon", "shrimp"];
-const uncommonFish = ["butterfish", "clownfish", "eel", "penguin", "squid"];
+const uncommonFish = ["butterfish", "clownfish", "duck", "penguin", "squid"];
 const rareFish = ["crab", "orca", "otter", "shark", "whale"];
 const epicFish = ["jellyfish", "octopus", "seahorse", "seal", "alrus"];
-const mythicFish = ["coral", "manatee", "seasnake", "turtle", "unicornfish"];
+const mythicFish = ["coral", "crocodile", "flamingo", "manatee", "turtle"];
 const legendaryFish = ["blobfish", "catfish", "dolphin", "mermaid", "starfish"];
 
 module.exports = {

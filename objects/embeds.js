@@ -8,29 +8,29 @@ module.exports = {
       {
         name: "General - page 1",
         value:
-          "`help, discord, invite, info, leaderboard, suggest, report, news`",
+          "`discord, help, info, invite, leaderboard, news, report, suggest`",
         inline: true,
       },
       {
         name: "Fishing - page 2",
-        value: "`fish, net, inventory, trophy`",
+        value: "`fish, inventory, net, trophy`",
         inline: true,
       },
       {
         name: "Market - page 3",
-        value: "`sell, buy, trade, shop, auctionhouse`",
+        value: "`auctionhouse, buy, sell, shop, trade`",
         inline: true,
       },
       {
         name: "Economy - page 4",
-        value: "`checkin, quests, redeem, lottery`",
+        value: "`checkin, lottery, quests, redeem`",
         inline: true,
       },
-      { name: "Battling - page 5", value: "`battle`", inline: true },
+      { name: "Battling - page 5", value: "`battle, upgrade`", inline: true },
       { name: "Loot Boxes - page 6", value: "`open`", inline: true },
       {
         name: "User - page 7",
-        value: "`profile, achievements, prestige`",
+        value: "`achievements, prestige, profile`",
         inline: true,
       }
     )
@@ -40,6 +40,10 @@ module.exports = {
     .setTitle("General")
     .addFields(
       {
+        name: "Discord",
+        value: "`/discord` - Join the official F15H discord server.",
+      },
+      {
         name: "Help",
         value: "`/help [page]` - Displays the help page.",
       },
@@ -48,28 +52,28 @@ module.exports = {
         value: "`/info <fish>` - Displays info about a fish.",
       },
       {
-        name: "Discord",
-        value: "`/discord` - Join the official F15H discord server.",
-      },
-      {
-        name: "Invite",
+        name: "Invite (SOON!)",
         value: "`/invite` - Invite the bot to your server.",
       },
       {
-        name: "Leaderboard (SOON!)",
+        name: "Leaderboard",
         value: "`/leaderboard <category> [page]` - Displays the leaderboard.",
       },
       {
-        name: "Suggest",
-        value: "`/suggest <suggestion>` - Suggest a feature for the bot.",
+        name: "News",
+        value: "`/news` - View the latest news.",
       },
       {
         name: "Report",
         value: "`/report <bug>` - Report a bug.",
       },
       {
-        name: "News",
-        value: "`/news` - View the latest news.",
+        name: "Suggest",
+        value: "`/suggest <suggestion>` - Suggest a feature for the bot.",
+      },
+      {
+        name: "Wiki (SOON!)",
+        value: "`/wiki <feature>` - View information about a certain feature",
       }
     )
     .setColor("#ADD8E6")
@@ -82,12 +86,12 @@ module.exports = {
         value: "`/fish [rod]` - Fish with your fishing rod.",
       },
       {
-        name: "Net (SOON!)",
-        value: "`/net [net]` - Autofish with your fishing net.",
-      },
-      {
         name: "Inventory",
         value: "`/inventory [user] [page]` - Displays your inventory.",
+      },
+      {
+        name: "Net (SOON!)",
+        value: "`/net [net]` - Autofish with your fishing net.",
       },
       {
         name: "Trophy Hall",
@@ -100,25 +104,25 @@ module.exports = {
     .setTitle("Market")
     .addFields(
       {
-        name: "Sell",
-        value: "`/sell <type> [amount]` - Sell fish for Fish Coins.",
+        name: "Auction House (SOON!)",
+        value: "`/auctionhouse [page]` - Displays the auction house.",
       },
       {
         name: "Buy",
         value: "`/buy <item> [amount]` - Buy items from the shop.",
       },
       {
-        name: "Trade (SOON!)",
-        value:
-          "`/trade <user> <fish> <amount> <fish> <amount>` - Trade fish with other users.",
+        name: "Sell",
+        value: "`/sell <type> [amount]` - Sell fish for Fish Coins.",
       },
       {
         name: "Shop",
         value: "`/shop` - Displays the shop.",
       },
       {
-        name: "Auction House (SOON!)",
-        value: "`/auctionhouse [page]` - Displays the auction house.",
+        name: "Trade (SOON!)",
+        value:
+          "`/trade <user> <fish> <amount> <fish> <amount>` - Trade fish with other users.",
       }
     )
     .setColor("#ADD8E6")
@@ -131,10 +135,6 @@ module.exports = {
         value: "`/checkin <type>` - Grants you daily rewards.",
       },
       {
-        name: "Quests (SOON!)",
-        value: "`/quests [user] [page]` - Displays your quests.",
-      },
-      {
         name: "Gift Codes",
         value: "`/redeem <code>` - Redeem a gift code.",
       },
@@ -142,17 +142,27 @@ module.exports = {
         name: "Lottery (SOON!)",
         value:
           "`/lottery [amount]` - Displays the current lottery/Bet money on the current lottery.",
+      },
+      {
+        name: "Quests (SOON!)",
+        value: "`/quests [user] [page]` - Displays your quests.",
       }
     )
     .setColor("#ADD8E6")
     .setTimestamp(),
   battling: new MessageEmbed()
     .setTitle("Battling")
-    .addFields({
-      name: "Battle (SOON!)",
-      value:
-        "`/battle <player>` - Battle against a user (or the bot for rewards).",
-    })
+    .addFields(
+      {
+        name: "Battle (SOON!)",
+        value:
+          "`/battle <player>` - Battle against a user (or the bot for rewards).",
+      },
+      {
+        name: "Upgrade",
+        value: "`/upgrade <fish>` - Upgrade a fish.",
+      }
+    )
     .setColor("#ADD8E6")
     .setTimestamp(),
   lootBoxes: new MessageEmbed()
@@ -167,16 +177,16 @@ module.exports = {
     .setTitle("User")
     .addFields(
       {
-        name: "Profile",
-        value: "`/profile [user]` - Displays your profile.",
-      },
-      {
         name: "Achievements (SOON!)",
         value: "`/achievements [user] [page]` - Displays your achievements.",
       },
       {
         name: "Prestige (SOON!)",
         value: "`/prestige` - Prestige for exclusive rewards.",
+      },
+      {
+        name: "Profile",
+        value: "`/profile [user]` - Displays your profile.",
       }
     )
     .setColor("#ADD8E6")
@@ -184,10 +194,28 @@ module.exports = {
   // Shop
   shop: new MessageEmbed()
     .setTitle(`F15H shop`)
-    .addFields({
-      name: "Fishing rods",
-      value: `[1] Exquisite rod - 2000 <:FishCoin:937423381756772364>\n[2] Precious rod - 4000 <:FishCoin:937423381756772364>\n[3] Luxurious rod - 8000 <:FishCoin:937423381756772364>\n[4] Divine rod - 16000 <:FishCoin:937423381756772364>`,
-    })
+    .addFields(
+      {
+        name: "[1] Exquisite rod",
+        value:
+          "Cost: 2000 <:FishCoin:937423381756772364>\n- Greatly increases uncommon drop rate\n- Slightly increases rare, epic, mythic and legendary drop rates\n- Slightly decreases common drop rate",
+      },
+      {
+        name: "[2] Precious rod",
+        value:
+          "Cost: 4000 <:FishCoin:937423381756772364>\n- Greatly increases rare drop rate\n- Slightly increases epic, mythic and legendary drop rates\n- Slightly decreases common and uncommon drop rates",
+      },
+      {
+        name: "[3] Luxurious rod",
+        value:
+          "Cost: 8000 <:FishCoin:937423381756772364>\n- Greatly increases epic drop rate\n- Slightly increases mythic and legendary drop ratesm- Slightly decreases common, uncommon and rare drop rates",
+      },
+      {
+        name: "[4] Divine rod",
+        value:
+          "Cost: 16000 <:FishCoin:937423381756772364>\n- Greatly increases mythic drop rate\n- Slightly increases legendary drop rate\n- Slightly decreases common, uncommon, rare and epic drop rates",
+      }
+    )
     .setColor("#ADD8E6")
     .setTimestamp(),
   // Embed

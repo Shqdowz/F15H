@@ -39,7 +39,7 @@ module.exports = {
         },
         {
           name: "Uncommon Fish",
-          value: `Butterfish: ${userProfile.butterfish}\nClownfish: ${userProfile.clownfish}\nEel: ${userProfile.eel}\nPenguin: ${userProfile.penguin}\nSquid: ${userProfile.squid}`,
+          value: `Butterfish: ${userProfile.butterfish}\nClownfish: ${userProfile.clownfish}\nDuck: ${userProfile.duck}\nPenguin: ${userProfile.penguin}\nSquid: ${userProfile.squid}`,
           inline: true,
         },
         {
@@ -54,7 +54,7 @@ module.exports = {
         },
         {
           name: "Mythic Fish",
-          value: `Coral: ${userProfile.coral}\nManatee: ${userProfile.manatee}\nSeasnake: ${userProfile.seasnake}\nTurtle: ${userProfile.turtle}\nUnicornfish: ${userProfile.unicornfish}`,
+          value: `Coral: ${userProfile.coral}\nCrocodile: ${userProfile.crocodile}\nFlamingo: ${userProfile.flamingo}\nManatee: ${userProfile.manatee}\nTurtle: ${userProfile.turtle}`,
           inline: true,
         },
         {
@@ -79,11 +79,6 @@ module.exports = {
         {
           name: "Fishing rods",
           value: `Common rod: Unlocked! 🔓\nExquisite rod: ${userProfile.exquisiteRod}\nPrecious rod: ${userProfile.preciousRod}\nLuxurious rod: ${userProfile.luxuriousRod}\nDivine rod: ${userProfile.divineRod}`,
-        },
-        {
-          name: "Food",
-          value: `SOON!`,
-          inline: true,
         },
         {
           name: "Loot Boxes",

@@ -20,7 +20,7 @@ module.exports = {
     const category = interaction.options.getString("category").toLowerCase();
     switch (category) {
       case "coins":
-        top = await User.find({}).sort({ fishCoins: -1 }).limit(10);
+        top = await User.find({}).sort({ fishCoins: -1 });
 
         for (let obj of top) {
           if (obj.userId == interaction.user.id) {
@@ -40,7 +40,7 @@ module.exports = {
         }
         break;
       case "crystals":
-        top = await User.find({}).sort({ fishCrystals: -1 }).limit(10);
+        top = await User.find({}).sort({ fishCrystals: -1 });
 
         for (let obj of top) {
           if (obj.userId == interaction.user.id) {
@@ -60,7 +60,7 @@ module.exports = {
         }
         break;
       case "level":
-        top = await User.find({}).sort({ level: -1, experience: -1 }).limit(10);
+        top = await User.find({}).sort({ level: -1, experience: -1 });
 
         for (let obj of top) {
           if (obj.userId == interaction.user.id) {

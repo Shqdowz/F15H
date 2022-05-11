@@ -27,17 +27,11 @@ module.exports = {
           },
           {
             name: "Statistics (LVL 1)",
-            value: `:heart: Health: ${fishObject[fish].health}
-              :dagger: Damage: ${fishObject[fish].damage}
-              :boom: Crit:
-              - Rate: ${fishObject[fish].critRate}%
-              - Damage: ${fishObject[fish].critDamage}%`,
+            value: `:heart: Health: ${fishObject[fish].health}\n:dagger: Damage: ${fishObject[fish].damage}\n:boom: Crit:\n- Rate: ${fishObject[fish].critRate}%\n- Damage: ${fishObject[fish].critDamage}%`,
           },
           {
             name: "Market",
-            value: `Sell price: ${fishObject[fish].sell} <:FishCoin:937423381756772364> Fish Coin
-              Buy price: Auction House exclusive
-              Trading: ${fishObject[fish].trade} every 6 hours`,
+            value: `Sell price: ${fishObject[fish].sell} <:FishCoin:937423381756772364> Fish Coin\nBuy price: Auction House exclusive\nTrading: ${fishObject[fish].trade} every 6 hours`,
           }
         )
         .setFooter({

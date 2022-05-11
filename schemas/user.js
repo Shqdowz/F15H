@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
   // Uncommon fish
   butterfish: { type: Number, default: 0 },
   clownfish: { type: Number, default: 0 },
-  eel: { type: Number, default: 0 },
+  duck: { type: Number, default: 0 },
   penguin: { type: Number, default: 0 },
   squid: { type: Number, default: 0 },
   // Rare fish
@@ -34,10 +34,10 @@ const userSchema = new mongoose.Schema({
   walrus: { type: Number, default: 0 },
   // Mythic fish
   coral: { type: Number, default: 0 },
+  crocodile: { type: Number, default: 0 },
+  flamingo: { type: Number, default: 0 },
   manatee: { type: Number, default: 0 },
-  seasnake: { type: Number, default: 0 },
   turtle: { type: Number, default: 0 },
-  unicornfish: { type: Number, default: 0 },
   // Legendary fish
   blobfish: { type: Number, default: 0 },
   catfish: { type: Number, default: 0 },
@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema({
   // Bronze uncommon fish
   bronzebutterfish: { type: Number, default: 0 },
   bronzeclownfish: { type: Number, default: 0 },
-  bronzeeel: { type: Number, default: 0 },
+  bronzeduck: { type: Number, default: 0 },
   bronzepenguin: { type: Number, default: 0 },
   bronzesquid: { type: Number, default: 0 },
   // Bronze rare fish
@@ -70,10 +70,10 @@ const userSchema = new mongoose.Schema({
   bronzewalrus: { type: Number, default: 0 },
   // Bronze mythic fish
   bronzecoral: { type: Number, default: 0 },
+  bronzecrocodile: { type: Number, default: 0 },
+  bronzeflamingo: { type: Number, default: 0 },
   bronzemanatee: { type: Number, default: 0 },
-  bronzeseasnake: { type: Number, default: 0 },
   bronzeturtle: { type: Number, default: 0 },
-  bronzeunicornfish: { type: Number, default: 0 },
   // Bronze legendary fish
   bronzeblobfish: { type: Number, default: 0 },
   bronzecatfish: { type: Number, default: 0 },
@@ -89,7 +89,7 @@ const userSchema = new mongoose.Schema({
   // Silver uncommon fish
   silverbutterfish: { type: Number, default: 0 },
   silverclownfish: { type: Number, default: 0 },
-  silvereel: { type: Number, default: 0 },
+  silverduck: { type: Number, default: 0 },
   silverpenguin: { type: Number, default: 0 },
   silversquid: { type: Number, default: 0 },
   // Silver rare fish
@@ -106,10 +106,10 @@ const userSchema = new mongoose.Schema({
   silverwalrus: { type: Number, default: 0 },
   // Silver mythic fish
   silvercoral: { type: Number, default: 0 },
+  silvercrocodile: { type: Number, default: 0 },
+  silverflamingo: { type: Number, default: 0 },
   silvermanatee: { type: Number, default: 0 },
-  silverseasnake: { type: Number, default: 0 },
   silverturtle: { type: Number, default: 0 },
-  silverunicornfish: { type: Number, default: 0 },
   // Silver legendary fish
   silverblobfish: { type: Number, default: 0 },
   silvercatfish: { type: Number, default: 0 },
@@ -125,7 +125,7 @@ const userSchema = new mongoose.Schema({
   // Gold uncommon fish
   goldbutterfish: { type: Number, default: 0 },
   goldclownfish: { type: Number, default: 0 },
-  goldeel: { type: Number, default: 0 },
+  goldduck: { type: Number, default: 0 },
   goldpenguin: { type: Number, default: 0 },
   goldsquid: { type: Number, default: 0 },
   // Gold rare fish
@@ -142,10 +142,10 @@ const userSchema = new mongoose.Schema({
   goldwalrus: { type: Number, default: 0 },
   // Gold mythic fish
   goldcoral: { type: Number, default: 0 },
+  goldcrocodile: { type: Number, default: 0 },
+  goldflamingo: { type: Number, default: 0 },
   goldmanatee: { type: Number, default: 0 },
-  goldseasnake: { type: Number, default: 0 },
   goldturtle: { type: Number, default: 0 },
-  goldunicornfish: { type: Number, default: 0 },
   // Gold legendary fish
   goldblobfish: { type: Number, default: 0 },
   goldcatfish: { type: Number, default: 0 },

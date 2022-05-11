@@ -20,7 +20,7 @@ const fish = [
   "shrimp",
   "butterfish",
   "clownfish",
-  "eel",
+  "duck",
   "penguin",
   "squid",
   "crab",
@@ -34,10 +34,10 @@ const fish = [
   "seal",
   "walrus",
   "coral",
+  "crocodile",
+  "flamingo",
   "manatee",
-  "seasnake",
   "turtle",
-  "unicornfish",
   "blobfish",
   "catfish",
   "dolphin",
@@ -63,7 +63,7 @@ module.exports = {
     ),
   async execute(interaction, client) {
     const type = interaction.options.getString("type").toLowerCase();
-    const amount = interaction.options.getString("amount");
+    let amount = interaction.options.getString("amount");
 
     const userProfile = await client.createUser(interaction.member);
 
@@ -75,7 +75,7 @@ module.exports = {
       userProfile.shrimp +
       userProfile.butterfish * 4 +
       userProfile.clownfish * 4 +
-      userProfile.eel * 4 +
+      userProfile.duck * 4 +
       userProfile.penguin * 4 +
       userProfile.squid * 4 +
       userProfile.crab * 16 +
@@ -89,10 +89,10 @@ module.exports = {
       userProfile.seal * 64 +
       userProfile.walrus * 64 +
       userProfile.coral * 256 +
+      userProfile.crocodile * 256 +
+      userProfile.flamingo * 256 +
       userProfile.manatee * 256 +
-      userProfile.seasnake * 256 +
       userProfile.turtle * 256 +
-      userProfile.unicornfish * 256 +
       userProfile.blobfish * 1024 +
       userProfile.catfish * 1024 +
       userProfile.dolphin * 1024 +
@@ -135,7 +135,7 @@ module.exports = {
         );
         await User.findOneAndUpdate(
           { _id: userProfile._id },
-          { eel: (userProfile.eel = 0) }
+          { duck: (userProfile.duck = 0) }
         );
         await User.findOneAndUpdate(
           { _id: userProfile._id },
@@ -191,19 +191,19 @@ module.exports = {
         );
         await User.findOneAndUpdate(
           { _id: userProfile._id },
+          { crocodile: (userProfile.crocodile = 0) }
+        );
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          { flamingo: (userProfile.flamingo = 0) }
+        );
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
           { manatee: (userProfile.manatee = 0) }
         );
         await User.findOneAndUpdate(
           { _id: userProfile._id },
-          { seasnake: (userProfile.seasnake = 0) }
-        );
-        await User.findOneAndUpdate(
-          { _id: userProfile._id },
           { turtle: (userProfile.turtle = 0) }
-        );
-        await User.findOneAndUpdate(
-          { _id: userProfile._id },
-          { unicornfish: (userProfile.unicornfish = 0) }
         );
         await User.findOneAndUpdate(
           { _id: userProfile._id },
@@ -281,7 +281,7 @@ module.exports = {
             coins =
               userProfile.butterfish * 4 +
               userProfile.clownfish * 4 +
-              userProfile.eel * 4 +
+              userProfile.duck * 4 +
               userProfile.penguin * 4 +
               userProfile.squid * 4;
 
@@ -299,7 +299,7 @@ module.exports = {
             );
             await User.findOneAndUpdate(
               { _id: userProfile._id },
-              { eel: (userProfile.eel = 0) }
+              { duck: (userProfile.duck = 0) }
             );
             await User.findOneAndUpdate(
               { _id: userProfile._id },
@@ -379,11 +379,10 @@ module.exports = {
           case "mythic":
             coins =
               userProfile.coral * 256 +
+              userProfile.crocodile * 256 +
+              userProfile.flamingo * 256 +
               userProfile.manatee * 256 +
-              userProfile.seasnake * 256 +
-              userProfile.turtle * 256 +
-              userProfile.unicornfish * 256;
-
+              userProfile.turtle * 256;
             await User.findOneAndUpdate(
               { _id: userProfile._id },
               { fishCoins: (userProfile.fishCoins += coins) }
@@ -394,19 +393,19 @@ module.exports = {
             );
             await User.findOneAndUpdate(
               { _id: userProfile._id },
+              { crocodile: (userProfile.crocodile = 0) }
+            );
+            await User.findOneAndUpdate(
+              { _id: userProfile._id },
+              { flamingo: (userProfile.flamingo = 0) }
+            );
+            await User.findOneAndUpdate(
+              { _id: userProfile._id },
               { manatee: (userProfile.manatee = 0) }
             );
             await User.findOneAndUpdate(
               { _id: userProfile._id },
-              { seasnake: (userProfile.seasnake = 0) }
-            );
-            await User.findOneAndUpdate(
-              { _id: userProfile._id },
               { turtle: (userProfile.turtle = 0) }
-            );
-            await User.findOneAndUpdate(
-              { _id: userProfile._id },
-              { unicornfish: (userProfile.unicornfish = 0) }
             );
             break;
           case "legendary":
@@ -479,7 +478,7 @@ module.exports = {
               break;
             case "butterfish":
             case "clownfish":
-            case "eel":
+            case "duck":
             case "penguin":
             case "squid":
               coins = userProfile[type] * 4;
@@ -499,10 +498,10 @@ module.exports = {
               coins = userProfile[type] * 64;
               break;
             case "coral":
+            case "crocodile":
+            case "flamingo":
             case "manatee":
-            case "seasnake":
             case "turtle":
-            case "unicornfish":
               coins = userProfile[type] * 256;
               break;
             case "blobfish":
@@ -550,13 +549,15 @@ module.exports = {
             case "pufferfish":
             case "salmon":
             case "shrimp":
+              amount = parseInt(amount);
               coins = amount;
               break;
             case "butterfish":
             case "clownfish":
-            case "eel":
+            case "duck":
             case "penguin":
             case "squid":
+              amount = parseInt(amount);
               coins = amount * 4;
               break;
             case "crab":
@@ -564,6 +565,7 @@ module.exports = {
             case "otter":
             case "shark":
             case "whale":
+              amount = parseInt(amount);
               coins = amount * 16;
               break;
             case "jellyfish":
@@ -571,13 +573,15 @@ module.exports = {
             case "seahorse":
             case "seal":
             case "walrus":
+              amount = parseInt(amount);
               coins = amount * 64;
               break;
             case "coral":
+            case "crocodile":
+            case "flamingo":
             case "manatee":
-            case "seasnake":
             case "turtle":
-            case "unicornfish":
+              amount = parseInt(amount);
               coins = amount * 256;
               break;
             case "blobfish":
@@ -585,6 +589,7 @@ module.exports = {
             case "dolphin":
             case "mermaid":
             case "starfish":
+              amount = parseInt(amount);
               coins = amount * 1024;
               break;
           }

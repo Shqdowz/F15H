@@ -28,7 +28,7 @@ module.exports = {
     } else cooldowns.push(interaction.user.id);
     setTimeout(() => {
       cooldowns.shift(0);
-    }, 5000);
+    }, 4000);
     const rod = interaction.options.getString("rod").toLowerCase();
 
     const fishRarityRandomizer = Math.ceil(Math.random() * 1000);
@@ -43,7 +43,7 @@ module.exports = {
     const uncommonFishNames = [
       "Butterfish",
       "Clownfish",
-      "Eel",
+      "Duck",
       "Penguin",
       "Squid",
     ];
@@ -57,10 +57,10 @@ module.exports = {
     ];
     const mythicFishNames = [
       "Coral",
+      "Crocodile",
+      "Flamingo",
       "Manatee",
-      "Seasnake",
       "Turtle",
-      "Unicornfish",
     ];
     const legendaryFishNames = [
       "Blobfish",
@@ -406,11 +406,17 @@ module.exports = {
           break;
       }
 
+      const xp = Math.ceil(Math.random() * 10);
+      await User.findOneAndUpdate(
+        { _id: userProfile._id },
+        { experience: (userProfile.experience += xp) }
+      );
+
       if (hasRod) {
         embed = new MessageEmbed()
           .setTitle("Reeling it in...")
           .setDescription(
-            `You caught:\n\n- 1 ${fishSpecialty}${fishRarity} ${fishName}`
+            `You caught:\n\n- 1 ${fishSpecialty}${fishRarity} ${fishName}\n- ${xp} xp`
           )
           .setFooter({
             text: `Performed by ${interaction.user.tag}`,
@@ -618,30 +624,30 @@ module.exports = {
                 break;
             }
             break;
-          case "Eel":
+          case "Duck":
             switch (fishSpecialty) {
               case "":
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { eel: (userProfile.eel += 1) }
+                  { duck: (userProfile.duck += 1) }
                 );
                 break;
               case "BRONZE ":
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { bronzeeel: (userProfile.bronzeeel += 1) }
+                  { bronzeduck: (userProfile.bronzeduck += 1) }
                 );
                 break;
               case "SILVER ":
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { silvereel: (userProfile.silvereel += 1) }
+                  { silverduck: (userProfile.silverduck += 1) }
                 );
                 break;
               case "GOLD ":
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { goldeel: (userProfile.goldeel += 1) }
+                  { goldduck: (userProfile.goldduck += 1) }
                 );
                 break;
             }
@@ -1008,6 +1014,62 @@ module.exports = {
                 break;
             }
             break;
+          case "Crocodile":
+            switch (fishSpecialty) {
+              case "":
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { crocodile: (userProfile.crocodile += 1) }
+                );
+                break;
+              case "BRONZE ":
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { bronzecrocodile: (userProfile.bronzecrocodile += 1) }
+                );
+                break;
+              case "SILVER ":
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { silvercrocodile: (userProfile.silvercrocodile += 1) }
+                );
+                break;
+              case "GOLD ":
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { goldcrocodile: (userProfile.goldcrocodile += 1) }
+                );
+                break;
+            }
+            break;
+          case "Flamingo":
+            switch (fishSpecialty) {
+              case "":
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { flamingo: (userProfile.flamingo += 1) }
+                );
+                break;
+              case "BRONZE ":
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { bronzeflamingo: (userProfile.bronzeflamingo += 1) }
+                );
+                break;
+              case "SILVER ":
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { silverflamingo: (userProfile.silverflamingo += 1) }
+                );
+                break;
+              case "GOLD ":
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { goldflamingo: (userProfile.goldflamingo += 1) }
+                );
+                break;
+            }
+            break;
           case "Manatee":
             switch (fishSpecialty) {
               case "":
@@ -1036,34 +1098,6 @@ module.exports = {
                 break;
             }
             break;
-          case "Seasnake":
-            switch (fishSpecialty) {
-              case "":
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { seasnake: (userProfile.seasnake += 1) }
-                );
-                break;
-              case "BRONZE ":
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { bronzeseasnake: (userProfile.bronzeseasnake += 1) }
-                );
-                break;
-              case "SILVER ":
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { silverseasnake: (userProfile.silverseasnake += 1) }
-                );
-                break;
-              case "GOLD ":
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { goldseasnake: (userProfile.goldseasnake += 1) }
-                );
-                break;
-            }
-            break;
           case "Turtle":
             switch (fishSpecialty) {
               case "":
@@ -1088,34 +1122,6 @@ module.exports = {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
                   { goldturtle: (userProfile.goldturtle += 1) }
-                );
-                break;
-            }
-            break;
-          case "Unicornfish":
-            switch (fishSpecialty) {
-              case "":
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { unicornfish: (userProfile.unicornfish += 1) }
-                );
-                break;
-              case "BRONZE ":
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { bronzeunicornfish: (userProfile.bronzeunicornfish += 1) }
-                );
-                break;
-              case "SILVER ":
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { silverunicornfish: (userProfile.silverunicornfish += 1) }
-                );
-                break;
-              case "GOLD ":
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { goldunicornfish: (userProfile.goldunicornfish += 1) }
                 );
                 break;
             }
