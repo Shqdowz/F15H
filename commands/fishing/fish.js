@@ -137,6 +137,8 @@ module.exports = {
           } else {
             fishSpecialty = "";
           }
+
+          hasRod = true;
           break;
         case "exquisite":
           if (userProfile.exquisiteRod === "Unlocked! 🔓") {
@@ -192,11 +194,15 @@ module.exports = {
             } else {
               fishSpecialty = "";
             }
+
+            hasRod = true;
           } else {
-            await interaction.reply({
-              content: `You don't own this rod!`,
-              ephemeral: true,
-            });
+            try {
+              await interaction.reply({
+                content: `You don't own this rod!`,
+                ephemeral: true,
+              });
+            } catch (err) {}
           }
           break;
         case "precious":
@@ -253,11 +259,15 @@ module.exports = {
             } else {
               fishSpecialty = "";
             }
+
+            hasRod = true;
           } else {
-            await interaction.reply({
-              content: `You don't own this rod!`,
-              ephemeral: true,
-            });
+            try {
+              await interaction.reply({
+                content: `You don't own this rod!`,
+                ephemeral: true,
+              });
+            } catch (err) {}
           }
           break;
         case "luxurious":
@@ -314,11 +324,15 @@ module.exports = {
             } else {
               fishSpecialty = "";
             }
+
+            hasRod = true;
           } else {
-            await interaction.reply({
-              content: `You don't own this rod!`,
-              ephemeral: true,
-            });
+            try {
+              await interaction.reply({
+                content: `You don't own this rod!`,
+                ephemeral: true,
+              });
+            } catch (err) {}
           }
           break;
         case "divine":
@@ -375,37 +389,15 @@ module.exports = {
             } else {
               fishSpecialty = "";
             }
-          } else {
-            await interaction.reply({
-              content: `You don't own this rod!`,
-              ephemeral: true,
-            });
-          }
-          break;
-      }
 
-      switch (rod) {
-        case "common":
-          hasRod = true;
-          break;
-        case "exquisite":
-          if (userProfile.exquisiteRod) {
             hasRod = true;
-          }
-          break;
-        case "precious":
-          if (userProfile.preciousRod) {
-            hasRod = true;
-          }
-          break;
-        case "luxurious":
-          if (userProfile.luxuriousRod) {
-            hasRod = true;
-          }
-          break;
-        case "divine":
-          if (userProfile.divineRod) {
-            hasRod = true;
+          } else {
+            try {
+              await interaction.reply({
+                content: `You don't own this rod!`,
+                ephemeral: true,
+              });
+            } catch (err) {}
           }
           break;
       }
