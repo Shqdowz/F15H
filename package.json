@@ -1,7 +1,7 @@
 {
   "name": "f15h",
   "version": "1.0.0",
-  "description": "Grab your equipment and go on an adventure! Collect sea animals, sell or trade them, participate in battles and become the wealthiest F15Her!",
+  "description": "Grab your equipment and go on an adventure! Collect water animals, sell or trade them, participate in battles and become the wealthiest F15Her!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
