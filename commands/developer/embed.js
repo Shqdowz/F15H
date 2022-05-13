@@ -1,5 +1,3 @@
-// ✅ (except compacting)
-
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const embedObject = require("../../objects/embeds");
@@ -25,45 +23,20 @@ module.exports = {
       const embed = interaction.options.getString("embed").toLowerCase();
       const channel = interaction.options.getChannel("channel");
 
-      embedObject.confirmation.setDescription(
-        `Sent the \`${embed}\` embed to ${channel}.`
-      );
-
-      switch (embed) {
-        case "information":
-          await channel.send({ embeds: [embedObject.information] });
-          await interaction.reply({
-            embeds: [embedObject.confirmation],
-            ephemeral: true,
-          });
-          break;
-        case "rules":
-          await channel.send({ embeds: [embedObject.rules] });
-          await interaction.reply({
-            embeds: [embedObject.confirmation],
-            ephemeral: true,
-          });
-          break;
-        case "updatelog":
-          await channel.send({ embeds: [embedObject.updateLog] });
-          await interaction.reply({
-            embeds: [embedObject.confirmation],
-            ephemeral: true,
-          });
-          break;
-        case "staffrules":
-          await channel.send({ embeds: [embedObject.staffRules] });
-          await interaction.reply({
-            embeds: [embedObject.confirmation],
-            ephemeral: true,
-          });
-          break;
-        default:
-          interaction.reply({
-            content: `That embed does not exist!`,
-            ephemeral: true,
-          });
-          break;
+      try {
+        await channel.send({ embeds: [embedObject[embed]] });
+        embedObject.confirmation.setDescription(
+          `Sent the \`${embed}\` embed to ${channel}!`
+        );
+        await interaction.reply({
+          embeds: [embedObject.confirmation],
+          ephemeral: true,
+        });
+      } catch (err) {
+        interaction.reply({
+          content: `That embed does not exist!`,
+          ephemeral: true,
+        });
       }
     } else {
       interaction.reply({

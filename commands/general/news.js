@@ -1,5 +1,3 @@
-// ✅
-
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 
@@ -13,7 +11,7 @@ module.exports = {
       .setDescription(
         `F15H closed beta has launched in the Tribe Gaming server!`
       )
-      .setFooter({ text: `Reported at: 11-5-2022` })
+      .setFooter({ text: `Reported at: 14-5-2022` })
       .setColor("#ADD8E6")
       .setTimestamp();
 

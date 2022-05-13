@@ -165,7 +165,7 @@ module.exports = {
     )
     .setColor("#ADD8E6")
     .setTimestamp(),
-  lootBoxes: new MessageEmbed()
+  lootboxes: new MessageEmbed()
     .setTitle("Loot Boxes")
     .addFields({
       name: "Open (SOON!)",
@@ -258,8 +258,8 @@ module.exports = {
     )
     .setFooter({ text: `Happy F15Hing! 🐟` })
     .setColor("#ADD8E6"),
-  updateLog: new MessageEmbed(),
-  staffRules: new MessageEmbed(),
+  updatelog: new MessageEmbed().setDescription("SOON!"),
+  staffrules: new MessageEmbed().setDescription("SOON!"),
   confirmation: new MessageEmbed()
     .setTitle(`Embed sent!`)
     .setColor("#ADD8E6")

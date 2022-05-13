@@ -1,4 +1,4 @@
-// ✅ (except #bug-reports & button handler)
+// #bug-reports & button handler)
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
@@ -77,11 +77,11 @@ module.exports = {
           row = rowObject.battling;
           break;
         case "6":
-          embedObject.lootBoxes.setFooter({
+          embedObject.lootboxes.setFooter({
             text: `Page 6/7 - Requested by ${interaction.user.tag}`,
           });
-          embed = embedObject.lootBoxes;
-          row = rowObject.lootBoxes;
+          embed = embedObject.lootboxes;
+          row = rowObject.lootboxes;
           break;
         case "7":
           embedObject.user.setFooter({
@@ -150,11 +150,11 @@ module.exports = {
         //components: [row],
       });
     } else if (page === "loot boxes") {
-      embedObject.lootBoxes.setFooter({
+      embedObject.lootboxes.setFooter({
         text: `Requested by ${interaction.user.tag}`,
       });
-      embed = embedObject.lootBoxes;
-      row = rowObject.lootBoxes;
+      embed = embedObject.lootboxes;
+      row = rowObject.lootboxes;
 
       await interaction.reply({
         embeds: [embed],
@@ -242,13 +242,13 @@ module.exports = {
     //         } catch (err) {}
     //         break;
     //       case "toLootBoxes":
-    //         embedObject.lootBoxes.setFooter({
+    //         embedObject.lootboxes.setFooter({
     //           text: `Page 6/7 - Requested by ${interaction.user.tag}`,
     //         });
     //         try {
     //           await i.update({
-    //             embeds: [embedObject.lootBoxes],
-    //             components: [rowObject.lootBoxes],
+    //             embeds: [embedObject.lootboxes],
+    //             components: [rowObject.lootboxes],
     //           });
     //         } catch (err) {}
     //         break;
