@@ -22,25 +22,3 @@ client.handleCommands(commandFolders, "./commands");
 
 client.login(process.env.token);
 client.dbLogin();
-
-// const clientId = "967030090875670598";
-// const DiscordRPC = require("discord-rpc");
-// const RPC = new DiscordRPC.Client({ transport: "ipc" });
-
-// DiscordRPC.register(clientId);
-
-// async function setActivity() {
-//   if (!RPC) return;
-//   RPC.setActivity({
-//     details: `Coding a Discord bot`,
-//     largeImageKey: `f15h`,
-//     instance: false,
-//   });
-// }
-
-// RPC.on("ready", async () => {
-//   setActivity();
-//   console.log("RPC is ready!");
-// });
-
-// RPC.login({ clientId }).catch((err) => console.log(err));
