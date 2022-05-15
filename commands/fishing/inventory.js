@@ -70,7 +70,7 @@ module.exports = {
       .setTimestamp();
 
     const inventory2 = new MessageEmbed()
-      .setTitle(`${interaction.user.tag}'s inventory`) // user
+      .setTitle(`${user.tag}'s inventory`)
       .addFields(
         {
           name: "Currency",
