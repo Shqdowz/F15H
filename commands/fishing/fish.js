@@ -128,12 +128,12 @@ module.exports = {
             fishSpecialty = "BRONZE ";
             color = "#CD7F32";
           } else if (
-            fishSpecialtyRandomizer > 93 &&
-            fishSpecialtyRandomizer <= 97
+            fishSpecialtyRandomizer > 97 &&
+            fishSpecialtyRandomizer <= 99
           ) {
             fishSpecialty = "SILVER ";
             color = "#C0C0C0";
-          } else if (fishSpecialtyRandomizer > 97) {
+          } else if (fishSpecialtyRandomizer > 99) {
             fishSpecialty = "GOLD ";
             color = "#FFD700";
           } else {
@@ -185,12 +185,12 @@ module.exports = {
               fishSpecialty = "BRONZE ";
               color = "#CD7F32";
             } else if (
-              fishSpecialtyRandomizer > 93 &&
-              fishSpecialtyRandomizer <= 97
+              fishSpecialtyRandomizer > 97 &&
+              fishSpecialtyRandomizer <= 99
             ) {
               fishSpecialty = "SILVER ";
               color = "#C0C0C0";
-            } else if (fishSpecialtyRandomizer > 97) {
+            } else if (fishSpecialtyRandomizer > 99) {
               fishSpecialty = "GOLD ";
               color = "#FFD700";
             } else {
@@ -250,12 +250,12 @@ module.exports = {
               fishSpecialty = "BRONZE ";
               color = "#CD7F32";
             } else if (
-              fishSpecialtyRandomizer > 93 &&
-              fishSpecialtyRandomizer <= 97
+              fishSpecialtyRandomizer > 97 &&
+              fishSpecialtyRandomizer <= 99
             ) {
               fishSpecialty = "SILVER ";
               color = "#C0C0C0";
-            } else if (fishSpecialtyRandomizer > 97) {
+            } else if (fishSpecialtyRandomizer > 99) {
               fishSpecialty = "GOLD ";
               color = "#FFD700";
             } else {
@@ -315,12 +315,12 @@ module.exports = {
               fishSpecialty = "BRONZE ";
               color = "#CD7F32";
             } else if (
-              fishSpecialtyRandomizer > 93 &&
-              fishSpecialtyRandomizer <= 97
+              fishSpecialtyRandomizer > 97 &&
+              fishSpecialtyRandomizer <= 99
             ) {
               fishSpecialty = "SILVER ";
               color = "#C0C0C0";
-            } else if (fishSpecialtyRandomizer > 97) {
+            } else if (fishSpecialtyRandomizer > 99) {
               fishSpecialty = "GOLD ";
               color = "#FFD700";
             } else {
@@ -380,12 +380,12 @@ module.exports = {
               fishSpecialty = "BRONZE ";
               color = "#CD7F32";
             } else if (
-              fishSpecialtyRandomizer > 93 &&
-              fishSpecialtyRandomizer <= 97
+              fishSpecialtyRandomizer > 97 &&
+              fishSpecialtyRandomizer <= 99
             ) {
               fishSpecialty = "SILVER ";
               color = "#C0C0C0";
-            } else if (fishSpecialtyRandomizer > 97) {
+            } else if (fishSpecialtyRandomizer > 99) {
               fishSpecialty = "GOLD ";
               color = "#FFD700";
             } else {
