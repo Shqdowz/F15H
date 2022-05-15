@@ -47,7 +47,7 @@ module.exports = {
             embed = new MessageEmbed()
               .setTitle("Fish Crystals leaderboard")
               .setDescription(
-                `1. ${top[0].userTag} - ${top[0].fishCrystals}\n2. ${top[1].userTag} - ${top[1].fishCrystals}\n3. ${top[2].userTag} - ${top[2].fishCrystals}\n1. ${top[3].userTag} - ${top[3].fishCrystals}\n1. ${top[4].userTag} - ${top[4].fishCrystals}\n1. ${top[5].userTag} - ${top[5].fishCrystals}\n1. ${top[6].userTag} - ${top[6].fishCrystals}\n1. ${top[7].userTag} - ${top[7].fishCrystals}\n1. ${top[8].userTag} - ${top[8].fishCrystals}\n1. ${top[9].userTag} - ${top[9].fishCrystals}`
+                `1. ${top[0].userTag} - ${top[0].fishCrystals}\n2. ${top[1].userTag} - ${top[1].fishCrystals}\n3. ${top[2].userTag} - ${top[2].fishCrystals}\n4. ${top[3].userTag} - ${top[3].fishCrystals}\n5. ${top[4].userTag} - ${top[4].fishCrystals}\n6. ${top[5].userTag} - ${top[5].fishCrystals}\n7. ${top[6].userTag} - ${top[6].fishCrystals}\n8. ${top[7].userTag} - ${top[7].fishCrystals}\n9. ${top[8].userTag} - ${top[8].fishCrystals}\n10. ${top[9].userTag} - ${top[9].fishCrystals}`
               )
               .setFooter({
                 text: `Your position: #${userIndex} - Requested by ${interaction.user.tag}`,
@@ -78,10 +78,12 @@ module.exports = {
         }
         break;
       default:
-        await interaction.reply({
-          content: `Invalid category! Valid categories: \`coins, crystals, level\`.`,
-          ephemeral: true,
-        });
+        try {
+          await interaction.reply({
+            content: `Invalid category! Valid categories: \`coins, crystals, level\`.`,
+            ephemeral: true,
+          });
+        } catch (err) {}
     }
     try {
       await interaction.reply({ embeds: [embed] });

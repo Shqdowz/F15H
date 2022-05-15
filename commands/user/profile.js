@@ -5,13 +5,14 @@ const User = require("../../schemas/user");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("profile")
-    .setDescription("Displays your profile"),
-  /*.addUserOption((option) =>
+    .setDescription("Displays your profile")
+    .addUserOption((option) =>
       option
         .setName("user")
         .setDescription("The user of who to view the profile")
         .setRequired(false)
-    )*/ async execute(interaction, client) {
+    ),
+  async execute(interaction, client) {
     let user = interaction.options.getUser("user")
       ? interaction.options.getUser("user")
       : interaction.user;

@@ -208,7 +208,7 @@ module.exports = {
       {
         name: "[3] Luxurious rod",
         value:
-          "Cost: 8000 <:FishCoin:937423381756772364>\n- Greatly increases epic drop rate\n- Slightly increases mythic and legendary drop ratesm- Slightly decreases common, uncommon and rare drop rates",
+          "Cost: 8000 <:FishCoin:937423381756772364>\n- Greatly increases epic drop rate\n- Slightly increases mythic and legendary drop rates\n- Slightly decreases common, uncommon and rare drop rates",
       },
       {
         name: "[4] Divine rod",

@@ -422,7 +422,10 @@ module.exports = {
           .setColor(color)
           .setTimestamp();
         try {
-          await interaction.reply({ embeds: [embed] });
+          await interaction.reply({
+            content: `<@${interaction.user.id}>`,
+            embeds: [embed],
+          });
         } catch (err) {}
 
         switch (fishName) {
