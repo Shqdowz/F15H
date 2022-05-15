@@ -56,10 +56,10 @@ module.exports = {
 
         const difference = Date.now() - userProfile.lastInteraction;
 
-        await User.findOneAndUpdate({
-          _id: userProfile._id,
-          lastInteraction: (userProfile.lastInteraction = Date.now()),
-        });
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          { lastInteraction: (userProfile.lastInteraction = Date.now()) }
+        );
 
         const channel = client.channels.cache.get("975478842049318972");
         channel.send({ content: `${interaction.user.tag} - ${difference}` });
