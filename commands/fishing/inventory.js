@@ -34,32 +34,32 @@ module.exports = {
       .addFields(
         {
           name: "Common Fish",
-          value: `Cod: ${userProfile.cod}\nHerring: ${userProfile.herring}\nPufferfish: ${userProfile.pufferfish}\nSalmon: ${userProfile.salmon}\nShrimp: ${userProfile.shrimp}`,
+          value: `Cod: ${userProfile.cod}\nHerring: ${userProfile.herring}\nPufferfish: ${userProfile.pufferfish}\nSalmon: ${userProfile.salmon}\n:shrimp: Shrimp: ${userProfile.shrimp}`,
           inline: true,
         },
         {
           name: "Uncommon Fish",
-          value: `Butterfish: ${userProfile.butterfish}\nClownfish: ${userProfile.clownfish}\nDuck: ${userProfile.duck}\nPenguin: ${userProfile.penguin}\nSquid: ${userProfile.squid}`,
+          value: `Butterfish: ${userProfile.butterfish}\nClownfish: ${userProfile.clownfish}\n:duck: Duck: ${userProfile.duck}\n:penguin: Penguin: ${userProfile.penguin}\n:squid: Squid: ${userProfile.squid}`,
           inline: true,
         },
         {
           name: "Rare Fish",
-          value: `Crab: ${userProfile.crab}\nOrca: ${userProfile.orca}\nOtter: ${userProfile.otter}\nShark: ${userProfile.shark}\nWhale: ${userProfile.whale}`,
+          value: `:crab: Crab: ${userProfile.crab}\nOrca: ${userProfile.orca}\n:otter: Otter: ${userProfile.otter}\n:shark: Shark: ${userProfile.shark}\n:whale: Whale: ${userProfile.whale}`,
           inline: true,
         },
         {
           name: "Epic Fish",
-          value: `Jellyfish: ${userProfile.jellyfish}\nOctopus: ${userProfile.octopus}\nSeahorse: ${userProfile.seahorse}\nSeal: ${userProfile.seal}\nWalrus: ${userProfile.walrus}`,
+          value: `Jellyfish: ${userProfile.jellyfish}\n:octopus: Octopus: ${userProfile.octopus}\nSeahorse: ${userProfile.seahorse}\n:seal: Seal: ${userProfile.seal}\nWalrus: ${userProfile.walrus}`,
           inline: true,
         },
         {
           name: "Mythic Fish",
-          value: `Coral: ${userProfile.coral}\nCrocodile: ${userProfile.crocodile}\nFlamingo: ${userProfile.flamingo}\nManatee: ${userProfile.manatee}\nTurtle: ${userProfile.turtle}`,
+          value: `Coral: ${userProfile.coral}\n:crocodile: Crocodile: ${userProfile.crocodile}\n:flamingo: Flamingo: ${userProfile.flamingo}\nManatee: ${userProfile.manatee}\n:turtle: Turtle: ${userProfile.turtle}`,
           inline: true,
         },
         {
           name: "Legendary Fish",
-          value: `Blobfish: ${userProfile.blobfish}\nCatfish: ${userProfile.catfish}\nDolphin: ${userProfile.dolphin}\nMermaid: ${userProfile.mermaid}\nStarfish: ${userProfile.starfish}`,
+          value: `Blobfish: ${userProfile.blobfish}\nCatfish: ${userProfile.catfish}\n:dolphin: Dolphin: ${userProfile.dolphin}\nMermaid: ${userProfile.mermaid}\nStarfish: ${userProfile.starfish}`,
           inline: true,
         }
       )
