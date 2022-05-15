@@ -19,6 +19,10 @@ module.exports = {
         content: "type /help 🐟",
       },
       {
+        type: "PLAYING",
+        content: "join the /discord server 🤝",
+      },
+      {
         type: "WATCHING",
         content: "fish getting reeled in 🎣",
       },
