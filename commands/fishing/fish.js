@@ -427,7 +427,7 @@ module.exports = {
             embeds: [embed],
           });
           // remove 430 - 434 when legendary penguin event is over
-          if (Math.ceil(Math.random() * 1000) == 1000) {
+          if (Math.ceil(Math.random() * 10000) == 10000) {
             await interaction.channel.send(
               `<@${interaction.user.id}>, in addition you caught the LEGENDARY PENGUIN! ping henguin or shqdowz to claim your prize lol`
             );
