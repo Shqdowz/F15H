@@ -234,10 +234,12 @@ module.exports = {
           .setFooter({ text: `Performed by ${interaction.user.tag}` })
           .setColor("#ADD8E6")
           .setTimestamp();
-        await interaction.reply({
-          content: `<@${interaction.user.id}>`,
-          embeds: [embed],
-        });
+        try {
+          await interaction.reply({
+            content: `<@${interaction.user.id}>`,
+            embeds: [embed],
+          });
+        } catch (err) {}
       } else if (
         type === "common" ||
         type === "uncommon" ||

@@ -5,8 +5,6 @@ const userSchema = new mongoose.Schema({
   userTag: String,
   // First time
   firstTime: { type: Boolean, default: true },
-  // Macro check
-  lastInteraction: { type: Number },
   // Currency
   fishCoins: { type: Number, default: 0 },
   fishCrystals: { type: Number, default: 0 },
