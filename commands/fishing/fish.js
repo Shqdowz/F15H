@@ -24,10 +24,12 @@ module.exports = {
     ),
   async execute(interaction, client) {
     if (cooldowns.includes(interaction.user.id)) {
-      await interaction.reply({
-        content: `You are currently on cooldown!`,
-        ephemeral: true,
-      });
+      try {
+        await interaction.reply({
+          content: `You are currently on cooldown!`,
+          ephemeral: true,
+        });
+      } catch (err) {}
     } else cooldowns.push(interaction.user.id);
     setTimeout(() => {
       cooldowns.shift(0);
@@ -1207,11 +1209,13 @@ module.exports = {
         }
       }
     } else {
-      await interaction.reply({
-        content:
-          "That rod does not exist! Valid rods: `common, exquisite, precious, luxurious, divine`.",
-        ephemeral: true,
-      });
+      try {
+        await interaction.reply({
+          content:
+            "That rod does not exist! Valid rods: `common, exquisite, precious, luxurious, divine`.",
+          ephemeral: true,
+        });
+      } catch (err) {}
     }
   },
 };
