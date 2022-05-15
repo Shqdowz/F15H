@@ -33,7 +33,7 @@ module.exports = {
         .setDescription(
           `Here are a few commands to get you started:\n- \`/help\` - Displays the help pages\n- \`/fish\` - Fish with your fishing rod\n- \`/inventory\` - Displays your inventory\n\nDisclaimer: progress might be reset after the closed beta testing period -> fully depends on how this period goes. If so, beta testers will be rewarded some rewards on the global release as recompensation :)\n\nAs a welcome gift, here's a gift code! -> \`F15Hlaunch\`\n\nI hope you will have a great time using F15H!`
         )
-        .setFooter({ text: "- Shqdowz" })
+        .setFooter({ text: "- Shqdowz#2521" })
         .setColor("#ADD8E6");
 
       await interaction.reply({ embeds: [embed], ephemeral: true });
