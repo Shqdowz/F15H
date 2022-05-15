@@ -234,7 +234,10 @@ module.exports = {
           .setFooter({ text: `Performed by ${interaction.user.tag}` })
           .setColor("#ADD8E6")
           .setTimestamp();
-        await interaction.reply({ embeds: [embed] });
+        await interaction.reply({
+          content: `<@${interaction.user.id}>`,
+          embeds: [embed],
+        });
       } else if (
         type === "common" ||
         type === "uncommon" ||
@@ -452,7 +455,10 @@ module.exports = {
             .setFooter({ text: `Performed by ${interaction.user.tag}` })
             .setColor("#ADD8E6")
             .setTimestamp();
-          await interaction.reply({ embeds: [embed] });
+          await interaction.reply({
+            content: `<@${interaction.user.id}>`,
+            embeds: [embed],
+          });
         } else {
           await interaction.reply({
             content: `You don't have any ${type} fish left!`,
@@ -526,7 +532,10 @@ module.exports = {
             .setFooter({ text: `Performed by ${interaction.user.tag}` })
             .setColor("#ADD8E6")
             .setTimestamp();
-          await interaction.reply({ embeds: [embed] });
+          await interaction.reply({
+            content: `<@${interaction.user.id}>`,
+            embeds: [embed],
+          });
 
           await User.findOneAndUpdate(
             { _id: userProfile._id },
@@ -607,7 +616,10 @@ module.exports = {
             .setFooter({ text: `Performed by ${interaction.user.tag}` })
             .setColor("#ADD8E6")
             .setTimestamp();
-          await interaction.reply({ embeds: [embed] });
+          await interaction.reply({
+            content: `<@${interaction.user.id}>`,
+            embeds: [embed],
+          });
 
           await User.findOneAndUpdate(
             { _id: userProfile._id },

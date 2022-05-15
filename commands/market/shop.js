@@ -10,6 +10,9 @@ module.exports = {
     embedObject.shop.setFooter({
       text: `Requested by ${interaction.user.tag}`,
     });
-    await interaction.reply({ embeds: [embedObject.shop] });
+    await interaction.reply({
+      content: `<@${interaction.user.id}>`,
+      embeds: [embedObject.shop],
+    });
   },
 };

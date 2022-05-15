@@ -17,7 +17,10 @@ module.exports = {
       .setColor("#ADD8E6")
       .setTimestamp();
 
-    await interaction.reply({ embeds: [embed] });*/
+    await interaction.reply({
+      content: `<@${interaction.user.id}>`,
+      embeds: [embed],
+    });*/
     await interaction.reply({
       content: "This command is currently unavailable!",
       ephemeral: true,

@@ -29,6 +29,7 @@ module.exports = {
       embed = embedObject.homepage;
       row = rowObject.homepage;
       await interaction.reply({
+        content: `<@${interaction.user.id}>`,
         embeds: [embed],
         //components: [row],
       });
@@ -92,6 +93,7 @@ module.exports = {
           break;
       }
       await interaction.reply({
+        content: `<@${interaction.user.id}>`,
         embeds: [embed],
         //components: [row],
       });
@@ -146,6 +148,7 @@ module.exports = {
       row = rowObject[page];
 
       await interaction.reply({
+        content: `<@${interaction.user.id}>`,
         embeds: [embed],
         //components: [row],
       });
@@ -157,6 +160,7 @@ module.exports = {
       row = rowObject.lootboxes;
 
       await interaction.reply({
+        content: `<@${interaction.user.id}>`,
         embeds: [embed],
         //components: [row],
       });

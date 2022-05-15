@@ -340,36 +340,42 @@ module.exports = {
       switch (page) {
         case 1:
           await interaction.reply({
+            content: `<@${interaction.user.id}>`,
             embeds: [trophy1],
             //components: [trophy1r],
           });
           break;
         case 2:
           await interaction.reply({
+            content: `<@${interaction.user.id}>`,
             embeds: [trophy2],
             //components: [trophy2r],
           });
           break;
         case 3:
           await interaction.reply({
+            content: `<@${interaction.user.id}>`,
             embeds: [trophy3],
             //components: [trophy3r],
           });
           break;
         case 4:
           await interaction.reply({
+            content: `<@${interaction.user.id}>`,
             embeds: [trophy4],
             //components: [trophy4r],
           });
           break;
         case 5:
           await interaction.reply({
+            content: `<@${interaction.user.id}>`,
             embeds: [trophy5],
             //components: [trophy5r],
           });
           break;
         case 6:
           await interaction.reply({
+            content: `<@${interaction.user.id}>`,
             embeds: [trophy6],
             //components: [trophy6r],
           });
@@ -377,6 +383,7 @@ module.exports = {
       }
     } else if (!page) {
       await interaction.reply({
+        content: `<@${interaction.user.id}>`,
         embeds: [trophy1],
         //components: [trophy1r],
       });

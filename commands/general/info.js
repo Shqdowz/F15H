@@ -37,10 +37,13 @@ module.exports = {
         })
         .setColor("#ADD8E6")
         .setTimestamp();
-      await interaction.reply({ embeds: [embed] });
+      await interaction.reply({
+        content: `<@${interaction.user.id}>`,
+        embeds: [embed],
+      });
     } catch (err) {
       await interaction.reply({
-        content: "That fish does not exist! Valid fish: `cod, ...`.",
+        content: "That fish does not exist! Valid fish: see your inventory.",
         ephemeral: true,
       });
       console.log(err);

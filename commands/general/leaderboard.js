@@ -86,7 +86,10 @@ module.exports = {
         } catch (err) {}
     }
     try {
-      await interaction.reply({ embeds: [embed] });
+      await interaction.reply({
+        content: `<@${interaction.user.id}>`,
+        embeds: [embed],
+      });
     } catch (err) {
       console.log(err);
     }
