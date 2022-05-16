@@ -388,6 +388,7 @@ module.exports = {
               userProfile.flamingo * 256 +
               userProfile.manatee * 256 +
               userProfile.turtle * 256;
+
             await User.findOneAndUpdate(
               { _id: userProfile._id },
               { fishCoins: (userProfile.fishCoins += coins) }
