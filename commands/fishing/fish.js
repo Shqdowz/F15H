@@ -33,7 +33,7 @@ module.exports = {
     } else cooldowns.push(interaction.user.id);
     setTimeout(() => {
       cooldowns.shift(0);
-    }, 4000);
+    }, 5000);
 
     const rod = interaction.options.getString("rod").toLowerCase();
 
