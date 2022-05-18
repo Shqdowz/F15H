@@ -93,7 +93,7 @@ module.exports = {
           { _id: userProfile._id },
           { firstInt: (userProfile.firstInt = false) }
         );
-      } else if (interaction.commandName != "verify" && !userProfile.firstInt) {
+      } else if (interaction.commandName != "v" && !userProfile.firstInt) {
         await User.findOneAndUpdate(
           { _id: userProfile._id },
           { wrongCodeCounter: (userProfile.wrongCodeCounter += 1) }
