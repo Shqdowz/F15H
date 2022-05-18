@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const User = require("../schemas/user");
 
 let embed;
+const cooldowns = [];
 
 module.exports = {
   name: "interactionCreate",
