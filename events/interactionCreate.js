@@ -39,11 +39,6 @@ module.exports = {
           { commandCounter: (userProfile.commandCounter = 0) }
         );
       }
-    } else {
-      await User.findOneAndUpdate(
-        { _id: userProfile._id },
-        { commandCounter: (userProfile.commandCounter += 1) }
-      );
     }
 
     if (userProfile.wrongCodeCounter >= 5) {
@@ -131,6 +126,11 @@ module.exports = {
         setTimeout(() => {
           cooldowns.shift(0);
         }, 2000);
+
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          { commandCounter: (userProfile.commandCounter += 1) }
+        );
 
         if (userProfile.experience > userProfile.neededExperience) {
           embed = new MessageEmbed()
