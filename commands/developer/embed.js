@@ -19,7 +19,7 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction, client) {
-    if (interaction.user.id === "410448098326872064") {
+    if (interaction.user.id === "856545083310604308") {
       const embed = interaction.options.getString("embed").toLowerCase();
       const channel = interaction.options.getChannel("channel");
 

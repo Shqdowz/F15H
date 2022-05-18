@@ -13,10 +13,7 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction, client) {
-    if (
-      interaction.user.id === "410448098326872064" ||
-      interaction.user.id === "856545083310604308"
-    ) {
+    if (interaction.user.id === "856545083310604308") {
       const user = interaction.options.getUser("user");
 
       const userProfile = await client.createUser(user);
