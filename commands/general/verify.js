@@ -4,7 +4,7 @@ const User = require("../../schemas/user");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("verify")
+    .setName("v")
     .setDescription("Verify that you aren't afk")
     .addStringOption((option) =>
       option
@@ -44,7 +44,7 @@ module.exports = {
         );
 
         await interaction.reply({
-          content: `Wrong code! /verify your code to prove you aren't afk: \`${userProfile.verifyCode}\`.`,
+          content: `Wrong code! /v (verify) your code to prove you aren't afk: \`${userProfile.verifyCode}\`.`,
           ephemeral: true,
         });
       }

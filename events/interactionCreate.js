@@ -22,8 +22,8 @@ module.exports = {
       );
     }
 
-    if (userProfile.commandCounter >= 20) {
-      if (Math.ceil(Math.random() * 5) == 5) {
+    if (userProfile.commandCounter >= 25) {
+      if (Math.ceil(Math.random() * 10) == 10) {
         await User.findOneAndUpdate(
           { _id: userProfile._id },
           { needVerify: (userProfile.needVerify = true) }
@@ -86,7 +86,7 @@ module.exports = {
         );
 
         await interaction.reply({
-          content: `Please /verify the following code to prove you aren't afk: \`${code}\``,
+          content: `Please /v (verify) the following code to prove you aren't afk: \`${code}\``,
           ephemeral: true,
         });
         await User.findOneAndUpdate(
@@ -100,7 +100,7 @@ module.exports = {
         );
         if (userProfile.wrongCodeCounter < 5) {
           await interaction.reply({
-            content: `Wrong code! /verify your code to prove you aren't afk: \`${userProfile.verifyCode}\``,
+            content: `Wrong code! /v (verify) your code to prove you aren't afk: \`${userProfile.verifyCode}\``,
             ephemeral: true,
           });
         } else {
