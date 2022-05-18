@@ -20,7 +20,7 @@ module.exports = {
       option
         .setName("rod")
         .setDescription("The fishing rod to use")
-        .setRequired(true)
+        .setRequired(false)
     ),
   async execute(interaction, client) {
     if (cooldowns.includes(interaction.user.id)) {
@@ -78,7 +78,50 @@ module.exports = {
 
     const userProfile = await client.createUser(interaction.member);
 
-    if (
+    if (!rod) {
+      if (fishRarityRandomizer <= 876) {
+        fishRarity = "common";
+        fishName = commonFishNames[Math.floor(Math.random() * 5)];
+        color = "#808080";
+      } else if (fishRarityRandomizer > 876 && fishRarityRandomizer <= 940) {
+        fishRarity = "uncommon";
+        fishName = uncommonFishNames[Math.floor(Math.random() * 5)];
+        color = "#00FF00";
+      } else if (fishRarityRandomizer > 940 && fishRarityRandomizer <= 972) {
+        fishRarity = "rare";
+        fishName = rareFishNames[Math.floor(Math.random() * 5)];
+        color = "#0000FF";
+      } else if (fishRarityRandomizer > 972 && fishRarityRandomizer <= 988) {
+        fishRarity = "epic";
+        fishName = epicFishNames[Math.floor(Math.random() * 5)];
+        color = "#800080";
+      } else if (fishRarityRandomizer > 988 && fishRarityRandomizer <= 996) {
+        fishRarity = "mythic";
+        fishName = mythicFishNames[Math.floor(Math.random() * 5)];
+        color = "#FF0000";
+      } else {
+        fishRarity = "legendary";
+        fishName = legendaryFishNames[Math.floor(Math.random() * 5)];
+        color = "#FFFF00";
+      }
+      if (fishSpecialtyRandomizer > 93 && fishSpecialtyRandomizer <= 97) {
+        fishSpecialty = "BRONZE ";
+        color = "#CD7F32";
+      } else if (
+        fishSpecialtyRandomizer > 97 &&
+        fishSpecialtyRandomizer <= 99
+      ) {
+        fishSpecialty = "SILVER ";
+        color = "#C0C0C0";
+      } else if (fishSpecialtyRandomizer > 99) {
+        fishSpecialty = "GOLD ";
+        color = "#FFD700";
+      } else {
+        fishSpecialty = "";
+      }
+
+      hasRod = true;
+    } else if (
       rod === "common" ||
       rod === "exquisite" ||
       rod === "precious" ||
