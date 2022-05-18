@@ -4,7 +4,7 @@ const User = require("../../schemas/user");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("v")
+    .setName("verify")
     .setDescription("Verify that you aren't afk")
     .addStringOption((option) =>
       option
