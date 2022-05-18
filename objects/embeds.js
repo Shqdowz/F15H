@@ -228,7 +228,7 @@ module.exports = {
       },
       {
         name: `Roles`,
-        value: `<@&939517749267423284> - Our lord and savior.\n<@&937453959487049748> - People who develop F15H.\n<@&967883504522260603> - People who keep the server clean.\n<@&971139439055233024> - People who joined this server before the full release.\n<@&967883535430062131> - People who joined the server.`,
+        value: `<@&939517749267423284> - Our lord and savior.\n<@&937453959487049748> - People who develop F15H.\n<@&967883504522260603> - People who keep the server clean.\n<@&971463056846631002>, <@&971463224992092220>, <@&971463307972190249>, <@&971463339332993034>, <@&971463369406169188> & <@&971463404122419200> - People who support the developers of F15H.\n<@&971139439055233024> - People who joined this server before the full release.\n<@&967883535430062131> - People who joined the server.`,
       }
     )
     .setColor("#ADD8E6"),
