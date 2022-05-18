@@ -2,7 +2,6 @@ const { MessageEmbed } = require("discord.js");
 const User = require("../schemas/user");
 
 let embed;
-const cooldowns = [];
 
 module.exports = {
   name: "interactionCreate",
@@ -22,6 +21,36 @@ module.exports = {
       );
     }
 
+    if (userProfile.commandCounter >= 20) {
+      if (Math.ceil(Math.random() * 5) == 5) {
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          { needVerify: (userProfile.needVerify = true) }
+        );
+
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          { firstInt: (userProfile.firstInt = true) }
+        );
+
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          { commandCounter: (userProfile.commandCounter = 0) }
+        );
+      }
+    } else {
+      await User.findOneAndUpdate(
+        { _id: userProfile._id },
+        { commandCounter: (userProfile.commandCounter += 1) }
+      );
+    }
+
+    if (userProfile.wrongCodeCounter >= 5) {
+      await User.findOneAndUpdate(
+        { _id: userProfile._id },
+        { isBlacklisted: (userProfile.isBlacklisted = true) }
+      );
+    }
     if (userProfile.isBlacklisted) {
       await interaction.reply({
         content: `You have been blacklisted from using the bot!`,
@@ -42,6 +71,54 @@ module.exports = {
         { _id: userProfile._id },
         { firstTime: (userProfile.firstTime = false) }
       );
+    } else if (userProfile.needVerify) {
+      if (userProfile.firstInt) {
+        const code = `${Math.floor(Math.random() * 9)}${Math.floor(
+          Math.random() * 9
+        )}${Math.floor(Math.random() * 9)}${Math.floor(
+          Math.random() * 9
+        )}${Math.floor(Math.random() * 9)}`;
+
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          { verifyCode: (userProfile.verifyCode = code) }
+        );
+
+        await interaction.reply({
+          content: `Please /verify the following code to prove you aren't afk: \`${code}\``,
+          ephemeral: true,
+        });
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          { firstInt: (userProfile.firstInt = false) }
+        );
+      } else if (interaction.commandName != "verify" && !userProfile.firstInt) {
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          { wrongCodeCounter: (userProfile.wrongCodeCounter += 1) }
+        );
+        if (userProfile.wrongCodeCounter < 5) {
+          await interaction.reply({
+            content: `Wrong code! /verify your code to prove you aren't afk: \`${userProfile.verifyCode}\``,
+            ephemeral: true,
+          });
+        } else {
+          await interaction.reply({
+            content: `You have been auto blacklisted from the bot due to too many wrong codes!`,
+            ephemeral: true,
+          });
+        }
+      } else {
+        try {
+          await command.execute(interaction, client);
+        } catch (error) {
+          console.error(error);
+          await interaction.reply({
+            content: "There was an error while executing this command!",
+            ephemeral: true,
+          });
+        }
+      }
     } else {
       if (cooldowns.includes(interaction.user.id)) {
         await interaction.reply({

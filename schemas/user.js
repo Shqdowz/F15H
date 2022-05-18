@@ -5,6 +5,12 @@ const userSchema = new mongoose.Schema({
   userTag: String,
   // First time
   firstTime: { type: Boolean, default: true },
+  // Anti-AFK
+  commandCounter: { type: Number, default: 0 },
+  needVerify: { type: Boolean, default: false },
+  firstInt: { type: Boolean, default: true },
+  verifyCode: { type: String, default: undefined },
+  wrongCodeCounter: { type: Number, default: 0 },
   // Currency
   fishCoins: { type: Number, default: 0 },
   fishCrystals: { type: Number, default: 0 },
