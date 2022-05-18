@@ -35,7 +35,7 @@ module.exports = {
       cooldowns.shift(0);
     }, 5000);
 
-    const rod = interaction.options.getString("rod").toLowerCase();
+    const rod = interaction.options.getString("rod");
 
     const fishRarityRandomizer = Math.ceil(Math.random() * 1000);
     const fishSpecialtyRandomizer = Math.ceil(Math.random() * 100);
@@ -122,13 +122,13 @@ module.exports = {
 
       hasRod = true;
     } else if (
-      rod === "common" ||
-      rod === "exquisite" ||
-      rod === "precious" ||
-      rod === "luxurious" ||
-      rod === "divine"
+      rod.toLowerCase() === "common" ||
+      rod.toLowerCase() === "exquisite" ||
+      rod.toLowerCase() === "precious" ||
+      rod.toLowerCase() === "luxurious" ||
+      rod.toLowerCase() === "divine"
     ) {
-      switch (rod) {
+      switch (rod.toLowerCase()) {
         case "common":
           if (fishRarityRandomizer <= 876) {
             fishRarity = "common";
