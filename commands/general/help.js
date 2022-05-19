@@ -1,4 +1,4 @@
-// #bug-reports & button handler)
+// #bug-reports & button handler
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");

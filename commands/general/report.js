@@ -13,6 +13,7 @@ module.exports = {
     ),
   async execute(interaction, client) {
     const bug = interaction.options.getString("bug");
+
     const guild = client.guilds.cache.get("937018874572972112");
     const channel = "967880628278292540";
 
