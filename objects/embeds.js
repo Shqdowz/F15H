@@ -258,6 +258,23 @@ module.exports = {
     )
     .setFooter({ text: `Happy F15Hing! 🐟` })
     .setColor("#ADD8E6"),
+  selfroles: new MessageEmbed()
+    .setTitle("Self roles")
+    .addFields(
+      {
+        name: "📣 Announcements",
+        value: "Get notifications when an announcement is made.",
+      },
+      {
+        name: "🆕 Updates",
+        value: "Get notifications when the bot receives an update.",
+      },
+      {
+        name: "📊 Polls",
+        value: "Get notifications when a poll is posted.",
+      }
+    )
+    .setColor("ADD8E6"),
   updatelog: new MessageEmbed().setDescription("SOON!"),
   staffrules: new MessageEmbed().setDescription("SOON!"),
   confirmation: new MessageEmbed()
