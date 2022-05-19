@@ -159,6 +159,7 @@ const userSchema = new mongoose.Schema({
   goldmermaid: { type: Number, default: 0 },
   goldstarfish: { type: Number, default: 0 },
   // Fishing rods
+  equippedRod: { type: String, default: "common" },
   exquisiteRod: { type: String, default: "Locked! 🔒" },
   preciousRod: { type: String, default: "Locked! 🔒" },
   luxuriousRod: { type: String, default: "Locked! 🔒" },
