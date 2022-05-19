@@ -12,7 +12,7 @@ module.exports = {
       option.setName("rod").setDescription("The rod to equip").setRequired(true)
     ),
   async execute(interaction, client) {
-    const rod = interaction.options.getString("rod");
+    const rod = interaction.options.getString("rod").toLowerCase();
 
     const userProfile = await client.createUser(interaction.member);
 
@@ -34,7 +34,7 @@ module.exports = {
             embed = new MessageEmbed()
               .setTitle("Equip successful!")
               .setDescription(
-                "You equipped your common rod. Type /fish to fish with it!"
+                "You equipped your common rod. Type `/fish` to fish with it!"
               )
               .setFooter({ text: `Performed by ${interaction.user.tag}` })
               .setColor("#ADD8E6")
@@ -52,7 +52,7 @@ module.exports = {
               embed = new MessageEmbed()
                 .setTitle("Equip successful!")
                 .setDescription(
-                  "You equipped your exquisite rod. Type /fish to fish with it!"
+                  "You equipped your exquisite rod. Type `/fish` to fish with it!"
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")
@@ -73,7 +73,7 @@ module.exports = {
               embed = new MessageEmbed()
                 .setTitle("Equip successful!")
                 .setDescription(
-                  "You equipped your precious rod. Type /fish to fish with it!"
+                  "You equipped your precious rod. Type `/fish` to fish with it!"
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")
@@ -94,7 +94,7 @@ module.exports = {
               embed = new MessageEmbed()
                 .setTitle("Equip successful!")
                 .setDescription(
-                  "You equipped your luxurious rod. Type /fish to fish with it!"
+                  "You equipped your luxurious rod. Type `/fish` to fish with it!"
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")
@@ -115,7 +115,7 @@ module.exports = {
               embed = new MessageEmbed()
                 .setTitle("Equip successful!")
                 .setDescription(
-                  "You equipped your divine rod. Type /fish to fish with it!"
+                  "You equipped your divine rod. Type `/fish` to fish with it!"
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")

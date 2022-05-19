@@ -1,4 +1,4 @@
-// Compacting)
+// Compacting
 
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
@@ -29,7 +29,7 @@ module.exports = {
             embed = new MessageEmbed()
               .setTitle("Purchase successful!")
               .setDescription(
-                "You bought the Exquisite rod for 2000 <:FishCoin:937423381756772364>."
+                "You bought the Exquisite rod for 2000 <:FishCoin:937423381756772364>! Equip it with `/equip exquisite`."
               )
               .setFooter({ text: `Performed by ${interaction.user.tag}` })
               .setColor("#ADD8E6")
@@ -63,7 +63,7 @@ module.exports = {
               embed = new MessageEmbed()
                 .setTitle("Purchase successful!")
                 .setDescription(
-                  "You bought the Precious rod for 4000 <:FishCoin:937423381756772364>."
+                  "You bought the Precious rod for 4000 <:FishCoin:937423381756772364>! Equip it with `/equip precious`."
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")
@@ -103,7 +103,7 @@ module.exports = {
               embed = new MessageEmbed()
                 .setTitle("Purchase successful!")
                 .setDescription(
-                  "You bought the Luxurious rod for 8000 <:FishCoin:937423381756772364>."
+                  "You bought the Luxurious rod for 8000 <:FishCoin:937423381756772364>! Equip it with `/equip luxurious`."
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")
@@ -143,7 +143,7 @@ module.exports = {
               embed = new MessageEmbed()
                 .setTitle("Purchase successful!")
                 .setDescription(
-                  "You bought the Divine rod for 16000 <:FishCoin:937423381756772364>."
+                  "You bought the Divine rod for 16000 <:FishCoin:937423381756772364>! Equip it with `/equip divine`."
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")
