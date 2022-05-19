@@ -18,7 +18,6 @@ module.exports = {
     .setDescription("Fish with your fishing rod"),
   async execute(interaction, client) {
     const fishRarityRandomizer = Math.ceil(Math.random() * 1000);
-    const fishSpecialtyRandomizer = Math.ceil(Math.random() * 100);
     const commonFishNames = [
       "Cod",
       "Herring",
@@ -110,21 +109,6 @@ module.exports = {
             fishName = legendaryFishNames[Math.floor(Math.random() * 5)];
             color = "#FFFF00";
           }
-          if (fishSpecialtyRandomizer > 93 && fishSpecialtyRandomizer <= 97) {
-            fishSpecialty = "BRONZE ";
-            color = "#CD7F32";
-          } else if (
-            fishSpecialtyRandomizer > 97 &&
-            fishSpecialtyRandomizer <= 99
-          ) {
-            fishSpecialty = "SILVER ";
-            color = "#C0C0C0";
-          } else if (fishSpecialtyRandomizer > 99) {
-            fishSpecialty = "GOLD ";
-            color = "#FFD700";
-          } else {
-            fishSpecialty = "";
-          }
           break;
         case "exquisite":
           if (fishRarityRandomizer <= 617) {
@@ -163,21 +147,6 @@ module.exports = {
             fishRarity = "legendary";
             fishName = legendaryFishNames[Math.floor(Math.random() * 5)];
             color = "#FFFF00";
-          }
-          if (fishSpecialtyRandomizer > 93 && fishSpecialtyRandomizer <= 97) {
-            fishSpecialty = "BRONZE ";
-            color = "#CD7F32";
-          } else if (
-            fishSpecialtyRandomizer > 97 &&
-            fishSpecialtyRandomizer <= 99
-          ) {
-            fishSpecialty = "SILVER ";
-            color = "#C0C0C0";
-          } else if (fishSpecialtyRandomizer > 99) {
-            fishSpecialty = "GOLD ";
-            color = "#FFD700";
-          } else {
-            fishSpecialty = "";
           }
           break;
         case "precious":
@@ -218,21 +187,6 @@ module.exports = {
             fishName = legendaryFishNames[Math.floor(Math.random() * 5)];
             color = "#FFFF00";
           }
-          if (fishSpecialtyRandomizer > 93 && fishSpecialtyRandomizer <= 97) {
-            fishSpecialty = "BRONZE ";
-            color = "#CD7F32";
-          } else if (
-            fishSpecialtyRandomizer > 97 &&
-            fishSpecialtyRandomizer <= 99
-          ) {
-            fishSpecialty = "SILVER ";
-            color = "#C0C0C0";
-          } else if (fishSpecialtyRandomizer > 99) {
-            fishSpecialty = "GOLD ";
-            color = "#FFD700";
-          } else {
-            fishSpecialty = "";
-          }
           break;
         case "luxurious":
           if (fishRarityRandomizer <= 522) {
@@ -271,21 +225,6 @@ module.exports = {
             fishRarity = "legendary";
             fishName = legendaryFishNames[Math.floor(Math.random() * 5)];
             color = "#FFFF00";
-          }
-          if (fishSpecialtyRandomizer > 93 && fishSpecialtyRandomizer <= 97) {
-            fishSpecialty = "BRONZE ";
-            color = "#CD7F32";
-          } else if (
-            fishSpecialtyRandomizer > 97 &&
-            fishSpecialtyRandomizer <= 99
-          ) {
-            fishSpecialty = "SILVER ";
-            color = "#C0C0C0";
-          } else if (fishSpecialtyRandomizer > 99) {
-            fishSpecialty = "GOLD ";
-            color = "#FFD700";
-          } else {
-            fishSpecialty = "";
           }
           break;
         case "divine":
@@ -326,21 +265,6 @@ module.exports = {
             fishName = legendaryFishNames[Math.floor(Math.random() * 5)];
             color = "#FFFF00";
           }
-          if (fishSpecialtyRandomizer > 93 && fishSpecialtyRandomizer <= 97) {
-            fishSpecialty = "BRONZE ";
-            color = "#CD7F32";
-          } else if (
-            fishSpecialtyRandomizer > 97 &&
-            fishSpecialtyRandomizer <= 99
-          ) {
-            fishSpecialty = "SILVER ";
-            color = "#C0C0C0";
-          } else if (fishSpecialtyRandomizer > 99) {
-            fishSpecialty = "GOLD ";
-            color = "#FFD700";
-          } else {
-            fishSpecialty = "";
-          }
           break;
       }
 
@@ -353,7 +277,7 @@ module.exports = {
       embed = new MessageEmbed()
         .setTitle("Reeling it in...")
         .setDescription(
-          `You caught:\n\n- 1 ${fishSpecialty}${fishRarity} ${fishName}\n- ${xp} xp`
+          `You caught:\n\n- 1 ${fishRarity} ${fishName}\n- ${xp} xp`
         )
         .setFooter({
           text: `Performed by ${interaction.user.tag}`,
@@ -369,780 +293,180 @@ module.exports = {
 
       switch (fishName) {
         case "Cod":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzecod: (userProfile.bronzecod += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silvercod: (userProfile.silvercod += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldcod: (userProfile.goldcod += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { cod: (userProfile.cod += 1) }
           );
           break;
         case "Herring":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeherring: (userProfile.bronzeherring += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverherring: (userProfile.silverherring += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldherring: (userProfile.goldherring += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { herring: (userProfile.herring += 1) }
           );
           break;
         case "Pufferfish":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzepufferfish: (userProfile.bronzepufferfish += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverpufferfish: (userProfile.silverpufferfish += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldpufferfish: (userProfile.goldpufferfish += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { pufferfish: (userProfile.pufferfish += 1) }
           );
           break;
         case "Salmon":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzesalmon: (userProfile.bronzesalmon += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silversalmon: (userProfile.silversalmon += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldsalmon: (userProfile.goldsalmon += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { salmon: (userProfile.salmon += 1) }
           );
           break;
         case "Shrimp":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeshrimp: (userProfile.bronzeshrimp += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silvershrimp: (userProfile.silvershrimp += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldshrimp: (userProfile.goldshrimp += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { shrimp: (userProfile.shrimp += 1) }
           );
           break;
         case "Butterfish":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzebutterfish: (userProfile.bronzebutterfish += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverbutterfish: (userProfile.silverbutterfish += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldbutterfish: (userProfile.goldbutterfish += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { butterfish: (userProfile.butterfish += 1) }
           );
           break;
         case "Clownfish":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeclownfish: (userProfile.bronzeclownfish += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverclownfish: (userProfile.silverclownfish += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldclownfish: (userProfile.goldclownfish += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { clownfish: (userProfile.clownfish += 1) }
           );
           break;
         case "Duck":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeduck: (userProfile.bronzeduck += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverduck: (userProfile.silverduck += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldduck: (userProfile.goldduck += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { duck: (userProfile.duck += 1) }
           );
           break;
         case "Penguin":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzepenguin: (userProfile.bronzepenguin += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverpenguin: (userProfile.silverpenguin += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldpenguin: (userProfile.goldpenguin += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { penguin: (userProfile.penguin += 1) }
           );
           break;
         case "Squid":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzesquid: (userProfile.bronzesquid += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silversquid: (userProfile.silversquid += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldsquid: (userProfile.goldsquid += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { squid: (userProfile.squid += 1) }
           );
           break;
         case "Crab":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzecrab: (userProfile.bronzecrab += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silvercrab: (userProfile.silvercrab += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldcrab: (userProfile.goldcrab += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { crab: (userProfile.crab += 1) }
           );
           break;
         case "Orca":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeorca: (userProfile.bronzeorca += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverorca: (userProfile.silverorca += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldorca: (userProfile.goldorca += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { orca: (userProfile.orca += 1) }
           );
           break;
         case "Otter":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeotter: (userProfile.bronzeotter += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverotter: (userProfile.silverotter += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldotter: (userProfile.goldotter += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { otter: (userProfile.otter += 1) }
           );
           break;
         case "Shark":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeshark: (userProfile.bronzeshark += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silvershark: (userProfile.silvershark += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldshark: (userProfile.goldshark += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { shark: (userProfile.shark += 1) }
           );
           break;
         case "Whale":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzewhale: (userProfile.bronzewhale += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverwhale: (userProfile.silverwhale += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldwhale: (userProfile.goldwhale += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { whale: (userProfile.whale += 1) }
           );
           break;
         case "Jellyfish":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzejellyfish: (userProfile.bronzejellyfish += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverjellyfish: (userProfile.silverjellyfish += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldjellyfish: (userProfile.goldjellyfish += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { jellyfish: (userProfile.jellyfish += 1) }
           );
           break;
         case "Octopus":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeoctopus: (userProfile.bronzeoctopus += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silveroctopus: (userProfile.silveroctopus += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldoctopus: (userProfile.goldoctopus += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { octopus: (userProfile.octopus += 1) }
           );
           break;
         case "Seahorse":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeseahorse: (userProfile.bronzeseahorse += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverseahorse: (userProfile.silverseahorse += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldseahorse: (userProfile.goldseahorse += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { seahorse: (userProfile.seahorse += 1) }
           );
           break;
         case "Seal":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeseal: (userProfile.bronzeseal += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverseal: (userProfile.silverseal += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldseal: (userProfile.goldseal += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { seal: (userProfile.seal += 1) }
           );
           break;
         case "Walrus":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzewalrus: (userProfile.bronzewalrus += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverwalrus: (userProfile.silverwalrus += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldwalrus: (userProfile.goldwalrus += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { walrus: (userProfile.walrus += 1) }
           );
           break;
         case "Coral":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzecoral: (userProfile.bronzecoral += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silvercoral: (userProfile.silvercoral += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldcoral: (userProfile.goldcoral += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { coral: (userProfile.coral += 1) }
           );
           break;
         case "Crocodile":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzecrocodile: (userProfile.bronzecrocodile += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silvercrocodile: (userProfile.silvercrocodile += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldcrocodile: (userProfile.goldcrocodile += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { crocodile: (userProfile.crocodile += 1) }
           );
           break;
         case "Flamingo":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeflamingo: (userProfile.bronzeflamingo += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverflamingo: (userProfile.silverflamingo += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldflamingo: (userProfile.goldflamingo += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { flamingo: (userProfile.flamingo += 1) }
           );
           break;
         case "Manatee":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzemanatee: (userProfile.bronzemanatee += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silvermanatee: (userProfile.silvermanatee += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldmanatee: (userProfile.goldmanatee += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { manatee: (userProfile.manatee += 1) }
           );
           break;
         case "Turtle":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeturtle: (userProfile.bronzeturtle += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverturtle: (userProfile.silverturtle += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldturtle: (userProfile.goldturtle += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { turtle: (userProfile.turtle += 1) }
           );
           break;
         case "Blobfish":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzeblobfish: (userProfile.bronzeblobfish += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverblobfish: (userProfile.silverblobfish += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldblobfish: (userProfile.goldblobfish += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { blobfish: (userProfile.blobfish += 1) }
           );
           break;
         case "Catfish":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzecatfish: (userProfile.bronzecatfish += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silvercatfish: (userProfile.silvercatfish += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldcatfish: (userProfile.goldcatfish += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { catfish: (userProfile.catfish += 1) }
           );
           break;
         case "Dolphin":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzedolphin: (userProfile.bronzedolphin += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverdolphin: (userProfile.silverdolphin += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { golddolphin: (userProfile.golddolphin += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { dolphin: (userProfile.dolphin += 1) }
           );
           break;
         case "Mermaid":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzemermaid: (userProfile.bronzemermaid += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silvermermaid: (userProfile.silvermermaid += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldmermaid: (userProfile.goldmermaid += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { mermaid: (userProfile.mermaid += 1) }
           );
           break;
         case "Starfish":
-          switch (fishSpecialty) {
-            case "BRONZE ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { bronzestarfish: (userProfile.bronzestarfish += 1) }
-              );
-              break;
-            case "SILVER ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { silverstarfish: (userProfile.silverstarfish += 1) }
-              );
-              break;
-            case "GOLD ":
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { goldstarfish: (userProfile.goldstarfish += 1) }
-              );
-              break;
-          }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { starfish: (userProfile.starfish += 1) }
