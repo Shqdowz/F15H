@@ -65,7 +65,7 @@ module.exports = {
       cooldowns.push(interaction.user.id);
       setTimeout(() => {
         cooldowns.shift();
-      }, 5000);
+      }, 4000);
 
       const userProfile = await client.createUser(interaction.member);
 

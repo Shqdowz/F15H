@@ -124,7 +124,7 @@ module.exports = {
       } else {
         cooldowns.push(interaction.user.id);
         setTimeout(() => {
-          cooldowns.shift(0);
+          cooldowns.shift();
         }, 2000);
 
         await User.findOneAndUpdate(
