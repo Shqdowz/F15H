@@ -37,7 +37,7 @@ module.exports = {
         .setTimestamp();
       const confirmationEmbed = new MessageEmbed()
         .setTitle(`Blacklist successful!`)
-        .setDescription(`Blacklisted user ${user} (${user.id}) for: ${reason}`)
+        .setDescription(`Blacklisted ${user} (${user.id}) for: ${reason}`)
         .setColor("#ADD8E6")
         .setTimestamp();
 

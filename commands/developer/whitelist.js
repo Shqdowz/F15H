@@ -37,7 +37,7 @@ module.exports = {
         .setTimestamp();
       const confirmationEmbed = new MessageEmbed()
         .setTitle(`Whitelist successful!`)
-        .setDescription(`Whitelisted user ${user} (${user.id}) for: ${reason}`)
+        .setDescription(`Whitelisted ${user} (${user.id}) for: ${reason}`)
         .setColor("#ADD8E6")
         .setTimestamp();
 
