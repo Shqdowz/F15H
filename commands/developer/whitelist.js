@@ -51,6 +51,10 @@ module.exports = {
 
       await User.findOneAndUpdate(
         { _id: userProfile._id },
+        { wrongCodeCounter: (userProfile.wrongCodeCounter = 0) }
+      );
+      await User.findOneAndUpdate(
+        { _id: userProfile._id },
         { isBlacklisted: (userProfile.isBlacklisted = false) }
       );
     } else {
