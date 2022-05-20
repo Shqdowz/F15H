@@ -31,7 +31,7 @@ module.exports = {
       const logEmbed = new MessageEmbed()
         .setTitle("Blacklist")
         .setDescription(
-          `Developer ${interaction.user.tag} blacklisted ${user} for: ${reason}.`
+          `Developer ${interaction.user.tag} blacklisted ${user} (${user.id}) for: ${reason}.`
         )
         .setColor("#000000")
         .setTimestamp();

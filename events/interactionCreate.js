@@ -48,7 +48,7 @@ module.exports = {
       const logEmbed = new MessageEmbed()
         .setTitle("Blacklist")
         .setDescription(
-          `${interaction.user} got auto-blacklisted by the anti-afk system.`
+          `${interaction.user} (${interaction.user.id}) got auto-blacklisted by the anti-afk system.`
         )
         .setColor("#000000")
         .setTimestamp();

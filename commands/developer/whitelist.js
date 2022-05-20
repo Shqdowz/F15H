@@ -31,7 +31,7 @@ module.exports = {
       const logEmbed = new MessageEmbed()
         .setTitle("Whitelist")
         .setDescription(
-          `Developer ${interaction.user.tag} whitelisted ${user} for: ${reason}.`
+          `Developer ${interaction.user.tag} whitelisted ${user} (${user.id}) for: ${reason}.`
         )
         .setColor("#FFFFFF")
         .setTimestamp();
