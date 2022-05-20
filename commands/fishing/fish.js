@@ -68,9 +68,7 @@ module.exports = {
 
       const userProfile = await client.createUser(interaction.member);
 
-      const rod = userProfile.equippedRod;
-
-      switch (rod) {
+      switch (userProfile.equippedRod) {
         case "common":
           if (fishRarityRandomizer <= 876) {
             fishRarity = "common";
