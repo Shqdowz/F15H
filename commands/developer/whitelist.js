@@ -29,9 +29,9 @@ module.exports = {
       const userProfile = await client.createUser(user);
 
       const logEmbed = new MessageEmbed()
-        .setTitle("Blacklist")
+        .setTitle("Whitelist")
         .setDescription(
-          `Developer ${interaction.user.tag} blacklisted ${user} for: ${reason}.`
+          `Developer ${interaction.user.tag} whitelisted ${user} for: ${reason}.`
         )
         .setColor("#FFFFFF")
         .setTimestamp();
