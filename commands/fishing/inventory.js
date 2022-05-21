@@ -63,9 +63,7 @@ module.exports = {
           inline: true,
         }
       )
-      .setFooter({
-        text: `Page 1/2 - Requested by ${interaction.user.tag}`,
-      })
+      .setFooter({ text: `Page 1/2 | Requested by ${interaction.user.tag}` })
       .setColor("#ADD8E6")
       .setTimestamp();
 
@@ -86,9 +84,7 @@ module.exports = {
           inline: true,
         }
       )
-      .setFooter({
-        text: `Page 2/2 - Requested by ${interaction.user.tag}`,
-      })
+      .setFooter({ text: `Page 2/2 | Requested by ${interaction.user.tag}` })
       .setColor("#ADD8E6")
       .setTimestamp();
 

@@ -32,9 +32,7 @@ module.exports = {
             value: `Sell price: ${fishObject[fish].sell} <:FishCoin:937423381756772364> Fish Coin\nBuy price: Auction House exclusive\nTrading: ${fishObject[fish].trade} every 6 hours`,
           }
         )
-        .setFooter({
-          text: `Requested by ${interaction.user.tag}`,
-        })
+        .setFooter({ text: `Requested by ${interaction.user.tag}` })
         .setColor("#ADD8E6")
         .setTimestamp();
       await interaction.reply({

@@ -42,9 +42,7 @@ module.exports = {
           value: `${userProfile.isBlacklisted}`,
         }
       )
-      .setFooter({
-        text: `Requested by ${interaction.user.tag}`,
-      })
+      .setFooter({ text: `Requested by ${interaction.user.tag}` })
       .setColor("#ADD8E6")
       .setTimestamp();
     await interaction.reply({
