@@ -8,12 +8,12 @@ module.exports = {
       {
         name: "General - page 1",
         value:
-          "`discord, help, info, invite, leaderboard, news, report, suggest`",
+          "`discord, help, info, invite, leaderboard, news, report, rules, suggest, verify`",
         inline: true,
       },
       {
         name: "Fishing - page 2",
-        value: "`fish, inventory, net, trophy`",
+        value: "`equip, fish, inventory, net`",
         inline: true,
       },
       {
@@ -68,8 +68,16 @@ module.exports = {
         value: "`/report <bug>` - Report a bug.",
       },
       {
+        name: "Rules",
+        value: "`/rules` - Displays the bot rules.",
+      },
+      {
         name: "Suggest",
         value: "`/suggest <suggestion>` - Suggest a feature for the bot.",
+      },
+      {
+        name: "Verify",
+        value: "`/v <code>` - Verify that you aren't afk.",
       },
       {
         name: "Wiki (SOON!)",
@@ -82,8 +90,12 @@ module.exports = {
     .setTitle("Fishing")
     .addFields(
       {
+        name: "Equip",
+        value: "`/equip <rod>` - Equip one of your fishing rods.",
+      },
+      {
         name: "Fish",
-        value: "`/fish [rod]` - Fish with your fishing rod.",
+        value: "`/fish` - Fish with your fishing rod.",
       },
       {
         name: "Inventory",
@@ -92,10 +104,6 @@ module.exports = {
       {
         name: "Net (SOON!)",
         value: "`/net [net]` - Autofish with your fishing net.",
-      },
-      {
-        name: "Trophy Hall",
-        value: "`/trophyhall [user] [page]` - Displays your trophy hall.",
       }
     )
     .setColor("#ADD8E6")
@@ -131,12 +139,8 @@ module.exports = {
     .setTitle("Economy")
     .addFields(
       {
-        name: "Check-in",
-        value: "`/checkin <type>` - Grants you daily rewards.",
-      },
-      {
-        name: "Gift Codes",
-        value: "`/redeem <code>` - Redeem a gift code.",
+        name: "Check-in (SOON!)",
+        value: "`/checkin` - Grants you daily rewards.",
       },
       {
         name: "Lottery (SOON!)",
@@ -146,6 +150,10 @@ module.exports = {
       {
         name: "Quests (SOON!)",
         value: "`/quests [user] [page]` - Displays your quests.",
+      },
+      {
+        name: "Gift Codes",
+        value: "`/redeem <code>` - Redeem a gift code.",
       }
     )
     .setColor("#ADD8E6")
@@ -159,7 +167,7 @@ module.exports = {
           "`/battle <player>` - Battle against a user (or the bot for rewards).",
       },
       {
-        name: "Upgrade",
+        name: "Upgrade (SOON!)",
         value: "`/upgrade <fish>` - Upgrade a fish.",
       }
     )
@@ -224,11 +232,11 @@ module.exports = {
     .addFields(
       {
         name: `Channels`,
-        value: `<#970349280873304084> - In this channel information about the server can be found.\n<#937019093960253540> - In this channel all the rules which you must obey can be found.\n<#970349111985455125> - In this channel tickets can be created to get server support.\n<#937018874572972115> - In this channel announcements regarding the server or bot will be made.\n<#937019071151603772> - In this channel updates to the bot will be logged.\n<#937055370944319498> - In this channel all the server boosts are logged.\n<#937019249648623656> - Chill with other users!.\n<#937019775433990144>, <#937019797248557127> and <#937019828764573707> - Go F15Hing!`,
+        value: `<#970349280873304084> - In this channel information about the server can be found.\n<#937019093960253540> - In this channel all the rules which you must obey can be found.\n<#975402276749459566> - In this channel you can opt-in or opt-out for certain notifications.\n<#970349111985455125> - In this channel tickets can be created to get server support.\n<#937018874572972115> - In this channel announcements regarding the server or bot will be made.\n<#937019071151603772> - In this channel updates to the bot will be logged.\n<#975402526084067369> - In this channel polls regarding the bot or random things will be made.\n<#937055370944319498> - In this channel all the server boosts are logged.\n<#937019249648623656> - Chill with other users!.\n<#977286339869417583> - A lounge exclusively to supporters!\n<#937019775433990144>, <#937019797248557127> and <#937019828764573707> - Go F15Hing!`,
       },
       {
         name: `Roles`,
-        value: `<@&939517749267423284> - Our lord and savior.\n<@&937453959487049748> - People who develop F15H.\n<@&967883504522260603> - People who keep the server clean.\n<@&971463056846631002>, <@&971463224992092220>, <@&971463307972190249>, <@&971463339332993034>, <@&971463369406169188> & <@&971463404122419200> - People who support the developers of F15H.\n<@&971139439055233024> - People who joined this server before the full release.\n<@&967883535430062131> - People who joined the server.`,
+        value: `<@&939517749267423284> - Our lord and savior.\n<@&937453959487049748> - People who develop F15H.\n<@&967883504522260603> - People who keep the server clean.\n<@&971463056846631002>, <@&971463224992092220>, <@&971463307972190249>, <@&971463339332993034>, <@&971463369406169188>, <@&971463404122419200> & <@&975536069816750151> - People who support the developers of F15H.\n<@&971139439055233024> - People who joined this server before the full release.\n<@&967883535430062131> - People who joined the server.\n<@&976927346491809822>, <@&976927383577821214> & <@&976927404155105361> - Notification roles.\n<@&970072902961618984> - Imagine being muted. smh.`,
       }
     )
     .setColor("#ADD8E6"),
