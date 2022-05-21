@@ -122,14 +122,14 @@ module.exports = {
       switch (page) {
         case 1:
           await interaction.reply({
-            content: `<@${interaction.user.id}>`,
+            content: `${interaction.user}`,
             embeds: [inventory1],
             //components: [inventory1r],
           });
           break;
         case 2:
           await interaction.reply({
-            content: `<@${interaction.user.id}>`,
+            content: `${interaction.user}`,
             embeds: [inventory2],
             //components: [inventory2r],
           });
@@ -137,7 +137,7 @@ module.exports = {
       }
     } else if (!page) {
       await interaction.reply({
-        content: `<@${interaction.user.id}>`,
+        content: `${interaction.user}`,
         embeds: [inventory1],
         //components: [inventory1r],
       });

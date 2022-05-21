@@ -18,7 +18,7 @@ module.exports = {
       .setTimestamp();
 
     await interaction.reply({
-      content: `<@${interaction.user.id}>`,
+      content: `${interaction.user}`,
       embeds: [embed],
     });*/
     await interaction.reply({

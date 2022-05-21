@@ -239,7 +239,7 @@ module.exports = {
 
     if (!page) {
       await interaction.reply({
-        content: `<@${interaction.user.id}>`,
+        content: `${interaction.user}`,
         embeds: [homepage],
       });
     } else {
@@ -285,7 +285,7 @@ module.exports = {
 
       try {
         await interaction.reply({
-          content: `<@${interaction.user.id}>`,
+          content: `${interaction.user}`,
           embeds: [embed],
         });
       } catch (err) {

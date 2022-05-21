@@ -236,7 +236,7 @@ module.exports = {
           .setTimestamp();
         try {
           await interaction.reply({
-            content: `<@${interaction.user.id}>`,
+            content: `${interaction.user}`,
             embeds: [embed],
           });
         } catch (err) {}
@@ -459,7 +459,7 @@ module.exports = {
             .setColor("#ADD8E6")
             .setTimestamp();
           await interaction.reply({
-            content: `<@${interaction.user.id}>`,
+            content: `${interaction.user}`,
             embeds: [embed],
           });
         } else {
@@ -536,7 +536,7 @@ module.exports = {
             .setColor("#ADD8E6")
             .setTimestamp();
           await interaction.reply({
-            content: `<@${interaction.user.id}>`,
+            content: `${interaction.user}`,
             embeds: [embed],
           });
 
@@ -620,7 +620,7 @@ module.exports = {
             .setColor("#ADD8E6")
             .setTimestamp();
           await interaction.reply({
-            content: `<@${interaction.user.id}>`,
+            content: `${interaction.user}`,
             embeds: [embed],
           });
 

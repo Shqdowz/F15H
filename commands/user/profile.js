@@ -46,7 +46,7 @@ module.exports = {
       .setColor("#ADD8E6")
       .setTimestamp();
     await interaction.reply({
-      content: `<@${interaction.user.id}>`,
+      content: `${interaction.user}`,
       embeds: [embed],
     });
   },
