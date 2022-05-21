@@ -286,11 +286,40 @@ module.exports = {
       } catch (err) {}
 
       fishName = fishName.toLowerCase();
+      const fishLevel = `${fishName}Level`;
 
       await User.findOneAndUpdate(
         { _id: userProfile._id },
         { [fishName]: (userProfile[fishName] += 1) }
       );
+
+      fishName = fishName.charAt(0).toUpperCase() + fishName.slice(1);
+      const totalFish = `total${fishName}`;
+
+      await User.findOneAndUpdate(
+        { _id: userProfile._id },
+        { [totalFish]: (userProfile[totalFish] += 1) }
+      );
+
+      if (userProfile[fishLevel] == 0) {
+        const embed = new MessageEmbed()
+          .setTitle("Fish level up!")
+          .setDescription(
+            `Congratulations ${interaction.user.tag}, you unlocked the ${fishName}, so it advanced to level 1!`
+          )
+          .setColor("#ADD8E6")
+          .setTimestamp();
+
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          { [fishLevel]: (userProfile[fishLevel] = 1) }
+        );
+
+        await interaction.channel.send({
+          content: `${interaction.user}`,
+          embeds: [embed],
+        });
+      }
     }
   },
 };
