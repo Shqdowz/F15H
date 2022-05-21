@@ -266,7 +266,7 @@ module.exports = {
           break;
       }
 
-      const xp = Math.ceil(Math.random() * 10);
+      const xp = Math.ceil(Math.random() * 20);
       await User.findOneAndUpdate(
         { _id: userProfile._id },
         { experience: (userProfile.experience += xp) }
@@ -277,9 +277,7 @@ module.exports = {
         .setDescription(
           `You caught:\n\n- 1 ${fishRarity} ${fishName}\n- ${xp} xp`
         )
-        .setFooter({
-          text: `Performed by ${interaction.user.tag}`,
-        })
+        .setFooter({ text: `Performed by ${interaction.user.tag}` })
         .setColor(color)
         .setTimestamp();
       try {
