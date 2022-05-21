@@ -71,7 +71,7 @@ module.exports = {
       const embed = new MessageEmbed()
         .setTitle(`Welcome to the world of F15H!`)
         .setDescription(
-          `Here are a few commands to get you started:\n- \`/help\` - Displays the help pages\n- \`/fish\` - Fish with your fishing rod\n- \`/inventory\` - Displays your inventory\n\nDisclaimer: progress might be reset after the closed beta testing period -> fully depends on how this period goes. If so, beta testers will be rewarded some rewards on the global release as recompensation :)\n\nAs a welcome gift, here's a gift code! -> \`F15Hlaunch\`\n\nI hope you will have a great time using F15H!`
+          `Go fishing for animals, sell them for Fish Coins, take them into battles against other users, upgrade them and compete on the global leaderboards!\n\nHere are a few commands to get you started:\n- \`/help\` - Displays the help pages\n- \`/fish\` - Fish with your fishing rod\n- \`/inventory\` - Displays your inventory\n\nDisclaimer: progress will most likely be reset after the closed beta testing period. As compensation, users who have joined the official \`/discord\` server before global launch will be rewarded some rewards as a headstart :)\n\nI hope you will have a great time with F15H. As a welcome gift, here's a gift code! -> \`F15Hlaunch\``
         )
         .setFooter({ text: "- Shqdowz#2521" })
         .setColor("#ADD8E6");
