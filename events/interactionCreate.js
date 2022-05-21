@@ -148,16 +148,6 @@ module.exports = {
         );
 
         if (userProfile.experience > userProfile.neededExperience) {
-          embed = new MessageEmbed()
-            .setTitle("Level up!")
-            .setDescription(
-              `Congratulations ${interaction.user.tag}, you advanced to level ${
-                userProfile.level + 1
-              }!`
-            )
-            .setColor("#ADD8E6")
-            .setTimestamp();
-
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             {
@@ -174,8 +164,16 @@ module.exports = {
             { neededExperience: (userProfile.neededExperience += 250) }
           );
 
+          embed = new MessageEmbed()
+            .setTitle("Level up!")
+            .setDescription(
+              `Congratulations ${interaction.user.tag}, you advanced to level ${userProfile.level}!`
+            )
+            .setColor("#ADD8E6")
+            .setTimestamp();
+
           await interaction.channel.send({
-            content: `<@${interaction.user.id}>`,
+            content: `${interaction.user}`,
             embeds: [embed],
           });
         }
