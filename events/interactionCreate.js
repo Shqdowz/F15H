@@ -61,6 +61,10 @@ module.exports = {
         { _id: userProfile._id },
         { isBlacklisted: (userProfile.isBlacklisted = true) }
       );
+      await User.findOneAndUpdate(
+        { _id: userProfile._id },
+        { wrongCodeCounter: (userProfile.wrongCodeCounter = 0) }
+      );
     }
     if (userProfile.isBlacklisted) {
       await interaction.reply({
