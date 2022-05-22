@@ -537,7 +537,7 @@ module.exports = {
       });
     } else if (success == "!enough") {
       await interaction.reply({
-        content: `You don't have enough fish to upgrade it to the next level!`,
+        content: `You don't have enough ${fishName} to upgrade it to the next level!`,
         ephemeral: true,
       });
     }
