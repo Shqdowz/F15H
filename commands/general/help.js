@@ -20,7 +20,7 @@ module.exports = {
 
     let page = interaction.options.getString("page");
 
-    // Embeds
+    // Embeds & rows
 
     const homepage = new MessageEmbed()
       .setTitle("Help pages")
@@ -239,12 +239,133 @@ module.exports = {
       .setColor("#ADD8E6")
       .setTimestamp();
 
+    const homepage_ = new MessageActionRow().addComponents(
+      new MessageButton()
+        .setCustomId("nothing")
+        .setLabel("Previous page")
+        .setEmoji("⬅️")
+        .setStyle("PRIMARY")
+        .setDisabled(true),
+      new MessageButton()
+        .setCustomId("general")
+        .setLabel("Next page")
+        .setEmoji("➡️")
+        .setStyle("PRIMARY")
+        .setDisabled(false)
+    );
+
+    const general_ = new MessageActionRow().addComponents(
+      new MessageButton()
+        .setCustomId("homepage")
+        .setLabel("Previous page")
+        .setEmoji("⬅️")
+        .setStyle("PRIMARY")
+        .setDisabled(false),
+      new MessageButton()
+        .setCustomId("fishing")
+        .setLabel("Next page")
+        .setEmoji("➡️")
+        .setStyle("PRIMARY")
+        .setDisabled(false)
+    );
+
+    const fishing_ = new MessageActionRow().addComponents(
+      new MessageButton()
+        .setCustomId("general")
+        .setLabel("Previous page")
+        .setEmoji("⬅️")
+        .setStyle("PRIMARY")
+        .setDisabled(false),
+      new MessageButton()
+        .setCustomId("market")
+        .setLabel("Next page")
+        .setEmoji("➡️")
+        .setStyle("PRIMARY")
+        .setDisabled(false)
+    );
+
+    const market_ = new MessageActionRow().addComponents(
+      new MessageButton()
+        .setCustomId("fishing")
+        .setLabel("Previous page")
+        .setEmoji("⬅️")
+        .setStyle("PRIMARY")
+        .setDisabled(false),
+      new MessageButton()
+        .setCustomId("economy")
+        .setLabel("Next page")
+        .setEmoji("➡️")
+        .setStyle("PRIMARY")
+        .setDisabled(false)
+    );
+
+    const economy_ = new MessageActionRow().addComponents(
+      new MessageButton()
+        .setCustomId("market")
+        .setLabel("Previous page")
+        .setEmoji("⬅️")
+        .setStyle("PRIMARY")
+        .setDisabled(false),
+      new MessageButton()
+        .setCustomId("battling")
+        .setLabel("Next page")
+        .setEmoji("➡️")
+        .setStyle("PRIMARY")
+        .setDisabled(false)
+    );
+
+    const battling_ = new MessageActionRow().addComponents(
+      new MessageButton()
+        .setCustomId("economy")
+        .setLabel("Previous page")
+        .setEmoji("⬅️")
+        .setStyle("PRIMARY")
+        .setDisabled(false),
+      new MessageButton()
+        .setCustomId("lootboxes")
+        .setLabel("Next page")
+        .setEmoji("➡️")
+        .setStyle("PRIMARY")
+        .setDisabled(false)
+    );
+
+    const lootboxes_ = new MessageActionRow().addComponents(
+      new MessageButton()
+        .setCustomId("battling")
+        .setLabel("Previous page")
+        .setEmoji("⬅️")
+        .setStyle("PRIMARY")
+        .setDisabled(false),
+      new MessageButton()
+        .setCustomId("user")
+        .setLabel("Next page")
+        .setEmoji("➡️")
+        .setStyle("PRIMARY")
+        .setDisabled(false)
+    );
+
+    const user_ = new MessageActionRow().addComponents(
+      new MessageButton()
+        .setCustomId("lootboxes")
+        .setLabel("Previous page")
+        .setEmoji("⬅️")
+        .setStyle("PRIMARY")
+        .setDisabled(false),
+      new MessageButton()
+        .setCustomId("nothing")
+        .setLabel("Next page")
+        .setEmoji("➡️")
+        .setStyle("PRIMARY")
+        .setDisabled(true)
+    );
+
     // Code
 
     if (!page) {
       await interaction.reply({
         content: `${interaction.user}`,
         embeds: [homepage],
+        components: [homepage_],
       });
     } else {
       page = page.toLowerCase();
@@ -253,37 +374,46 @@ module.exports = {
         case "0":
         case "homepage":
           embed = homepage;
+          row = homepage_;
           break;
         case "1":
         case "general":
           embed = general;
+          row = general_;
           break;
         case "2":
         case "fishing":
           embed = fishing;
+          row = fishing_;
           break;
         case "3":
         case "market":
           embed = market;
+          row = market_;
           break;
         case "4":
         case "economy":
           embed = economy;
+          row = economy_;
           break;
         case "5":
         case "battling":
           embed = battling;
+          row = battling_;
           break;
         case "6":
         case "loot boxes":
           embed = lootboxes;
+          row = lootboxes_;
           break;
         case "7":
         case "user":
           embed = user;
+          row = user_;
           break;
         default:
           embed = "none";
+          row = "none";
           break;
       }
 
@@ -291,6 +421,7 @@ module.exports = {
         await interaction.reply({
           content: `${interaction.user}`,
           embeds: [embed],
+          components: [row],
         });
       } catch (err) {
         await interaction.reply({
@@ -301,110 +432,58 @@ module.exports = {
       }
     }
 
-    // const collector = interaction.channel.createMessageComponentCollector({
-    //   componentType: "BUTTON",
-    // });
+    const collector = interaction.channel.createMessageComponentCollector({
+      componentType: "BUTTON",
+    });
 
-    // collector.on("collect", async (i) => {
-    //   if (i.user.id == interaction.user.id) {
-    //     switch (i.customId) {
-    //       case "toHomepage":
-    //         embedObject.homepage.setFooter({
-    //           text: `Requested by ${interaction.user.tag}`,
-    //         });
-    //         try {
-    //           await i.update({
-    //             embeds: [embedObject.homepage],
-    //             components: [rowObject.homepage],
-    //           });
-    //         } catch (err) {}
-    //         break;
-    //       case "toGeneral":
-    //         embedObject.general.setFooter({
-    //           text: `Page 1/7 | Requested by ${interaction.user.tag}`,
-    //         });
-    //         try {
-    //           await i.update({
-    //             embeds: [embedObject.general],
-    //             components: [rowObject.general],
-    //           });
-    //         } catch (err) {}
-    //         break;
-    //       case "toFishing":
-    //         embedObject.fishing.setFooter({
-    //           text: `Page 2/7 | Requested by ${interaction.user.tag}`,
-    //         });
-    //         try {
-    //           await i.update({
-    //             embeds: [embedObject.fishing],
-    //             components: [rowObject.fishing],
-    //           });
-    //         } catch (err) {}
-    //         break;
-    //       case "toMarket":
-    //         embedObject.market.setFooter({
-    //           text: `Page 3/7 | Requested by ${interaction.user.tag}`,
-    //         });
-    //         try {
-    //           await i.update({
-    //             embeds: [embedObject.market],
-    //             components: [rowObject.market],
-    //           });
-    //         } catch (err) {}
-    //         break;
-    //       case "toEconomy":
-    //         embedObject.economy.setFooter({
-    //           text: `Page 4/7 | Requested by ${interaction.user.tag}`,
-    //         });
-    //         try {
-    //           await i.update({
-    //             embeds: [embedObject.economy],
-    //             components: [rowObject.economy],
-    //           });
-    //         } catch (err) {}
-    //         break;
-    //       case "toBattling":
-    //         embedObject.battling.setFooter({
-    //           text: `Page 5/7 | Requested by ${interaction.user.tag}`,
-    //         });
-    //         try {
-    //           await i.update({
-    //             embeds: [embedObject.battling],
-    //             components: [rowObject.battling],
-    //           });
-    //         } catch (err) {}
-    //         break;
-    //       case "toLootBoxes":
-    //         embedObject.lootboxes.setFooter({
-    //           text: `Page 6/7 | Requested by ${interaction.user.tag}`,
-    //         });
-    //         try {
-    //           await i.update({
-    //             embeds: [embedObject.lootboxes],
-    //             components: [rowObject.lootboxes],
-    //           });
-    //         } catch (err) {}
-    //         break;
-    //       case "toUser":
-    //         embedObject.user.setFooter({
-    //           text: `Page 7/7 | Requested by ${interaction.user.tag}`,
-    //         });
-    //         try {
-    //           await i.update({
-    //             embeds: [embedObject.user],
-    //             components: [rowObject.user],
-    //           });
-    //         } catch (err) {}
-    //         break;
-    //     }
-    //   } else {
-    //     try {
-    //       i.reply({
-    //         content: `These aren't your buttons!`,
-    //         ephemeral: true,
-    //       });
-    //     } catch (err) {}
-    //   }
-    // });
+    collector.on("collect", async (i) => {
+      if (i.user.id == interaction.user.id) {
+        switch (i.customId) {
+          case "homepage":
+            embed = homepage;
+            row = homepage_;
+            break;
+          case "general":
+            embed = general;
+            row = general_;
+            break;
+          case "fishing":
+            embed = fishing;
+            row = fishing_;
+            break;
+          case "market":
+            embed = market;
+            row = market_;
+            break;
+          case "economy":
+            embed = economy;
+            row = economy_;
+            break;
+          case "battling":
+            embed = battling;
+            row = battling_;
+            break;
+          case "lootboxes":
+            embed = lootboxes;
+            row = lootboxes_;
+            break;
+          case "user":
+            embed = user;
+            row = user_;
+            break;
+        }
+
+        await i.update({
+          content: `${interaction.user}`,
+          embeds: [embed],
+          components: [row],
+        });
+      } else {
+        i.reply({
+          content: `These aren't your buttons!`,
+          ephemeral: true,
+        });
+      }
+    });
   },
 };
