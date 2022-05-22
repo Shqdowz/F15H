@@ -34,32 +34,32 @@ module.exports = {
       .addFields(
         {
           name: "Common Fish",
-          value: `Cod: ${userProfile.cod}\nHerring: ${userProfile.herring}\nPufferfish: ${userProfile.pufferfish}\nSalmon: ${userProfile.salmon}\n:shrimp: Shrimp: ${userProfile.shrimp}`,
+          value: `『${userProfile.codLevel}』Cod: ${userProfile.cod}\n『${userProfile.herringLevel}』Herring: ${userProfile.herring}\n『${userProfile.pufferfishLevel}』Pufferfish: ${userProfile.pufferfish}\n『${userProfile.salmonLevel}』Salmon: ${userProfile.salmon}\n『${userProfile.shrimpLevel}』:shrimp: Shrimp: ${userProfile.shrimp}`,
           inline: true,
         },
         {
           name: "Uncommon Fish",
-          value: `Butterfish: ${userProfile.butterfish}\nClownfish: ${userProfile.clownfish}\n:duck: Duck: ${userProfile.duck}\n:penguin: Penguin: ${userProfile.penguin}\n:squid: Squid: ${userProfile.squid}`,
+          value: `『${userProfile.butterfishLevel}』Butterfish: ${userProfile.butterfish}\n『${userProfile.clownfishLevel}』Clownfish: ${userProfile.clownfish}\n『${userProfile.duckLevel}』:duck: Duck: ${userProfile.duck}\n『${userProfile.penguinLevel}』:penguin: Penguin: ${userProfile.penguin}\n『${userProfile.squidLevel}』:squid: Squid: ${userProfile.squid}`,
           inline: true,
         },
         {
           name: "Rare Fish",
-          value: `:crab: Crab: ${userProfile.crab}\nOrca: ${userProfile.orca}\n:otter: Otter: ${userProfile.otter}\n:shark: Shark: ${userProfile.shark}\n:whale: Whale: ${userProfile.whale}`,
+          value: `『${userProfile.crabLevel}』:crab: Crab: ${userProfile.crab}\n『${userProfile.orcaLevel}』Orca: ${userProfile.orca}\n『${userProfile.otterLevel}』:otter: Otter: ${userProfile.otter}\n『${userProfile.sharkLevel}』:shark: Shark: ${userProfile.shark}\n『${userProfile.whaleLevel}』:whale: Whale: ${userProfile.whale}`,
           inline: true,
         },
         {
           name: "Epic Fish",
-          value: `Jellyfish: ${userProfile.jellyfish}\n:octopus: Octopus: ${userProfile.octopus}\nSeahorse: ${userProfile.seahorse}\n:seal: Seal: ${userProfile.seal}\nWalrus: ${userProfile.walrus}`,
+          value: `『${userProfile.jellyfishLevel}』Jellyfish: ${userProfile.jellyfish}\n『${userProfile.octopusLevel}』:octopus: Octopus: ${userProfile.octopus}\n『${userProfile.seahorseLevel}』Seahorse: ${userProfile.seahorse}\n『${userProfile.sealLevel}』:seal: Seal: ${userProfile.seal}\n『${userProfile.walrusLevel}』Walrus: ${userProfile.walrus}`,
           inline: true,
         },
         {
           name: "Mythic Fish",
-          value: `Coral: ${userProfile.coral}\n:crocodile: Crocodile: ${userProfile.crocodile}\n:flamingo: Flamingo: ${userProfile.flamingo}\nManatee: ${userProfile.manatee}\n:turtle: Turtle: ${userProfile.turtle}`,
+          value: `『${userProfile.coralLevel}』Coral: ${userProfile.coral}\n『${userProfile.crocodileLevel}』:crocodile: Crocodile: ${userProfile.crocodile}\n『${userProfile.flamingoLevel}』:flamingo: Flamingo: ${userProfile.flamingo}\n『${userProfile.manateeLevel}』Manatee: ${userProfile.manatee}\n『${userProfile.turtleLevel}』:turtle: Turtle: ${userProfile.turtle}`,
           inline: true,
         },
         {
           name: "Legendary Fish",
-          value: `Blobfish: ${userProfile.blobfish}\nCatfish: ${userProfile.catfish}\n:dolphin: Dolphin: ${userProfile.dolphin}\nMermaid: ${userProfile.mermaid}\nStarfish: ${userProfile.starfish}`,
+          value: `『${userProfile.blobfishLevel}』Blobfish: ${userProfile.blobfish}\n『${userProfile.catfishLevel}』Catfish: ${userProfile.catfish}\n『${userProfile.dolphinLevel}』:dolphin: Dolphin: ${userProfile.dolphin}\n『${userProfile.mermaidLevel}』Mermaid: ${userProfile.mermaid}\n『${userProfile.starfishLevel}』Starfish: ${userProfile.starfish}`,
           inline: true,
         }
       )
