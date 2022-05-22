@@ -34,6 +34,80 @@ module.exports = {
 
     const userProfile = await client.createUser(user);
 
+    const fishNames = [
+      "Cod",
+      "Herring",
+      "Pufferfish",
+      "Salmon",
+      "Shrimp",
+      "Butterfish",
+      "Clownfish",
+      "Duck",
+      "Penguin",
+      "Squid",
+      "Crab",
+      "Orca",
+      "Otter",
+      "Shark",
+      "Whale",
+      "Jellyfish",
+      "Octopus",
+      "Seahorse",
+      "Seal",
+      "Walrus",
+      "Coral",
+      "Crocodile",
+      "Flamingo",
+      "Manatee",
+      "Turtle",
+      "Blobfish",
+      "Catfish",
+      "Dolphin",
+      "Mermaid",
+      "Starfish",
+    ];
+    const fishArray = [];
+    const hasEmoji = [
+      "shrimp",
+      "duck",
+      "penguin",
+      "squid",
+      "crab",
+      "otter",
+      "shark",
+      "whale",
+      "octopus",
+      "seal",
+      "crocodile",
+      "flamingo",
+      "turtle",
+      "dolphin",
+    ];
+
+    for (let i = 0; i < fishNames.length; i++) {
+      const fish = fishNames[i];
+      const totalFish = `total${fish}`;
+      const fishName = fish.toLowerCase();
+
+      if (userProfile[totalFish] >= 1) {
+        if (hasEmoji.includes(fishName)) {
+          fishArray.push(
+            `『${userProfile[`${fishName}Level`]}』:${fishName}: ${fish}: ${
+              userProfile[fishName]
+            }`
+          );
+        } else {
+          fishArray.push(
+            `『${userProfile[`${fishName}Level`]}』${fish}: ${
+              userProfile[fishName]
+            }`
+          );
+        }
+      } else {
+        fishArray.push(`『?』???: ?`);
+      }
+    }
+
     // Embeds & rows
 
     const inventory1 = new MessageEmbed()
@@ -41,32 +115,32 @@ module.exports = {
       .addFields(
         {
           name: "Common Fish",
-          value: `『${userProfile.codLevel}』Cod: ${userProfile.cod}\n『${userProfile.herringLevel}』Herring: ${userProfile.herring}\n『${userProfile.pufferfishLevel}』Pufferfish: ${userProfile.pufferfish}\n『${userProfile.salmonLevel}』Salmon: ${userProfile.salmon}\n『${userProfile.shrimpLevel}』:shrimp: Shrimp: ${userProfile.shrimp}`,
+          value: `${fishArray[0]}\n${fishArray[1]}\n${fishArray[2]}\n${fishArray[3]}\n${fishArray[4]}`,
           inline: true,
         },
         {
           name: "Uncommon Fish",
-          value: `『${userProfile.butterfishLevel}』Butterfish: ${userProfile.butterfish}\n『${userProfile.clownfishLevel}』Clownfish: ${userProfile.clownfish}\n『${userProfile.duckLevel}』:duck: Duck: ${userProfile.duck}\n『${userProfile.penguinLevel}』:penguin: Penguin: ${userProfile.penguin}\n『${userProfile.squidLevel}』:squid: Squid: ${userProfile.squid}`,
+          value: `${fishArray[5]}\n${fishArray[6]}\n${fishArray[7]}\n${fishArray[8]}\n${fishArray[9]}`,
           inline: true,
         },
         {
           name: "Rare Fish",
-          value: `『${userProfile.crabLevel}』:crab: Crab: ${userProfile.crab}\n『${userProfile.orcaLevel}』Orca: ${userProfile.orca}\n『${userProfile.otterLevel}』:otter: Otter: ${userProfile.otter}\n『${userProfile.sharkLevel}』:shark: Shark: ${userProfile.shark}\n『${userProfile.whaleLevel}』:whale: Whale: ${userProfile.whale}`,
+          value: `${fishArray[10]}\n${fishArray[11]}\n${fishArray[12]}\n${fishArray[13]}\n${fishArray[14]}`,
           inline: true,
         },
         {
           name: "Epic Fish",
-          value: `『${userProfile.jellyfishLevel}』Jellyfish: ${userProfile.jellyfish}\n『${userProfile.octopusLevel}』:octopus: Octopus: ${userProfile.octopus}\n『${userProfile.seahorseLevel}』Seahorse: ${userProfile.seahorse}\n『${userProfile.sealLevel}』:seal: Seal: ${userProfile.seal}\n『${userProfile.walrusLevel}』Walrus: ${userProfile.walrus}`,
+          value: `${fishArray[15]}\n${fishArray[16]}\n${fishArray[17]}\n${fishArray[18]}\n${fishArray[19]}`,
           inline: true,
         },
         {
           name: "Mythic Fish",
-          value: `『${userProfile.coralLevel}』Coral: ${userProfile.coral}\n『${userProfile.crocodileLevel}』:crocodile: Crocodile: ${userProfile.crocodile}\n『${userProfile.flamingoLevel}』:flamingo: Flamingo: ${userProfile.flamingo}\n『${userProfile.manateeLevel}』Manatee: ${userProfile.manatee}\n『${userProfile.turtleLevel}』:turtle: Turtle: ${userProfile.turtle}`,
+          value: `${fishArray[20]}\n${fishArray[21]}\n${fishArray[22]}\n${fishArray[23]}\n${fishArray[24]}`,
           inline: true,
         },
         {
           name: "Legendary Fish",
-          value: `『${userProfile.blobfishLevel}』Blobfish: ${userProfile.blobfish}\n『${userProfile.catfishLevel}』Catfish: ${userProfile.catfish}\n『${userProfile.dolphinLevel}』:dolphin: Dolphin: ${userProfile.dolphin}\n『${userProfile.mermaidLevel}』Mermaid: ${userProfile.mermaid}\n『${userProfile.starfishLevel}』Starfish: ${userProfile.starfish}`,
+          value: `${fishArray[25]}\n${fishArray[26]}\n${fishArray[27]}\n${fishArray[28]}\n${fishArray[29]}`,
           inline: true,
         }
       )
