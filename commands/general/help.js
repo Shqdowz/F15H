@@ -197,7 +197,7 @@ module.exports = {
             "`/battle <player>` - Battle against a user (or the bot for rewards).",
         },
         {
-          name: "Upgrade (SOON!)",
+          name: "Upgrade",
           value: "`/upgrade <fish>` - Upgrade a fish.",
         }
       )
