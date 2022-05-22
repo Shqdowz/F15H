@@ -527,17 +527,17 @@ module.exports = {
       });
     } else if (success == "max") {
       await interaction.reply({
-        content: `You already have this fish at the max level!`,
+        content: `You already have the ${fishName} at the max level!`,
         ephemeral: true,
       });
     } else if (success == "!obtained") {
       await interaction.reply({
-        content: `You haven't unlocked this fish yet!`,
+        content: `You haven't unlocked the ${fishName} yet!`,
         ephemeral: true,
       });
     } else if (success == "!enough") {
       await interaction.reply({
-        content: `You don't have enough ${fishName} to upgrade it to the next level!`,
+        content: `You don't have enough ${fishName}(s) to upgrade it to the next level!`,
         ephemeral: true,
       });
     }
