@@ -3,7 +3,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
 
-let embed, row;
+let helpEmbed, helpRow;
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -239,125 +239,125 @@ module.exports = {
       .setColor("#ADD8E6")
       .setTimestamp();
 
-    const homepage_ = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("nothing")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(true),
-      new MessageButton()
-        .setCustomId("general")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const homepage_ = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("nothing")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(true),
+    //   new MessageButton()
+    //     .setCustomId("general")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const general_ = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("homepage")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("fishing")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const general_ = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("homepage")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("fishing")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const fishing_ = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("general")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("market")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const fishing_ = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("general")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("market")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const market_ = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("fishing")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("economy")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const market_ = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("fishing")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("economy")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const economy_ = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("market")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("battling")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const economy_ = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("market")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("battling")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const battling_ = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("economy")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("lootboxes")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const battling_ = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("economy")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("lootboxes")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const lootboxes_ = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("battling")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("user")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(false)
-    );
+    // const lootboxes_ = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("battling")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("user")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false)
+    // );
 
-    const user_ = new MessageActionRow().addComponents(
-      new MessageButton()
-        .setCustomId("lootboxes")
-        .setLabel("Previous page")
-        .setEmoji("⬅️")
-        .setStyle("PRIMARY")
-        .setDisabled(false),
-      new MessageButton()
-        .setCustomId("nothing")
-        .setLabel("Next page")
-        .setEmoji("➡️")
-        .setStyle("PRIMARY")
-        .setDisabled(true)
-    );
+    // const user_ = new MessageActionRow().addComponents(
+    //   new MessageButton()
+    //     .setCustomId("lootboxes")
+    //     .setLabel("Previous page")
+    //     .setEmoji("⬅️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(false),
+    //   new MessageButton()
+    //     .setCustomId("nothing")
+    //     .setLabel("Next page")
+    //     .setEmoji("➡️")
+    //     .setStyle("PRIMARY")
+    //     .setDisabled(true)
+    // );
 
     // Code
 
@@ -365,7 +365,7 @@ module.exports = {
       await interaction.reply({
         content: `${interaction.user}`,
         embeds: [homepage],
-        components: [homepage_],
+        // components: [homepage_],
       });
     } else {
       page = page.toLowerCase();
@@ -373,55 +373,55 @@ module.exports = {
       switch (page) {
         case "0":
         case "homepage":
-          embed = homepage;
-          row = homepage_;
+          helpEmbed = homepage;
+          // helpRow = homepage_;
           break;
         case "1":
         case "general":
-          embed = general;
-          row = general_;
+          helpEmbed = general;
+          // helpRow = general_;
           break;
         case "2":
         case "fishing":
-          embed = fishing;
-          row = fishing_;
+          helpEmbed = fishing;
+          // helpRow = fishing_;
           break;
         case "3":
         case "market":
-          embed = market;
-          row = market_;
+          helpEmbed = market;
+          // helpRow = market_;
           break;
         case "4":
         case "economy":
-          embed = economy;
-          row = economy_;
+          helpEmbed = economy;
+          // helpRow = economy_;
           break;
         case "5":
         case "battling":
-          embed = battling;
-          row = battling_;
+          helpEmbed = battling;
+          // helpRow = battling_;
           break;
         case "6":
         case "loot boxes":
-          embed = lootboxes;
-          row = lootboxes_;
+          helpEmbed = lootboxes;
+          // helpRow = lootboxes_;
           break;
         case "7":
         case "user":
-          embed = user;
-          row = user_;
+          helpEmbed = user;
+          // helpRow = user_;
           break;
         default:
-          embed = "none";
-          row = "none";
+          helpEmbed = "none";
+          // helpRow = "none";
           break;
       }
 
       try {
         await interaction.reply({
           content: `${interaction.user}`,
-          embeds: [embed],
-          components: [row],
+          embeds: [helpEmbed],
+          // components: [helpRow],
         });
       } catch (err) {
         await interaction.reply({
@@ -432,58 +432,57 @@ module.exports = {
       }
     }
 
-    const collector = interaction.channel.createMessageComponentCollector({
-      componentType: "BUTTON",
-    });
+    // const collector = interaction.channel.createMessageComponentCollector({
+    //   componentType: "BUTTON",
+    // });
 
-    collector.on("collect", async (i) => {
-      if (i.user.id == interaction.user.id) {
-        switch (i.customId) {
-          case "homepage":
-            embed = homepage;
-            row = homepage_;
-            break;
-          case "general":
-            embed = general;
-            row = general_;
-            break;
-          case "fishing":
-            embed = fishing;
-            row = fishing_;
-            break;
-          case "market":
-            embed = market;
-            row = market_;
-            break;
-          case "economy":
-            embed = economy;
-            row = economy_;
-            break;
-          case "battling":
-            embed = battling;
-            row = battling_;
-            break;
-          case "lootboxes":
-            embed = lootboxes;
-            row = lootboxes_;
-            break;
-          case "user":
-            embed = user;
-            row = user_;
-            break;
-        }
+    // collector.on("collect", async (i) => {
+    //   if (i.user.id == interaction.user.id) {
+    //     switch (i.customId) {
+    //       case "homepage":
+    //         helpEmbed = homepage;
+    //         helpRow = homepage_;
+    //         break;
+    //       case "general":
+    //         helpEmbed = general;
+    //         helpRow = general_;
+    //         break;
+    //       case "fishing":
+    //         helpEmbed = fishing;
+    //         helpRow = fishing_;
+    //         break;
+    //       case "market":
+    //         helpEmbed = market;
+    //         helpRow = market_;
+    //         break;
+    //       case "economy":
+    //         helpEmbed = economy;
+    //         helpRow = economy_;
+    //         break;
+    //       case "battling":
+    //         helpEmbed = battling;
+    //         helpRow = battling_;
+    //         break;
+    //       case "lootboxes":
+    //         helpEmbed = lootboxes;
+    //         helpRow = lootboxes_;
+    //         break;
+    //       case "user":
+    //         helpEmbed = user;
+    //         helpRow = user_;
+    //         break;
+    //     }
 
-        await i.update({
-          content: `${interaction.user}`,
-          embeds: [embed],
-          components: [row],
-        });
-      } else {
-        i.reply({
-          content: `These aren't your buttons!`,
-          ephemeral: true,
-        });
-      }
-    });
+    //     await i.update({
+    //       embeds: [helpEmbed],
+    //       components: [helpRow],
+    //     });
+    //   } else {
+    //     i.reply({
+    //       content: `These aren't your buttons!`,
+    //       ephemeral: true,
+    //     });
+    //   }
+    // });
   },
 };
