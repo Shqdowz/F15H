@@ -527,7 +527,7 @@ module.exports = {
       });
     } else if (success == "max") {
       await interaction.reply({
-        content: `You already have the ${fishName} at the max level!`,
+        content: `You already have your ${fishName} at the max level!`,
         ephemeral: true,
       });
     } else if (success == "!obtained") {
