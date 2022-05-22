@@ -42,21 +42,6 @@ module.exports = {
     }
 
     if (userProfile.wrongCodeCounter >= 5) {
-      const guild = client.guilds.cache.get("937018874572972112");
-      const channel = "976933257583144980";
-
-      const logEmbed = new MessageEmbed()
-        .setTitle("Blacklist")
-        .setDescription(
-          `${interaction.user} (${interaction.user.id}) got auto-blacklisted by the anti-afk system.`
-        )
-        .setColor("#000000")
-        .setTimestamp();
-
-      await guild.channels.cache.get(channel).send({
-        embeds: [logEmbed],
-      });
-
       await User.findOneAndUpdate(
         { _id: userProfile._id },
         { isBlacklisted: (userProfile.isBlacklisted = true) }
@@ -121,6 +106,21 @@ module.exports = {
           await interaction.reply({
             content: `You have been auto blacklisted from the bot due to too many wrong codes!`,
             ephemeral: true,
+          });
+
+          const guild = client.guilds.cache.get("937018874572972112");
+          const channel = "976933257583144980";
+
+          const logEmbed = new MessageEmbed()
+            .setTitle("Blacklist")
+            .setDescription(
+              `${interaction.user} (${interaction.user.id}) got auto-blacklisted by the anti-afk system.`
+            )
+            .setColor("#000000")
+            .setTimestamp();
+
+          await guild.channels.cache.get(channel).send({
+            embeds: [logEmbed],
           });
         }
       } else {
