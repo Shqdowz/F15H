@@ -126,6 +126,10 @@ module.exports = {
           value: "`/inventory [user] [page]` - Displays your inventory.",
         },
         {
+          name: "Lifetime",
+          value: "`/lifetime [user]` - Displays your lifetime caught fish.",
+        },
+        {
           name: "Net (SOON!)",
           value: "`/net [net]` - Autofish with your fishing net.",
         }
