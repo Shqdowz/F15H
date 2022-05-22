@@ -24,6 +24,10 @@ module.exports = {
             value: fishObject[fish].description,
           },
           {
+            name: "Levels/Requirements",
+            value: `${fishObject[fish].levelsRequirements} ${fishObject[fish].name}(s)`,
+          },
+          {
             name: "Statistics (LVL 1)",
             value: `:heart: Health: ${fishObject[fish].health}\n:dagger: Damage: ${fishObject[fish].damage}\n:boom: Crit:\n- Rate: ${fishObject[fish].critRate}%\n- Damage: ${fishObject[fish].critDamage}%`,
           },
