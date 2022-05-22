@@ -61,6 +61,10 @@ module.exports = {
         { _id: userProfile._id },
         { needVerify: (userProfile.needVerify = false) }
       );
+      await User.findOneAndUpdate(
+        { _id: userProfile._id },
+        { firstInt: (userProfile.firstInt = true) }
+      );
     } else {
       await interaction.reply({
         content: `You are not allowed to use this command!`,
