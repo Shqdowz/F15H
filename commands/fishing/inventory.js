@@ -3,7 +3,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 const User = require("../../schemas/user");
-const rowObject = require("../../objects/rows");
 
 module.exports = {
   data: new SlashCommandBuilder()
