@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
-let message, success;
+let success, amountShort;
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -65,6 +65,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 64 - userProfile[fish];
             }
             break;
           case 2:
@@ -81,6 +82,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 128 - userProfile[fish];
             }
             break;
           case 3:
@@ -97,6 +99,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 256 - userProfile[fish];
             }
             break;
           case 4:
@@ -113,6 +116,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 512 - userProfile[fish];
             }
             break;
           case 5:
@@ -143,6 +147,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 32 - userProfile[fish];
             }
             break;
           case 2:
@@ -159,6 +164,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 64 - userProfile[fish];
             }
             break;
           case 3:
@@ -175,6 +181,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 128 - userProfile[fish];
             }
             break;
           case 4:
@@ -191,6 +198,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 256 - userProfile[fish];
             }
             break;
           case 5:
@@ -221,6 +229,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 16 - userProfile[fish];
             }
             break;
           case 2:
@@ -237,6 +246,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 32 - userProfile[fish];
             }
             break;
           case 3:
@@ -253,6 +263,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 64 - userProfile[fish];
             }
             break;
           case 4:
@@ -269,6 +280,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 128 - userProfile[fish];
             }
             break;
           case 5:
@@ -299,6 +311,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 8 - userProfile[fish];
             }
             break;
           case 2:
@@ -315,6 +328,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 16 - userProfile[fish];
             }
             break;
           case 3:
@@ -331,6 +345,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 32 - userProfile[fish];
             }
             break;
           case 4:
@@ -347,6 +362,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 64 - userProfile[fish];
             }
             break;
           case 5:
@@ -377,6 +393,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 4 - userProfile[fish];
             }
             break;
           case 2:
@@ -393,6 +410,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 8 - userProfile[fish];
             }
             break;
           case 3:
@@ -409,6 +427,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 16 - userProfile[fish];
             }
             break;
           case 4:
@@ -425,6 +444,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 32 - userProfile[fish];
             }
             break;
           case 5:
@@ -455,6 +475,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 2 - userProfile[fish];
             }
             break;
           case 2:
@@ -471,6 +492,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 4 - userProfile[fish];
             }
             break;
           case 3:
@@ -487,6 +509,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 8 - userProfile[fish];
             }
             break;
           case 4:
@@ -503,6 +526,7 @@ module.exports = {
               success = true;
             } else {
               success = "!enough";
+              amountShort = 16 - userProfile[fish];
             }
             break;
           case 5:
@@ -532,12 +556,12 @@ module.exports = {
       });
     } else if (success == "!obtained") {
       await interaction.reply({
-        content: `You haven't unlocked the ${fishName} yet!`,
+        content: `You haven't unlocked the ${fishName} fish yet!`,
         ephemeral: true,
       });
     } else if (success == "!enough") {
       await interaction.reply({
-        content: `You don't have enough ${fishName}(s) to upgrade it to the next level!`,
+        content: `You need ${amountShort} more ${fishName}(s) to upgrade it to the next level!`,
         ephemeral: true,
       });
     }

@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
-let embed;
+let embed, amountShort;
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -43,8 +43,10 @@ module.exports = {
               { exquisiteRod: (userProfile.exquisiteRod = "Unlocked! 🔓") }
             );
           } else {
+            amountShort = 2000 - userProfile.fishCoins;
+
             await interaction.reply({
-              content: `You don't have enough Fish Coins to buy this item!`,
+              content: `You need ${amountShort} more Fish Coins to buy this item!`,
               ephemeral: true,
             });
           }
@@ -77,8 +79,10 @@ module.exports = {
                 { preciousRod: (userProfile.preciousRod = "Unlocked! 🔓") }
               );
             } else {
+              amountShort = 4000 - userProfile.fishCoins;
+
               await interaction.reply({
-                content: `You don't have enough Fish Coins to buy this item!`,
+                content: `You need ${amountShort} more Fish Coins to buy this item!`,
                 ephemeral: true,
               });
             }
@@ -117,8 +121,10 @@ module.exports = {
                 { luxuriousRod: (userProfile.luxuriousRod = "Unlocked! 🔓") }
               );
             } else {
+              amountShort = 8000 - userProfile.fishCoins;
+
               await interaction.reply({
-                content: `You don't have enough Fish Coins to buy this item!`,
+                content: `You need ${amountShort} more Fish Coins to buy this item!`,
                 ephemeral: true,
               });
             }
@@ -157,8 +163,10 @@ module.exports = {
                 { divineRod: (userProfile.divineRod = "Unlocked! 🔓") }
               );
             } else {
+              amountShort = 16000 - userProfile.fishCoins;
+
               await interaction.reply({
-                content: `You don't have enough Fish Coins to buy this item!`,
+                content: `You need ${amountShort} more Fish Coins to buy this item!`,
                 ephemeral: true,
               });
             }
