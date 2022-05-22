@@ -57,6 +57,10 @@ module.exports = {
         { _id: userProfile._id },
         { isBlacklisted: (userProfile.isBlacklisted = false) }
       );
+      await User.findOneAndUpdate(
+        { _id: userProfile._id },
+        { needVerify: (userProfile.needVerify = false) }
+      );
     } else {
       await interaction.reply({
         content: `You are not allowed to use this command!`,
