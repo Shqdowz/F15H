@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 const User = require("../../schemas/user");
 
-let embed, row;
+let inventoryEmbed, row;
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -237,21 +237,21 @@ module.exports = {
 
     collector.on("collect", async (i) => {
       if (i.user.id === interaction.user.id) {
-        // switch (i.customId) {
-        //   case "inventory1":
-        //     embed = inventory1;
-        //     row = inventory1_;
-        //     break;
-        //   case "inventory2":
-        //     embed = inventory2;
-        //     row = inventory2_;
-        //     break;
-        // }
+        switch (i.customId) {
+          case "inventory1":
+            inventoryEmbed = inventory1;
+            row = inventory1_;
+            break;
+          case "inventory2":
+            inventoryEmbed = inventory2;
+            row = inventory2_;
+            break;
+        }
 
         try {
           await i.update({
             content: `${interaction.user}`,
-            embeds: [i.customId],
+            embeds: [inventoryEmbed],
             components: [row],
           });
         } catch (err) {}
