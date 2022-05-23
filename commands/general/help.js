@@ -27,13 +27,12 @@ module.exports = {
       .addFields(
         {
           name: "General - page 1",
-          value:
-            "`discord, help, info, invite, leaderboard, news, report, rules, suggest, verify`",
+          value: "`discord, help, info, invite, news, report, rules, suggest`",
           inline: true,
         },
         {
           name: "Fishing - page 2",
-          value: "`equip, fish, inventory, net`",
+          value: "`equip, fish, inventory, leaderboard, lifetime, net, verify`",
           inline: true,
         },
         {
@@ -78,10 +77,6 @@ module.exports = {
           value: "`/invite` - Invite the bot to your server.",
         },
         {
-          name: "Leaderboard",
-          value: "`/leaderboard <category> [page]` - Displays the leaderboard.",
-        },
-        {
           name: "News",
           value: "`/news` - View the latest news.",
         },
@@ -96,10 +91,6 @@ module.exports = {
         {
           name: "Suggest",
           value: "`/suggest <suggestion>` - Suggest a feature for the bot.",
-        },
-        {
-          name: "Verify",
-          value: "`/v <code>` - Verify that you aren't afk.",
         },
         {
           name: "Wiki (SOON!)",
@@ -126,12 +117,20 @@ module.exports = {
           value: "`/inventory [user] [page]` - Displays your inventory.",
         },
         {
+          name: "Leaderboard",
+          value: "`/leaderboard <category> [page]` - Displays the leaderboard.",
+        },
+        {
           name: "Lifetime",
           value: "`/lifetime [user]` - Displays your lifetime caught fish.",
         },
         {
           name: "Net (SOON!)",
           value: "`/net [net]` - Autofish with your fishing net.",
+        },
+        {
+          name: "Verify",
+          value: "`/v <code>` - Verify that you aren't afk.",
         }
       )
       .setFooter({ text: `Page 2/7 | Requested by ${interaction.user.tag}` })
