@@ -169,35 +169,35 @@ module.exports = {
       .setColor("#ADD8E6")
       .setTimestamp();
 
-    // const inventory1_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("nothing")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(true),
-    //   new MessageButton()
-    //     .setCustomId("inventory2")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false)
-    // );
+    const inventory1_ = new MessageActionRow().addComponents(
+      new MessageButton()
+        .setCustomId("nothing")
+        .setLabel("Previous page")
+        .setEmoji("⬅️")
+        .setStyle("PRIMARY")
+        .setDisabled(true),
+      new MessageButton()
+        .setCustomId("inventory2")
+        .setLabel("Next page")
+        .setEmoji("➡️")
+        .setStyle("PRIMARY")
+        .setDisabled(false)
+    );
 
-    // const inventory2_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("inventory1")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false),
-    //   new MessageButton()
-    //     .setCustomId("nothing")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(true)
-    // );
+    const inventory2_ = new MessageActionRow().addComponents(
+      new MessageButton()
+        .setCustomId("inventory1")
+        .setLabel("Previous page")
+        .setEmoji("⬅️")
+        .setStyle("PRIMARY")
+        .setDisabled(false),
+      new MessageButton()
+        .setCustomId("nothing")
+        .setLabel("Next page")
+        .setEmoji("➡️")
+        .setStyle("PRIMARY")
+        .setDisabled(true)
+    );
 
     // Code
 
@@ -205,24 +205,24 @@ module.exports = {
       switch (page) {
         case 1:
           embed = inventory1;
-          // row = inventory1_;
+          row = inventory1_;
           break;
         case 2:
           embed = inventory2;
-          // row = inventory2_;
+          row = inventory2_;
           break;
       }
 
       await interaction.reply({
         content: `${interaction.user}`,
         embeds: [embed],
-        // components: [row],
+        components: [row],
       });
     } else if (!page) {
       await interaction.reply({
         content: `${interaction.user}`,
         embeds: [inventory1],
-        // components: [inventory1_],
+        components: [inventory1_],
       });
     } else {
       await interaction.reply({
@@ -231,34 +231,36 @@ module.exports = {
       });
     }
 
-    // const collector = interaction.channel.createMessageComponentCollector({
-    //   componentType: "BUTTON",
-    // });
+    const collector = interaction.channel.createMessageComponentCollector({
+      componentType: "BUTTON",
+    });
 
-    // collector.on("collect", async (i) => {
-    //   if (i.user.id === interaction.user.id) {
-    //     switch (i.customId) {
-    //       case "inventory1":
-    //         embed = inventory1;
-    //         row = inventory1_;
-    //         break;
-    //       case "inventory2":
-    //         embed = inventory2;
-    //         row = inventory2_;
-    //         break;
-    //     }
+    collector.on("collect", async (i) => {
+      if (i.user.id === interaction.user.id) {
+        switch (i.customId) {
+          case "inventory1":
+            embed = inventory1;
+            row = inventory1_;
+            break;
+          case "inventory2":
+            embed = inventory2;
+            row = inventory2_;
+            break;
+        }
 
-    //     await i.update({
-    //       content: `${interaction.user}`,
-    //       embeds: [embed],
-    //       components: [row],
-    //     });
-    //   } else {
-    //     i.reply({
-    //       content: `These aren't your buttons!`,
-    //       ephemeral: true,
-    //     });
-    //   }
-    // });
+        try {
+          await i.update({
+            content: `${interaction.user}`,
+            embeds: [embed],
+            components: [row],
+          });
+        } catch (err) {}
+      } else {
+        i.reply({
+          content: `These aren't your buttons!`,
+          ephemeral: true,
+        });
+      }
+    });
   },
 };
