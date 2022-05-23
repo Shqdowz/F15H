@@ -23,6 +23,80 @@ module.exports = {
 
     const userProfile = await client.createUser(user);
 
+    const fishNames = [
+      "Cod",
+      "Herring",
+      "Pufferfish",
+      "Salmon",
+      "Shrimp",
+      "Butterfish",
+      "Clownfish",
+      "Duck",
+      "Penguin",
+      "Squid",
+      "Crab",
+      "Orca",
+      "Otter",
+      "Shark",
+      "Whale",
+      "Jellyfish",
+      "Octopus",
+      "Seahorse",
+      "Seal",
+      "Walrus",
+      "Coral",
+      "Crocodile",
+      "Flamingo",
+      "Manatee",
+      "Turtle",
+      "Blobfish",
+      "Catfish",
+      "Dolphin",
+      "Mermaid",
+      "Starfish",
+    ];
+    const fishArray = [];
+    const hasEmoji = [
+      "shrimp",
+      "duck",
+      "penguin",
+      "squid",
+      "crab",
+      "otter",
+      "shark",
+      "whale",
+      "octopus",
+      "seal",
+      "crocodile",
+      "flamingo",
+      "turtle",
+      "dolphin",
+    ];
+
+    for (let i = 0; i < fishNames.length; i++) {
+      const fish = fishNames[i];
+      const totalFish = `total${fish}`;
+      const fishName = fish.toLowerCase();
+
+      if (userProfile[totalFish] >= 1) {
+        if (hasEmoji.includes(fishName)) {
+          fishArray.push(
+            `『${userProfile[`${fishName}Level`]}』:${fishName}: ${fish}: ${
+              userProfile[totalFish]
+            }`
+          );
+        } else {
+          fishArray.push(
+            `『${userProfile[`${fishName}Level`]}』${fish}: ${
+              userProfile[totalFish]
+            }`
+          );
+        }
+      } else {
+        fishArray.push(`『?』???: ?`);
+      }
+    }
+
     // Embed
 
     const lifetime = new MessageEmbed()
@@ -30,32 +104,32 @@ module.exports = {
       .addFields(
         {
           name: "Common Fish",
-          value: `Cod: ${userProfile.totalCod}\nHerring: ${userProfile.totalHerring}\nPufferfish: ${userProfile.totalPufferfish}\nSalmon: ${userProfile.totalSalmon}\n:shrimp: Shrimp: ${userProfile.totalShrimp}`,
+          value: `${fishArray[0]}\n${fishArray[1]}\n${fishArray[2]}\n${fishArray[3]}\n${fishArray[4]}`,
           inline: true,
         },
         {
           name: "Uncommon Fish",
-          value: `Butterfish: ${userProfile.totalButterfish}\nClownfish: ${userProfile.totalClownfish}\n:duck: Duck: ${userProfile.totalDuck}\n:penguin: Penguin: ${userProfile.totalPenguin}\n:squid: Squid: ${userProfile.totalSquid}`,
+          value: `${fishArray[5]}\n${fishArray[6]}\n${fishArray[7]}\n${fishArray[8]}\n${fishArray[9]}`,
           inline: true,
         },
         {
           name: "Rare Fish",
-          value: `:crab: Crab: ${userProfile.totalCrab}\nOrca: ${userProfile.totalOrca}\n:otter: Otter: ${userProfile.totalOtter}\n:shark: Shark: ${userProfile.totalShark}\n:whale: Whale: ${userProfile.totalWhale}`,
+          value: `${fishArray[10]}\n${fishArray[11]}\n${fishArray[12]}\n${fishArray[13]}\n${fishArray[14]}`,
           inline: true,
         },
         {
           name: "Epic Fish",
-          value: `Jellyfish: ${userProfile.totalJellyfish}\n:octopus: Octopus: ${userProfile.totalOctopus}\nSeahorse: ${userProfile.totalSeahorse}\n:seal: Seal: ${userProfile.totalSeal}\nWalrus: ${userProfile.totalWalrus}`,
+          value: `${fishArray[15]}\n${fishArray[16]}\n${fishArray[17]}\n${fishArray[18]}\n${fishArray[19]}`,
           inline: true,
         },
         {
           name: "Mythic Fish",
-          value: `Coral: ${userProfile.totalCoral}\n:crocodile: Crocodile: ${userProfile.totalCrocodile}\n:flamingo: Flamingo: ${userProfile.totalFlamingo}\nManatee: ${userProfile.totalManatee}\n:turtle: Turtle: ${userProfile.totalTurtle}`,
+          value: `${fishArray[20]}\n${fishArray[21]}\n${fishArray[22]}\n${fishArray[23]}\n${fishArray[24]}`,
           inline: true,
         },
         {
           name: "Legendary Fish",
-          value: `Blobfish: ${userProfile.totalBlobfish}\nCatfish: ${userProfile.totalCatfish}\n:dolphin: Dolphin: ${userProfile.totalDolphin}\nMermaid: ${userProfile.totalMermaid}\nStarfish: ${userProfile.totalStarfish}`,
+          value: `${fishArray[25]}\n${fishArray[26]}\n${fishArray[27]}\n${fishArray[28]}\n${fishArray[29]}`,
           inline: true,
         }
       )
