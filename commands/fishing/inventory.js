@@ -237,21 +237,21 @@ module.exports = {
 
     collector.on("collect", async (i) => {
       if (i.user.id === interaction.user.id) {
-        switch (i.customId) {
-          case "inventory1":
-            embed = inventory1;
-            row = inventory1_;
-            break;
-          case "inventory2":
-            embed = inventory2;
-            row = inventory2_;
-            break;
-        }
+        // switch (i.customId) {
+        //   case "inventory1":
+        //     embed = inventory1;
+        //     row = inventory1_;
+        //     break;
+        //   case "inventory2":
+        //     embed = inventory2;
+        //     row = inventory2_;
+        //     break;
+        // }
 
         try {
           await i.update({
             content: `${interaction.user}`,
-            embeds: [embed],
+            embeds: [i.customId],
             components: [row],
           });
         } catch (err) {}
