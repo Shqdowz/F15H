@@ -60,11 +60,11 @@ module.exports = {
       case 2:
         if (userProfile.preciousRod === "Locked! 🔒") {
           if (userProfile.exquisiteRod === "Unlocked! 🔓") {
-            if (userProfile.fishCoins >= 4000) {
+            if (userProfile.fishCoins >= 6000) {
               embed = new MessageEmbed()
                 .setTitle("Purchase successful!")
                 .setDescription(
-                  "You bought the Precious rod for 4000 <:FishCoin:937423381756772364>! Equip it with `/equip precious`."
+                  "You bought the Precious rod for 6000 <:FishCoin:937423381756772364>! Equip it with `/equip precious`."
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")
@@ -72,14 +72,14 @@ module.exports = {
 
               await User.findOneAndUpdate(
                 { _id: userProfile._id },
-                { fishCoins: (userProfile.fishCoins -= 4000) }
+                { fishCoins: (userProfile.fishCoins -= 6000) }
               );
               await User.findOneAndUpdate(
                 { _id: userProfile._id },
                 { preciousRod: (userProfile.preciousRod = "Unlocked! 🔓") }
               );
             } else {
-              amountShort = 4000 - userProfile.fishCoins;
+              amountShort = 6000 - userProfile.fishCoins;
 
               await interaction.reply({
                 content: `You need ${amountShort} more Fish Coins to buy this item!`,
@@ -102,11 +102,11 @@ module.exports = {
       case 3:
         if (userProfile.luxuriousRod === "Locked! 🔒") {
           if (userProfile.preciousRod === "Unlocked! 🔓") {
-            if (userProfile.fishCoins >= 8000) {
+            if (userProfile.fishCoins >= 18000) {
               embed = new MessageEmbed()
                 .setTitle("Purchase successful!")
                 .setDescription(
-                  "You bought the Luxurious rod for 8000 <:FishCoin:937423381756772364>! Equip it with `/equip luxurious`."
+                  "You bought the Luxurious rod for 18000 <:FishCoin:937423381756772364>! Equip it with `/equip luxurious`."
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")
@@ -114,14 +114,14 @@ module.exports = {
 
               await User.findOneAndUpdate(
                 { _id: userProfile._id },
-                { fishCoins: (userProfile.fishCoins -= 8000) }
+                { fishCoins: (userProfile.fishCoins -= 18000) }
               );
               await User.findOneAndUpdate(
                 { _id: userProfile._id },
                 { luxuriousRod: (userProfile.luxuriousRod = "Unlocked! 🔓") }
               );
             } else {
-              amountShort = 8000 - userProfile.fishCoins;
+              amountShort = 18000 - userProfile.fishCoins;
 
               await interaction.reply({
                 content: `You need ${amountShort} more Fish Coins to buy this item!`,
@@ -144,11 +144,11 @@ module.exports = {
       case 4:
         if (userProfile.divineRod === "Locked! 🔒") {
           if (userProfile.luxuriousRod === "Unlocked! 🔓") {
-            if (userProfile.fishCoins >= 16000) {
+            if (userProfile.fishCoins >= 54000) {
               embed = new MessageEmbed()
                 .setTitle("Purchase successful!")
                 .setDescription(
-                  "You bought the Divine rod for 16000 <:FishCoin:937423381756772364>! Equip it with `/equip divine`."
+                  "You bought the Divine rod for 54000 <:FishCoin:937423381756772364>! Equip it with `/equip divine`."
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")
@@ -156,14 +156,14 @@ module.exports = {
 
               await User.findOneAndUpdate(
                 { _id: userProfile._id },
-                { fishCoins: (userProfile.fishCoins -= 16000) }
+                { fishCoins: (userProfile.fishCoins -= 54000) }
               );
               await User.findOneAndUpdate(
                 { _id: userProfile._id },
                 { divineRod: (userProfile.divineRod = "Unlocked! 🔓") }
               );
             } else {
-              amountShort = 16000 - userProfile.fishCoins;
+              amountShort = 54000 - userProfile.fishCoins;
 
               await interaction.reply({
                 content: `You need ${amountShort} more Fish Coins to buy this item!`,
