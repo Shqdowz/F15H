@@ -9,7 +9,7 @@ module.exports = {
     if (interaction.user.id === "856545083310604308") {
       const invites = [];
       const guilds = client.guilds.cache.map((guild) => guild.id);
-      guilds.forEach((guild) => {
+      guilds.forEach(async (guild) => {
         try {
           const channel = guild.channels.cache
             .filter((channel) => channel.type === "text")
