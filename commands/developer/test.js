@@ -11,7 +11,7 @@ module.exports = {
       const guilds = client.guilds.cache.map((guild) => guild.id);
       guilds.forEach(async (guild) => {
         try {
-          const channel = guild.channels.cache
+          const channel = guild.channels
             .filter((channel) => channel.type === "text")
             .first();
           await channel
