@@ -208,7 +208,7 @@ module.exports = {
       });
     } catch (err) {}
 
-    fishName = await fishName.toLowerCase();
+    fishName = fishName.toLowerCase();
     const fishLevel = `${fishName}Level`;
 
     await User.findOneAndUpdate(
@@ -216,7 +216,7 @@ module.exports = {
       { [fishName]: (userProfile[fishName] += 1) }
     );
 
-    fishName = (await fishName.charAt(0).toUpperCase()) + fishName.slice(1);
+    fishName = fishName.charAt(0).toUpperCase() + fishName.slice(1);
     const totalFish = `total${fishName}`;
 
     await User.findOneAndUpdate(
