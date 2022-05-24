@@ -22,8 +22,8 @@ module.exports = {
       );
     }
 
-    if (userProfile.commandCounter >= 25) {
-      if (Math.ceil(Math.random() * 25) == 25) {
+    if (userProfile.commandCounter >= 20) {
+      if (Math.ceil(Math.random() * 20) == 20) {
         await User.findOneAndUpdate(
           { _id: userProfile._id },
           { needVerify: (userProfile.needVerify = true) }
