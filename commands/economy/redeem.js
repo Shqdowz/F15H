@@ -6,7 +6,7 @@ let embed, rf;
 const commonFish = ["cod", "herring", "pufferfish", "salmon", "shrimp"];
 const uncommonFish = ["butterfish", "clownfish", "duck", "penguin", "squid"];
 const rareFish = ["crab", "orca", "otter", "shark", "whale"];
-const epicFish = ["jellyfish", "octopus", "seahorse", "seal", "alrus"];
+const epicFish = ["jellyfish", "octopus", "seahorse", "seal", "walrus"];
 const mythicFish = ["coral", "crocodile", "flamingo", "manatee", "turtle"];
 const legendaryFish = ["blobfish", "catfish", "dolphin", "mermaid", "starfish"];
 
