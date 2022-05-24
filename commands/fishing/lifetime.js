@@ -97,6 +97,56 @@ module.exports = {
       }
     }
 
+    const totalCommons =
+      userProfile.totalCod +
+      userProfile.totalHerring +
+      userProfile.totalPufferfish +
+      userProfile.totalSalmon +
+      userProfile.totalShrimp;
+
+    const totalUncommons =
+      userProfile.totalButterfish +
+      userProfile.totalClownfish +
+      userProfile.totalDuck +
+      userProfile.totalPenguin +
+      userProfile.totalSquid;
+
+    const totalRares =
+      userProfile.totalCrab +
+      userProfile.totalOrca +
+      userProfile.totalOtter +
+      userProfile.totalShark +
+      userProfile.totalWhale;
+
+    const totalEpics =
+      userProfile.totalJellyfish +
+      userProfile.totalOctopus +
+      userProfile.totalSeahorse +
+      userProfile.totalSeal +
+      userProfile.totalWalrus;
+
+    const totalMythics =
+      userProfile.totalCoral +
+      userProfile.totalCrocodile +
+      userProfile.totalFlamingo +
+      userProfile.totalManatee +
+      userProfile.totalTurtle;
+
+    const totalLegendaries =
+      userProfile.totalBlobfish +
+      userProfile.totalCatfish +
+      userProfile.totalDolphin +
+      userProfile.totalMermaid +
+      userProfile.totalStarfish;
+
+    const total =
+      totalCommons +
+      totalUncommons +
+      totalRares +
+      totalEpics +
+      totalMythics +
+      totalLegendaries;
+
     // Embed
 
     const lifetime = new MessageEmbed()
@@ -131,6 +181,10 @@ module.exports = {
           name: "Legendary Fish",
           value: `${fishArray[25]}\n${fishArray[26]}\n${fishArray[27]}\n${fishArray[28]}\n${fishArray[29]}`,
           inline: true,
+        },
+        {
+          name: "Totals",
+          value: `Common: ${totalCommons}\nUncommon: ${totalUncommons}\nRare: ${totalRares}\nEpic: ${totalEpics}\nMythic: ${totalMythics}\nLegendary: ${totalLegendaries}\nFish: ${total}`,
         }
       )
       .setFooter({ text: `Requested by ${interaction.user.tag}` })
