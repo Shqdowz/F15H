@@ -193,7 +193,7 @@ module.exports = {
         break;
     }
 
-    const xp = Math.ceil(Math.random() * 20);
+    const xp = Math.ceil(Math.random() * 25);
     await User.findOneAndUpdate(
       { _id: userProfile._id },
       { experience: (userProfile.experience += xp) }
