@@ -2,13 +2,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
-let embed,
-  color = "ADD8E6",
-  fishRarity,
-  fishName,
-  fishSpecialty,
-  hasRod;
-const cooldowns = [];
+let embed, color, fishRarity, fishName;
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -214,7 +208,7 @@ module.exports = {
       });
     } catch (err) {}
 
-    fishName = fishName.toLowerCase();
+    fishName = await fishName.toLowerCase();
     const fishLevel = `${fishName}Level`;
 
     await User.findOneAndUpdate(
@@ -222,7 +216,7 @@ module.exports = {
       { [fishName]: (userProfile[fishName] += 1) }
     );
 
-    fishName = fishName.charAt(0).toUpperCase() + fishName.slice(1);
+    fishName = (await fishName.charAt(0).toUpperCase()) + fishName.slice(1);
     const totalFish = `total${fishName}`;
 
     await User.findOneAndUpdate(
