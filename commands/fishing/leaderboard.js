@@ -78,12 +78,8 @@ module.exports = {
         }
         break;
       default:
-        try {
-          await interaction.reply({
-            content: `Invalid category! Valid categories: \`coins, crystals, level\`.`,
-            ephemeral: true,
-          });
-        } catch (err) {}
+        embed = "none";
+        break;
     }
     try {
       await interaction.reply({
@@ -91,7 +87,10 @@ module.exports = {
         embeds: [embed],
       });
     } catch (err) {
-      console.log(err);
+      await interaction.reply({
+        content: `Invalid category! Valid categories: \`coins, crystals, level\`.`,
+        ephemeral: true,
+      });
     }
   },
 };
