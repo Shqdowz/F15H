@@ -144,7 +144,7 @@ module.exports = {
         cooldowns.push(interaction.user.id);
         setTimeout(() => {
           cooldowns.shift();
-        }, 2000);
+        }, 3000);
 
         await User.findOneAndUpdate(
           { _id: userProfile._id },
