@@ -21,9 +21,5 @@ module.exports = {
       content: `${interaction.user}`,
       embeds: [embed],
     });
-    await interaction.reply({
-      content: "This command is currently unavailable!",
-      ephemeral: true,
-    });
   },
 };
