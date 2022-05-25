@@ -8,7 +8,7 @@ module.exports = {
     .setName("invite")
     .setDescription("Invite the bot to your server"),
   async execute(interaction, client) {
-    /*const embed = new MessageEmbed()
+    const embed = new MessageEmbed()
       .setTitle(`F15H bot invite link`)
       .setDescription(
         `Click [here](https://discord.com/api/oauth2/authorize?client_id=939481785060950087&permissions=388160&scope=bot%20applications.commands) to invite F15H to your server!`
@@ -20,7 +20,7 @@ module.exports = {
     await interaction.reply({
       content: `${interaction.user}`,
       embeds: [embed],
-    });*/
+    });
     await interaction.reply({
       content: "This command is currently unavailable!",
       ephemeral: true,

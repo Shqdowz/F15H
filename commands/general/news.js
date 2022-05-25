@@ -9,9 +9,9 @@ module.exports = {
     const embed = new MessageEmbed()
       .setTitle(`The latest F15H news`)
       .setDescription(
-        `F15H closed beta has launched in the Tribe Gaming server!`
+        `F15H is now available to everyone!\n\n\`/invite\` the bot to your server :D`
       )
-      .setFooter({ text: `Reported at: 14-5-2022` })
+      .setFooter({ text: `Reported at: 25-5-2022` })
       .setColor("#ADD8E6")
       .setTimestamp();
 
