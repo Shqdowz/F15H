@@ -152,10 +152,6 @@ module.exports = {
       .setTitle(`${user.tag}'s inventory`)
       .addFields(
         {
-          name: "Currency",
-          value: `<:FishCoin:937423381756772364> Fish Coins: ${userProfile.fishCoins}\nFish Crystals: ${userProfile.fishCrystals}`,
-        },
-        {
           name: "Fishing rods",
           value: `Common rod: Unlocked! 🔓\nExquisite rod: ${userProfile.exquisiteRod}\nPrecious rod: ${userProfile.preciousRod}\nLuxurious rod: ${userProfile.luxuriousRod}\nDivine rod: ${userProfile.divineRod}`,
         },
