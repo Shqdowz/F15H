@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
-let success, amountShort;
+let error, amountShort;
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -49,78 +49,114 @@ module.exports = {
       case "shrimp":
         switch (userProfile[fishLevel]) {
           case 0:
-            success = "!obtained";
+            error = "!obtained";
             break;
           case 1:
             if (userProfile[fish] >= 64) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 2) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 64) }
-              );
+              if (userProfile.fishCoins >= 125) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 125) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 2) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 64) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 125 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 64 - userProfile[fish];
             }
             break;
           case 2:
             if (userProfile[fish] >= 128) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 3) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 128) }
-              );
+              if (userProfile.fishCoins >= 250) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 250) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 3) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 128) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 250 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 128 - userProfile[fish];
             }
             break;
           case 3:
             if (userProfile[fish] >= 256) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 4) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 256) }
-              );
+              if (userProfile.fishCoins >= 500) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 500) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 4) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 256) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 500 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 256 - userProfile[fish];
             }
             break;
           case 4:
             if (userProfile[fish] >= 512) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 5) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 512) }
-              );
+              if (userProfile.fishCoins >= 1000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 1000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 5) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 512) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 1000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 512 - userProfile[fish];
             }
             break;
           case 5:
-            success = "max";
+            error = "max";
             break;
         }
         break;
@@ -131,78 +167,114 @@ module.exports = {
       case "squid":
         switch (userProfile[fishLevel]) {
           case 0:
-            success = "!obtained";
+            error = "!obtained";
             break;
           case 1:
             if (userProfile[fish] >= 32) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 2) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 32) }
-              );
+              if (userProfile.fishCoins >= 250) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 250) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 2) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 32) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 250 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 32 - userProfile[fish];
             }
             break;
           case 2:
             if (userProfile[fish] >= 64) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 3) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 64) }
-              );
+              if (userProfile.fishCoins >= 500) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 500) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 3) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 64) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 500 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 64 - userProfile[fish];
             }
             break;
           case 3:
             if (userProfile[fish] >= 128) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 4) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 128) }
-              );
+              if (userProfile.fishCoins >= 1000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 1000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 4) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 128) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 1000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 128 - userProfile[fish];
             }
             break;
           case 4:
             if (userProfile[fish] >= 256) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 5) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 256) }
-              );
+              if (userProfile.fishCoins >= 2000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 2000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 5) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 256) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 2000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 256 - userProfile[fish];
             }
             break;
           case 5:
-            success = "max";
+            error = "max";
             break;
         }
         break;
@@ -213,78 +285,114 @@ module.exports = {
       case "whale":
         switch (userProfile[fishLevel]) {
           case 0:
-            success = "!obtained";
+            error = "!obtained";
             break;
           case 1:
             if (userProfile[fish] >= 16) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 2) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 16) }
-              );
+              if (userProfile.fishCoins >= 500) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 500) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 2) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 16) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 500 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 16 - userProfile[fish];
             }
             break;
           case 2:
             if (userProfile[fish] >= 32) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 3) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 32) }
-              );
+              if (userProfile.fishCoins >= 1000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 1000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 3) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 32) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 1000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 32 - userProfile[fish];
             }
             break;
           case 3:
             if (userProfile[fish] >= 64) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 4) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 64) }
-              );
+              if (userProfile.fishCoins >= 2000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 2000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 4) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 64) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 2000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 64 - userProfile[fish];
             }
             break;
           case 4:
             if (userProfile[fish] >= 128) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 5) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 128) }
-              );
+              if (userProfile.fishCoins >= 4000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 4000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 5) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 128) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 4000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 128 - userProfile[fish];
             }
             break;
           case 5:
-            success = "max";
+            error = "max";
             break;
         }
         break;
@@ -295,78 +403,114 @@ module.exports = {
       case "walrus":
         switch (userProfile[fishLevel]) {
           case 0:
-            success = "!obtained";
+            error = "!obtained";
             break;
           case 1:
             if (userProfile[fish] >= 8) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 2) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 8) }
-              );
+              if (userProfile.fishCoins >= 1000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 1000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 2) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 8) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 1000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 8 - userProfile[fish];
             }
             break;
           case 2:
             if (userProfile[fish] >= 16) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 3) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 16) }
-              );
+              if (userProfile.fishCoins >= 2000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 2000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 3) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 16) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 2000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 16 - userProfile[fish];
             }
             break;
           case 3:
             if (userProfile[fish] >= 32) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 4) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 32) }
-              );
+              if (userProfile.fishCoins >= 4000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 4000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 4) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 32) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 4000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 32 - userProfile[fish];
             }
             break;
           case 4:
             if (userProfile[fish] >= 64) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 5) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 64) }
-              );
+              if (userProfile.fishCoins >= 8000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 8000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 5) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 64) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 8000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 64 - userProfile[fish];
             }
             break;
           case 5:
-            success = "max";
+            error = "max";
             break;
         }
         break;
@@ -377,78 +521,114 @@ module.exports = {
       case "turtle":
         switch (userProfile[fishLevel]) {
           case 0:
-            success = "!obtained";
+            error = "!obtained";
             break;
           case 1:
             if (userProfile[fish] >= 4) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 2) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 4) }
-              );
+              if (userProfile.fishCoins >= 2000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 2000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 2) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 4) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 2000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 4 - userProfile[fish];
             }
             break;
           case 2:
             if (userProfile[fish] >= 8) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 3) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 8) }
-              );
+              if (userProfile.fishCoins >= 4000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 4000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 3) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 8) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 4000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 8 - userProfile[fish];
             }
             break;
           case 3:
             if (userProfile[fish] >= 16) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 4) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 16) }
-              );
+              if (userProfile.fishCoins >= 8000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 8000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 4) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 16) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 8000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 16 - userProfile[fish];
             }
             break;
           case 4:
             if (userProfile[fish] >= 32) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 5) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 32) }
-              );
+              if (userProfile.fishCoins >= 16000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 16000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 5) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 32) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 16000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 32 - userProfile[fish];
             }
             break;
           case 5:
-            success = "max";
+            error = "max";
             break;
         }
         break;
@@ -459,109 +639,154 @@ module.exports = {
       case "starfish":
         switch (userProfile[fishLevel]) {
           case 0:
-            success = "!obtained";
+            error = "!obtained";
             break;
           case 1:
             if (userProfile[fish] >= 2) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 2) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 2) }
-              );
+              if (userProfile.fishCoins >= 4000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 4000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 2) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 2) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 4000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 2 - userProfile[fish];
             }
             break;
           case 2:
             if (userProfile[fish] >= 4) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 3) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 4) }
-              );
+              if (userProfile.fishCoins >= 8000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 8000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 3) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 4) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 8000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 4 - userProfile[fish];
             }
             break;
           case 3:
             if (userProfile[fish] >= 8) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 4) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 8) }
-              );
+              if (userProfile.fishCoins >= 16000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 16000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 4) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 8) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 16000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 8 - userProfile[fish];
             }
             break;
           case 4:
             if (userProfile[fish] >= 16) {
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fishLevel]: (userProfile[fishLevel] = 5) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { [fish]: (userProfile[fish] -= 16) }
-              );
+              if (userProfile.fishCoins >= 32000) {
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { fishCoins: (userProfile.fishCoins -= 32000) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fishLevel]: (userProfile[fishLevel] = 5) }
+                );
+                await User.findOneAndUpdate(
+                  { _id: userProfile._id },
+                  { [fish]: (userProfile[fish] -= 16) }
+                );
 
-              success = true;
+                error = "none";
+              } else {
+                error = "!enoughCoins";
+                amountShort = 32000 - userProfile.fishCoins;
+              }
             } else {
-              success = "!enough";
+              error = "!enoughFish";
               amountShort = 16 - userProfile[fish];
             }
             break;
           case 5:
-            success = "max";
+            error = "max";
             break;
         }
         break;
       default:
-        success = "!exist";
+        error = "!exist";
         break;
     }
 
-    if (success == "!exist") {
+    if (error == "!exist") {
       await interaction.reply({
         content: `Invalid fish! Valid fish: check your inventory.`,
         ephemeral: true,
       });
-    } else if (success == true) {
+    } else if (error == "none") {
       await interaction.reply({
         content: `${interaction.user}`,
         embeds: [upgrade],
       });
-    } else if (success == "max") {
+    } else if (error == "max") {
       await interaction.reply({
         content: `You already have your ${fishName} at the max level!`,
         ephemeral: true,
       });
-    } else if (success == "!obtained") {
+    } else if (error == "!obtained") {
       await interaction.reply({
         content: `You haven't unlocked the ${fishName} fish yet!`,
         ephemeral: true,
       });
-    } else if (success == "!enough") {
+    } else if (error == "!enoughFish") {
       await interaction.reply({
-        content: `You need ${amountShort} more ${fishName}(s) to upgrade it to the next level!`,
+        content: `You need ${amountShort} more ${fishName}(s) to upgrade your ${fishName} to level ${
+          userProfile[fishLevel] + 1
+        }!`,
+        ephemeral: true,
+      });
+    } else if (error == "!enoughCoins") {
+      await interaction.reply({
+        content: `You need ${amountShort} more Fish Coins to upgrade your ${fishName} to level ${
+          userProfile[fishLevel] + 1
+        }!`,
         ephemeral: true,
       });
     }
