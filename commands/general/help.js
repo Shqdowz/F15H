@@ -1,9 +1,7 @@
-// Button handler
-
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
-let helpEmbed, helpRow;
+let helpEmbed;
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -20,7 +18,7 @@ module.exports = {
 
     let page = interaction.options.getString("page");
 
-    // Embeds & rows
+    // Embeds
 
     const homepage = new MessageEmbed()
       .setTitle("Help pages")
@@ -42,11 +40,15 @@ module.exports = {
         },
         {
           name: "Economy - page 4",
-          value: "`checkin, lottery, quests, redeem`",
+          value: "`balance, checkin, lottery, quests, redeem`",
           inline: true,
         },
-        { name: "Battling - page 5", value: "`battle, upgrade`", inline: true },
-        { name: "Loot Boxes - page 6", value: "`open`", inline: true },
+        {
+          name: "Battling - page 5",
+          value: "`battle, team, upgrade`",
+          inline: true,
+        },
+        { name: "Loot Boxes - page 6", value: "`loot, open`", inline: true },
         {
           name: "User - page 7",
           value: "`achievements, prestige, profile`",
@@ -73,8 +75,8 @@ module.exports = {
           value: "`/info <fish>` - Displays info about a fish.",
         },
         {
-          name: "Invite (SOON!)",
-          value: "`/invite` - Invite the bot to your server.",
+          name: "Invite",
+          value: "`/invite` - Invite F15H to your server.",
         },
         {
           name: "News",
@@ -170,6 +172,10 @@ module.exports = {
       .setTitle("Economy")
       .addFields(
         {
+          name: "Balance",
+          value: "`/balance [user]` - Displays your balance.",
+        },
+        {
           name: "Check-in (SOON!)",
           value: "`/checkin` - Grants you daily rewards.",
         },
@@ -200,6 +206,10 @@ module.exports = {
             "`/battle <player>` - Battle against a user (or the bot for rewards).",
         },
         {
+          name: "Team (SOON!)",
+          value: "`/team <+/-><fish>` - Add/Remove a fish to/from your team.",
+        },
+        {
           name: "Upgrade",
           value: "`/upgrade <fish>` - Upgrade a fish.",
         }
@@ -210,10 +220,16 @@ module.exports = {
 
     const lootboxes = new MessageEmbed()
       .setTitle("Loot Boxes")
-      .addFields({
-        name: "Open (SOON!)",
-        value: "`/open <box>` - Open a loot box.",
-      })
+      .addFields(
+        {
+          name: "Loot (SOON!)",
+          value: "`/loot` - Displays Loot Box drop rates.",
+        },
+        {
+          name: "Open (SOON!)",
+          value: "`/open <box>` - Open a loot box.",
+        }
+      )
       .setFooter({ text: `Page 6/7 | Requested by ${interaction.user.tag}` })
       .setColor("#ADD8E6")
       .setTimestamp();
@@ -238,133 +254,12 @@ module.exports = {
       .setColor("#ADD8E6")
       .setTimestamp();
 
-    // const homepage_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("nothing")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(true),
-    //   new MessageButton()
-    //     .setCustomId("general")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false)
-    // );
-
-    // const general_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("homepage")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false),
-    //   new MessageButton()
-    //     .setCustomId("fishing")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false)
-    // );
-
-    // const fishing_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("general")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false),
-    //   new MessageButton()
-    //     .setCustomId("market")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false)
-    // );
-
-    // const market_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("fishing")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false),
-    //   new MessageButton()
-    //     .setCustomId("economy")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false)
-    // );
-
-    // const economy_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("market")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false),
-    //   new MessageButton()
-    //     .setCustomId("battling")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false)
-    // );
-
-    // const battling_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("economy")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false),
-    //   new MessageButton()
-    //     .setCustomId("lootboxes")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false)
-    // );
-
-    // const lootboxes_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("battling")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false),
-    //   new MessageButton()
-    //     .setCustomId("user")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false)
-    // );
-
-    // const user_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("lootboxes")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false),
-    //   new MessageButton()
-    //     .setCustomId("nothing")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(true)
-    // );
-
     // Code
 
     if (!page) {
       await interaction.reply({
         content: `${interaction.user}`,
         embeds: [homepage],
-        //components: [homepage_],
       });
     } else {
       page = page.toLowerCase();
@@ -373,46 +268,37 @@ module.exports = {
         case "0":
         case "homepage":
           helpEmbed = homepage;
-          //helpRow = homepage_;
           break;
         case "1":
         case "general":
           helpEmbed = general;
-          //helpRow = general_;
           break;
         case "2":
         case "fishing":
           helpEmbed = fishing;
-          //helpRow = fishing_;
           break;
         case "3":
         case "market":
           helpEmbed = market;
-          //helpRow = market_;
           break;
         case "4":
         case "economy":
           helpEmbed = economy;
-          //helpRow = economy_;
           break;
         case "5":
         case "battling":
           helpEmbed = battling;
-          // = battling_;
           break;
         case "6":
         case "loot boxes":
           helpEmbed = lootboxes;
-          //helpRow = lootboxes_;
           break;
         case "7":
         case "user":
           helpEmbed = user;
-          //helpRow = user_;
           break;
         default:
           helpEmbed = "none";
-          //helpRow = "none";
           break;
       }
 
@@ -420,7 +306,6 @@ module.exports = {
         await interaction.reply({
           content: `${interaction.user}`,
           embeds: [helpEmbed],
-          //components: [helpRow],
         });
       } catch (err) {
         await interaction.reply({
@@ -430,58 +315,5 @@ module.exports = {
         });
       }
     }
-
-    // const collector = interaction.channel.createMessageComponentCollector({
-    //   componentType: "BUTTON",
-    // });
-
-    // collector.on("collect", async (i) => {
-    //   if (i.user.id == interaction.user.id) {
-    //     switch (i.customId) {
-    //       case "homepage":
-    //         helpEmbed = homepage;
-    //         helpRow = homepage_;
-    //         break;
-    //       case "general":
-    //         helpEmbed = general;
-    //         helpRow = general_;
-    //         break;
-    //       case "fishing":
-    //         helpEmbed = fishing;
-    //         helpRow = fishing_;
-    //         break;
-    //       case "market":
-    //         helpEmbed = market;
-    //         helpRow = market_;
-    //         break;
-    //       case "economy":
-    //         helpEmbed = economy;
-    //         helpRow = economy_;
-    //         break;
-    //       case "battling":
-    //         helpEmbed = battling;
-    //         helpRow = battling_;
-    //         break;
-    //       case "lootboxes":
-    //         helpEmbed = lootboxes;
-    //         helpRow = lootboxes_;
-    //         break;
-    //       case "user":
-    //         helpEmbed = user;
-    //         helpRow = user_;
-    //         break;
-    //     }
-
-    //     await i.update({
-    //       embeds: [helpEmbed],
-    //       components: [helpRow],
-    //     });
-    //   } else {
-    //     i.reply({
-    //       content: `These aren't your buttons!`,
-    //       ephemeral: true,
-    //     });
-    //   }
-    // });
   },
 };
