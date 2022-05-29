@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
+
+const legendaryFish = ["blobfish", "catfish", "dolphin", "mermaid", "starfish"];
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -13,9 +14,15 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction, client) {
+    // Option
+
     const code = interaction.options.getString("code");
 
+    // Initialization
+
     const userProfile = await client.createUser(interaction.member);
+
+    // Code
 
     if (userProfile.needVerify) {
       if (code == userProfile.verifyCode) {
@@ -36,7 +43,35 @@ module.exports = {
           { wrongCodeCounter: (userProfile.wrongCodeCounter = 0) }
         );
 
-        await interaction.reply({ content: `Verified!`, ephemeral: true });
+        if (code == "69420") {
+          const fish = legendaryFish[Math.floor(Math.random() * 5)];
+          const fishName = fish.charAt(0).toUpperCase() + fish.slice(1);
+          const totalFish = `total${fishName}`;
+          const fishLevel = `${fish}Level`;
+
+          await User.findOneAndUpdate(
+            { _id: userProfile._id },
+            { [fish]: (userProfile[fish] += 1) }
+          );
+          await User.findOneAndUpdate(
+            { _id: userProfile._id },
+            { [totalFish]: (userProfile[totalFish] += 1) }
+          );
+
+          if (userProfile[fishLevel] == 0) {
+            await User.findOneAndUpdate(
+              { _id: userProfile._id },
+              { [fishLevel]: (userProfile[fishLevel] = 1) }
+            );
+          }
+
+          await interaction.reply({
+            content: `Verified! In addition, since your code was 69420, you were given a legendary fish!`,
+            ephemeral: true,
+          });
+        } else {
+          await interaction.reply({ content: `Verified!`, ephemeral: true });
+        }
       } else {
         await User.findOneAndUpdate(
           { _id: userProfile._id },
