@@ -25,6 +25,10 @@ module.exports = {
     const cEmbed = interaction.options.getString("embed").toLowerCase();
     const channel = interaction.options.getChannel("channel");
 
+    // Initialization
+
+    let content;
+
     // Embeds
 
     const information = new MessageEmbed()
@@ -86,7 +90,13 @@ module.exports = {
       )
       .setColor("ADD8E6");
 
-    const updatelog = new MessageEmbed().setDescription("SOON!");
+    const updatelog = new MessageEmbed()
+      .setTitle("v1.1")
+      .setDescription(
+        "• `/help` - Updated some help pages\n• `/v` - Added a reward when you get a certain code :)\n• `/upgrade` - Made upgrades cost Fish Coins\n• `/shop` - Updated the embed\n• `/buy` - Made fishing rods cost fish\n\nOther: optimizations to make my own life coding the bot better :p"
+      )
+      .setColor("ADD8E6")
+      .setTimestamp();
 
     const staffrules = new MessageEmbed().setDescription("SOON!");
 
@@ -111,6 +121,7 @@ module.exports = {
           break;
         case "updatelog":
           embed = updatelog;
+          content = `<@&976927383577821214>`;
           break;
         case "staffrules":
           embed = staffrules;
@@ -124,7 +135,7 @@ module.exports = {
       }
 
       try {
-        await channel.send({ embeds: [embed] });
+        await channel.send({ content: content, embeds: [embed] });
         await interaction.reply({
           embeds: [confirmation],
           ephemeral: true,
