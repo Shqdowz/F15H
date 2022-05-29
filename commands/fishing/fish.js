@@ -103,6 +103,20 @@ module.exports = {
       { [fish]: (userProfile[fish] += 1) }
     );
 
+    const embed = new MessageEmbed()
+      .setTitle("Reeling it in...")
+      .setDescription(
+        `You caught:\n\n- 1 ${fishRarity} ${fishName}\n- ${xp} xp`
+      )
+      .setFooter({ text: `Performed by ${interaction.user.tag}` })
+      .setColor(color)
+      .setTimestamp();
+
+    await interaction.reply({
+      content: `${interaction.user}`,
+      embeds: [embed],
+    });
+
     const fishLevel = `${fish}Level`;
 
     if (userProfile[fishLevel] == 0) {
@@ -124,21 +138,5 @@ module.exports = {
         embeds: [embed],
       });
     }
-
-    // Embed
-
-    const embed = new MessageEmbed()
-      .setTitle("Reeling it in...")
-      .setDescription(
-        `You caught:\n\n- 1 ${fishRarity} ${fishName}\n- ${xp} xp`
-      )
-      .setFooter({ text: `Performed by ${interaction.user.tag}` })
-      .setColor(color)
-      .setTimestamp();
-
-    await interaction.reply({
-      content: `${interaction.user}`,
-      embeds: [embed],
-    });
   },
 };
