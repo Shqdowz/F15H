@@ -8,8 +8,16 @@ module.exports = {
   async execute(interaction, client) {
     const embed = new MessageEmbed()
       .setTitle(`The latest F15H news`)
-      .setDescription(
-        `F15H is now available to everyone!\n\n\`/invite\` the bot to your server :D`
+      .addFields(
+        {
+          name: "25-5-2022",
+          value:
+            "F15H is now available to everyone! `/invite` the bot to your server :D",
+        },
+        {
+          name: "29-5-2022",
+          value: "Update v1.1 is live!",
+        }
       )
       .setFooter({ text: `Reported at: 25-5-2022` })
       .setColor("#ADD8E6")
