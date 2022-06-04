@@ -159,9 +159,8 @@ module.exports = {
           value: "`/shop` - Displays the shop.",
         },
         {
-          name: "Trade (SOON!)",
-          value:
-            "`/trade <user> <fish> <amount> <fish> <amount>` - Trade fish with other users.",
+          name: "Trade",
+          value: "`/trade <user> <fish> <fish>` - Trade fish with other users.",
         }
       )
       .setFooter({ text: `Page 3/7 | Requested by ${interaction.user.tag}` })
@@ -176,7 +175,7 @@ module.exports = {
           value: "`/balance [user]` - Displays your balance.",
         },
         {
-          name: "Check-in (SOON!)",
+          name: "Check-in",
           value: "`/checkin` - Grants you daily rewards.",
         },
         {
