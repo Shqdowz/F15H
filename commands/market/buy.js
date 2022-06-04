@@ -51,31 +51,15 @@ module.exports = {
 
               await User.findOneAndUpdate(
                 { _id: userProfile._id },
-                { fishCoins: (userProfile.fishCoins -= 2000) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { butterfish: (userProfile.butterfish -= 10) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { clownfish: (userProfile.clownfish -= 10) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { duck: (userProfile.duck -= 10) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { penguin: (userProfile.penguin -= 10) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { squid: (userProfile.squid -= 10) }
-              );
-              await User.findOneAndUpdate(
-                { _id: userProfile._id },
-                { exquisiteRod: (userProfile.exquisiteRod = "Unlocked! 🔓") }
+                {
+                  fishCoins: (userProfile.fishCoins -= 2000),
+                  butterfish: (userProfile.butterfish -= 10),
+                  clownfish: (userProfile.clownfish -= 10),
+                  duck: (userProfile.duck -= 10),
+                  penguin: (userProfile.penguin -= 10),
+                  squid: (userProfile.squid -= 10),
+                  exquisiteRod: (userProfile.exquisiteRod = "Unlocked! 🔓"),
+                }
               );
             } else {
               error = "!enoughFish";
@@ -111,31 +95,15 @@ module.exports = {
 
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 6000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { crab: (userProfile.crab -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { orca: (userProfile.orca -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { otter: (userProfile.otter -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { shark: (userProfile.shark -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { whale: (userProfile.whale -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { preciousRod: (userProfile.preciousRod = "Unlocked! 🔓") }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 6000),
+                    crab: (userProfile.crab -= 10),
+                    orca: (userProfile.orca -= 10),
+                    otter: (userProfile.otter -= 10),
+                    shark: (userProfile.shark -= 10),
+                    whale: (userProfile.whale -= 10),
+                    preciousRod: (userProfile.preciousRod = "Unlocked! 🔓"),
+                  }
                 );
               } else {
                 error = "!enoughFish";
@@ -174,31 +142,15 @@ module.exports = {
 
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 18000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { jellyfish: (userProfile.jellyfish -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { octopus: (userProfile.octopus -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { seahorse: (userProfile.seahorse -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { seal: (userProfile.seal -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { walrus: (userProfile.walrus -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { luxuriousRod: (userProfile.luxuriousRod = "Unlocked! 🔓") }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 18000),
+                    jellyfish: (userProfile.jellyfish -= 10),
+                    octopus: (userProfile.octopus -= 10),
+                    seahorse: (userProfile.seahorse -= 10),
+                    seal: (userProfile.seal -= 10),
+                    walrus: (userProfile.walrus -= 10),
+                    luxuriousRod: (userProfile.luxuriousRod = "Unlocked! 🔓"),
+                  }
                 );
               } else {
                 error = "!enoughFish";
@@ -237,31 +189,15 @@ module.exports = {
 
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 54000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { coral: (userProfile.coral -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { crocodile: (userProfile.crocodile -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { flamingo: (userProfile.flamingo -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { manatee: (userProfile.manatee -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { turtle: (userProfile.turtle -= 10) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { divineRod: (userProfile.divineRod = "Unlocked! 🔓") }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 54000),
+                    coral: (userProfile.coral -= 10),
+                    crocodile: (userProfile.crocodile -= 10),
+                    flamingo: (userProfile.flamingo -= 10),
+                    manatee: (userProfile.manatee -= 10),
+                    turtle: (userProfile.turtle -= 10),
+                    divineRod: (userProfile.divineRod = "Unlocked! 🔓"),
+                  }
                 );
               } else {
                 error = "!enoughFish";

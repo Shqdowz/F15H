@@ -66,12 +66,10 @@ module.exports = {
           }
           await User.findOneAndUpdate(
             { _id: userProfile._id },
-            { fishCoins: (userProfile.fishCoins += 250) }
-          );
-
-          await User.findOneAndUpdate(
-            { _id: userProfile._id },
-            { F15Hlaunch: (userProfile.F15Hlaunch = true) }
+            {
+              fishCoins: (userProfile.fishCoins += 250),
+              F15Hlaunch: (userProfile.F15Hlaunch = true),
+            }
           );
         } else {
           await interaction.reply({
@@ -91,12 +89,10 @@ module.exports = {
 
           await User.findOneAndUpdate(
             { _id: userProfile._id },
-            { s5LootBox: (userProfile.s5LootBox += 1) }
-          );
-
-          await User.findOneAndUpdate(
-            { _id: userProfile._id },
-            { ShqdowzIsPog: (userProfile.ShqdowzIsPog = true) }
+            {
+              s5LootBox: (userProfile.s5LootBox += 1),
+              ShqdowzIsPog: (userProfile.ShqdowzIsPog = true),
+            }
           );
         } else {
           await interaction.reply({
@@ -119,12 +115,10 @@ module.exports = {
 
           await User.findOneAndUpdate(
             { _id: userProfile._id },
-            { [rf]: (userProfile[rf] += 1) }
-          );
-
-          await User.findOneAndUpdate(
-            { _id: userProfile._id },
-            { legendaryplz: (userProfile.legendaryplz = true) }
+            {
+              [rf]: (userProfile[rf] += 1),
+              legendaryplz: (userProfile.legendaryplz = true),
+            }
           );
         } else {
           await interaction.reply({

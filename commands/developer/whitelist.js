@@ -51,19 +51,12 @@ module.exports = {
 
       await User.findOneAndUpdate(
         { _id: userProfile._id },
-        { wrongCodeCounter: (userProfile.wrongCodeCounter = 0) }
-      );
-      await User.findOneAndUpdate(
-        { _id: userProfile._id },
-        { isBlacklisted: (userProfile.isBlacklisted = false) }
-      );
-      await User.findOneAndUpdate(
-        { _id: userProfile._id },
-        { needVerify: (userProfile.needVerify = false) }
-      );
-      await User.findOneAndUpdate(
-        { _id: userProfile._id },
-        { firstInt: (userProfile.firstInt = true) }
+        {
+          wrongCodeCounter: (userProfile.wrongCodeCounter = 0),
+          isBlacklisted: (userProfile.isBlacklisted = false),
+          needVerify: (userProfile.needVerify = false),
+          firstInt: (userProfile.firstInt = true),
+        }
       );
     } else {
       await interaction.reply({

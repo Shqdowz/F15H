@@ -56,15 +56,11 @@ module.exports = {
               if (userProfile.fishCoins >= 125) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 125) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 2) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 64) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 125),
+                    [fishLevel]: (userProfile[fishLevel] = 2),
+                    [fish]: (userProfile[fish] -= 64),
+                  }
                 );
 
                 error = "none";
@@ -82,15 +78,11 @@ module.exports = {
               if (userProfile.fishCoins >= 250) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 250) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 3) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 128) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 250),
+                    [fishLevel]: (userProfile[fishLevel] = 3),
+                    [fish]: (userProfile[fish] -= 128),
+                  }
                 );
 
                 error = "none";
@@ -108,15 +100,11 @@ module.exports = {
               if (userProfile.fishCoins >= 500) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 500) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 4) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 256) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 500),
+                    [fishLevel]: (userProfile[fishLevel] = 4),
+                    [fish]: (userProfile[fish] -= 256),
+                  }
                 );
 
                 error = "none";
@@ -134,15 +122,11 @@ module.exports = {
               if (userProfile.fishCoins >= 1000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 1000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 5) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 512) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 1000),
+                    [fishLevel]: (userProfile[fishLevel] = 5),
+                    [fish]: (userProfile[fish] -= 512),
+                  }
                 );
 
                 error = "none";
@@ -174,15 +158,11 @@ module.exports = {
               if (userProfile.fishCoins >= 250) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 250) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 2) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 32) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 250),
+                    [fishLevel]: (userProfile[fishLevel] = 2),
+                    [fish]: (userProfile[fish] -= 32),
+                  }
                 );
 
                 error = "none";
@@ -200,15 +180,11 @@ module.exports = {
               if (userProfile.fishCoins >= 500) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 500) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 3) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 64) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 500),
+                    [fishLevel]: (userProfile[fishLevel] = 3),
+                    [fish]: (userProfile[fish] -= 64),
+                  }
                 );
 
                 error = "none";
@@ -226,15 +202,11 @@ module.exports = {
               if (userProfile.fishCoins >= 1000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 1000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 4) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 128) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 1000),
+                    [fishLevel]: (userProfile[fishLevel] = 4),
+                    [fish]: (userProfile[fish] -= 128),
+                  }
                 );
 
                 error = "none";
@@ -252,15 +224,11 @@ module.exports = {
               if (userProfile.fishCoins >= 2000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 2000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 5) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 256) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 2000),
+                    [fishLevel]: (userProfile[fishLevel] = 5),
+                    [fish]: (userProfile[fish] -= 256),
+                  }
                 );
 
                 error = "none";
@@ -292,15 +260,11 @@ module.exports = {
               if (userProfile.fishCoins >= 500) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 500) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 2) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 16) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 500),
+                    [fishLevel]: (userProfile[fishLevel] = 2),
+                    [fish]: (userProfile[fish] -= 16),
+                  }
                 );
 
                 error = "none";
@@ -318,15 +282,11 @@ module.exports = {
               if (userProfile.fishCoins >= 1000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 1000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 3) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 32) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 1000),
+                    [fishLevel]: (userProfile[fishLevel] = 3),
+                    [fish]: (userProfile[fish] -= 32),
+                  }
                 );
 
                 error = "none";
@@ -344,15 +304,11 @@ module.exports = {
               if (userProfile.fishCoins >= 2000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 2000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 4) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 64) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 2000),
+                    [fishLevel]: (userProfile[fishLevel] = 4),
+                    [fish]: (userProfile[fish] -= 64),
+                  }
                 );
 
                 error = "none";
@@ -370,15 +326,11 @@ module.exports = {
               if (userProfile.fishCoins >= 4000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 4000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 5) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 128) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 4000),
+                    [fishLevel]: (userProfile[fishLevel] = 5),
+                    [fish]: (userProfile[fish] -= 128),
+                  }
                 );
 
                 error = "none";
@@ -410,15 +362,11 @@ module.exports = {
               if (userProfile.fishCoins >= 1000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 1000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 2) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 8) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 1000),
+                    [fishLevel]: (userProfile[fishLevel] = 2),
+                    [fish]: (userProfile[fish] -= 8),
+                  }
                 );
 
                 error = "none";
@@ -436,15 +384,11 @@ module.exports = {
               if (userProfile.fishCoins >= 2000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 2000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 3) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 16) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 2000),
+                    [fishLevel]: (userProfile[fishLevel] = 3),
+                    [fish]: (userProfile[fish] -= 16),
+                  }
                 );
 
                 error = "none";
@@ -462,15 +406,11 @@ module.exports = {
               if (userProfile.fishCoins >= 4000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 4000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 4) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 32) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 4000),
+                    [fishLevel]: (userProfile[fishLevel] = 4),
+                    [fish]: (userProfile[fish] -= 32),
+                  }
                 );
 
                 error = "none";
@@ -488,15 +428,11 @@ module.exports = {
               if (userProfile.fishCoins >= 8000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 8000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 5) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 64) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 8000),
+                    [fishLevel]: (userProfile[fishLevel] = 5),
+                    [fish]: (userProfile[fish] -= 64),
+                  }
                 );
 
                 error = "none";
@@ -528,15 +464,11 @@ module.exports = {
               if (userProfile.fishCoins >= 2000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 2000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 2) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 4) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 2000),
+                    [fishLevel]: (userProfile[fishLevel] = 2),
+                    [fish]: (userProfile[fish] -= 4),
+                  }
                 );
 
                 error = "none";
@@ -554,15 +486,11 @@ module.exports = {
               if (userProfile.fishCoins >= 4000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 4000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 3) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 8) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 4000),
+                    [fishLevel]: (userProfile[fishLevel] = 3),
+                    [fish]: (userProfile[fish] -= 8),
+                  }
                 );
 
                 error = "none";
@@ -580,15 +508,11 @@ module.exports = {
               if (userProfile.fishCoins >= 8000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 8000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 4) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 16) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 8000),
+                    [fishLevel]: (userProfile[fishLevel] = 4),
+                    [fish]: (userProfile[fish] -= 16),
+                  }
                 );
 
                 error = "none";
@@ -606,15 +530,11 @@ module.exports = {
               if (userProfile.fishCoins >= 16000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 16000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 5) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 32) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 16000),
+                    [fishLevel]: (userProfile[fishLevel] = 5),
+                    [fish]: (userProfile[fish] -= 32),
+                  }
                 );
 
                 error = "none";
@@ -646,15 +566,11 @@ module.exports = {
               if (userProfile.fishCoins >= 4000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 4000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 2) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 2) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 4000),
+                    [fishLevel]: (userProfile[fishLevel] = 2),
+                    [fish]: (userProfile[fish] -= 2),
+                  }
                 );
 
                 error = "none";
@@ -672,15 +588,11 @@ module.exports = {
               if (userProfile.fishCoins >= 8000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 8000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 3) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 4) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 8000),
+                    [fishLevel]: (userProfile[fishLevel] = 3),
+                    [fish]: (userProfile[fish] -= 4),
+                  }
                 );
 
                 error = "none";
@@ -698,15 +610,11 @@ module.exports = {
               if (userProfile.fishCoins >= 16000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 16000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 4) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 8) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 16000),
+                    [fishLevel]: (userProfile[fishLevel] = 4),
+                    [fish]: (userProfile[fish] -= 8),
+                  }
                 );
 
                 error = "none";
@@ -724,15 +632,11 @@ module.exports = {
               if (userProfile.fishCoins >= 32000) {
                 await User.findOneAndUpdate(
                   { _id: userProfile._id },
-                  { fishCoins: (userProfile.fishCoins -= 32000) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fishLevel]: (userProfile[fishLevel] = 5) }
-                );
-                await User.findOneAndUpdate(
-                  { _id: userProfile._id },
-                  { [fish]: (userProfile[fish] -= 16) }
+                  {
+                    fishCoins: (userProfile.fishCoins -= 32000),
+                    [fishLevel]: (userProfile[fishLevel] = 5),
+                    [fish]: (userProfile[fish] -= 16),
+                  }
                 );
 
                 error = "none";

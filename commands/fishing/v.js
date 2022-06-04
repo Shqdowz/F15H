@@ -28,19 +28,12 @@ module.exports = {
       if (code == userProfile.verifyCode) {
         await User.findOneAndUpdate(
           { _id: userProfile._id },
-          { needVerify: (userProfile.needVerify = false) }
-        );
-        await User.findOneAndUpdate(
-          { _id: userProfile._id },
-          { verifyCode: (userProfile.verifyCode = undefined) }
-        );
-        await User.findOneAndUpdate(
-          { _id: userProfile._id },
-          { commandCounter: (userProfile.commandCounter = 0) }
-        );
-        await User.findOneAndUpdate(
-          { _id: userProfile._id },
-          { wrongCodeCounter: (userProfile.wrongCodeCounter = 0) }
+          {
+            needVerify: (userProfile.needVerify = false),
+            verifyCode: (userProfile.verifyCode = undefined),
+            commandCounter: (userProfile.commandCounter = 0),
+            wrongCodeCounter: (userProfile.wrongCodeCounter = 0),
+          }
         );
 
         if (code == "69420") {
@@ -51,11 +44,10 @@ module.exports = {
 
           await User.findOneAndUpdate(
             { _id: userProfile._id },
-            { [fish]: (userProfile[fish] += 1) }
-          );
-          await User.findOneAndUpdate(
-            { _id: userProfile._id },
-            { [totalFish]: (userProfile[totalFish] += 1) }
+            {
+              [fish]: (userProfile[fish] += 1),
+              [totalFish]: (userProfile[totalFish] += 1),
+            }
           );
 
           if (userProfile[fishLevel] == 0) {
