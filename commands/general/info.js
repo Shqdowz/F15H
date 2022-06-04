@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
-const fishObject = require("../../objects/fish");
+const f = require("../../objects/fish");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -17,23 +17,23 @@ module.exports = {
 
     try {
       const embed = new MessageEmbed()
-        .setTitle(fishObject[fish].name)
+        .setTitle(f[fish].name)
         .addFields(
           {
             name: "General information",
-            value: fishObject[fish].description,
+            value: f[fish].description,
           },
           {
             name: "Levels/Requirements",
-            value: `${fishObject[fish].levelsRequirements} ${fishObject[fish].name}(s)`,
+            value: `${f[fish].levelsRequirements}`,
           },
           {
             name: "Statistics (LVL 1)",
-            value: `:heart: Health: ${fishObject[fish].health}\n:dagger: Damage: ${fishObject[fish].damage}\n:boom: Crit:\n- Rate: ${fishObject[fish].critRate}%\n- Damage: ${fishObject[fish].critDamage}%`,
+            value: `:heart: Health: ${f[fish].health}\n:dagger: Damage: ${f[fish].damage}\n:boom: Crit:\n- Rate: ${f[fish].critRate}%\n- Damage: ${f[fish].critDamage}%`,
           },
           {
             name: "Market",
-            value: `Sell price: ${fishObject[fish].sell} <:FishCoin:937423381756772364> Fish Coin(s)\nBuy price: Auction House exclusive\nTrading: ${fishObject[fish].trade} every 6 hours`,
+            value: `Sell price: ${f[fish].sell} <:FishCoin:937423381756772364> Fish Coin(s)\nBuy price: Auction House exclusive\nTrading: ${f[fish].trade} every 6 hours`,
           }
         )
         .setFooter({ text: `Requested by ${interaction.user.tag}` })
