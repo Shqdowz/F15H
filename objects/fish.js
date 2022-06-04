@@ -5,7 +5,8 @@ module.exports = {
   cod: {
     name: "Cod",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 64/128/256/512",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 64/128/256/512 Cods & 125/250/500/1000 Fish Coins",
     health: 40,
     damage: 10,
     critRate: 5,
@@ -16,7 +17,8 @@ module.exports = {
   herring: {
     name: "Herring",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 64/128/256/512",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 64/128/256/512 Herrings & 125/250/500/1000 Fish Coins",
     health: 50,
     damage: 8,
     critRate: 69,
@@ -27,7 +29,8 @@ module.exports = {
   pufferfish: {
     name: "Pufferfish",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 64/128/256/512",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 64/128/256/512 Pufferfish & 125/250/500/1000 Fish Coins",
     health: 60,
     damage: 6,
     critRate: 5,
@@ -38,7 +41,8 @@ module.exports = {
   salmon: {
     name: "Salmon",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 64/128/256/512",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 64/128/256/512 Salmons & 125/250/500/1000 Fish Coins",
     health: 70,
     damage: 4,
     critRate: 5,
@@ -49,7 +53,8 @@ module.exports = {
   shrimp: {
     name: "Shrimp",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 64/128/256/512",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 64/128/256/512 Shrimps & 125/250/500/1000 Fish Coins",
     health: 80,
     damage: 2,
     critRate: 5,
@@ -60,7 +65,8 @@ module.exports = {
   butterfish: {
     name: "Butterfish",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 32/64/128/256",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 32/64/128/256 Butterfish & 250/500/1000/2000 Fish Coins",
     health: 80,
     damage: 20,
     critRate: 10,
@@ -71,7 +77,8 @@ module.exports = {
   clownfish: {
     name: "Clownfish",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 32/64/128/256",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 32/64/128/256 Clownfish & 250/500/1000/2000 Fish Coins",
     health: 100,
     damage: 16,
     critRate: 10,
@@ -82,7 +89,8 @@ module.exports = {
   duck: {
     name: "Duck",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 32/64/128/256",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 32/64/128/256 Ducks & 250/500/1000/2000 Fish Coins",
     health: 120,
     damage: 12,
     critRate: 10,
@@ -93,7 +101,8 @@ module.exports = {
   penguin: {
     name: "Penguin",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 32/64/128/256",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 32/64/128/256 Penguins & 250/500/1000/2000 Fish Coins",
     health: 140,
     damage: 8,
     critRate: 10,
@@ -104,7 +113,8 @@ module.exports = {
   squid: {
     name: "Squid",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 32/64/128/256",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 32/64/128/256 Squids & 250/500/1000/2000 Fish Coins",
     health: 160,
     damage: 4,
     critRate: 10,
@@ -115,7 +125,8 @@ module.exports = {
   crab: {
     name: "Crab",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 16/32/64/128",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 16/32/64/128 Crabs & 500/1000/2000/4000 Fish Coins",
     health: 120,
     damage: 30,
     critRate: 15,
@@ -126,7 +137,8 @@ module.exports = {
   orca: {
     name: "Orca",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 16/32/64/128",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 16/32/64/128 Orcas & 500/1000/2000/4000 Fish Coins",
     health: 150,
     damage: 24,
     critRate: 15,
@@ -137,7 +149,8 @@ module.exports = {
   otter: {
     name: "Otter",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 16/32/64/128",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 16/32/64/128 Otters & 500/1000/2000/4000 Fish Coins",
     health: 180,
     damage: 18,
     critRate: 15,
@@ -148,7 +161,8 @@ module.exports = {
   shark: {
     name: "Shark",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 16/32/64/128",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 16/32/64/128 Sharks & 500/1000/2000/4000 Fish Coins",
     health: 210,
     damage: 12,
     critRate: 15,
@@ -159,7 +173,8 @@ module.exports = {
   whale: {
     name: "Whale",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 16/32/64/128",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 16/32/64/128 Whales & 500/1000/2000/4000 Fish Coins",
     health: 240,
     damage: 6,
     critRate: 15,
@@ -170,7 +185,8 @@ module.exports = {
   jellyfish: {
     name: "Jellyfish",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 8/16/32/64",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 8/16/32/64 Jellyfish & 1000/2000/4000/8000 Fish Coins",
     health: 160,
     damage: 40,
     critRate: 20,
@@ -181,7 +197,8 @@ module.exports = {
   octopus: {
     name: "Octopus",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 8/16/32/64",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 8/16/32/64 Octopuses & 1000/2000/4000/8000 Fish Coins",
     health: 200,
     damage: 32,
     critRate: 20,
@@ -192,7 +209,8 @@ module.exports = {
   seahorse: {
     name: "Seahorse",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 8/16/32/64",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 8/16/32/64 Seahorses & 1000/2000/4000/8000 Fish Coins",
     health: 240,
     damage: 24,
     critRate: 20,
@@ -203,7 +221,8 @@ module.exports = {
   seal: {
     name: "Seal",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 8/16/32/64",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 8/16/32/64 Seals & 1000/2000/4000/8000 Fish Coins",
     health: 280,
     damage: 16,
     critRate: 20,
@@ -214,7 +233,8 @@ module.exports = {
   walrus: {
     name: "Walrus",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 8/16/32/64",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 8/16/32/64 Walruses & 1000/2000/4000/8000 Fish Coins",
     health: 320,
     damage: 8,
     critRate: 20,
@@ -225,7 +245,8 @@ module.exports = {
   coral: {
     name: "Coral",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 4/8/16/32",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 4/8/16/32 Corals & 2000/4000/8000/16000 Fish Coins",
     health: 200,
     damage: 50,
     critRate: 25,
@@ -236,7 +257,8 @@ module.exports = {
   crocodile: {
     name: "Crocodile",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 4/8/16/32",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 4/8/16/32 Crocodiles & 2000/4000/8000/16000 Fish Coins",
     health: 400,
     damage: 10,
     critRate: 25,
@@ -247,7 +269,8 @@ module.exports = {
   flamingo: {
     name: "Flamingo",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 4/8/16/32",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 4/8/16/32 Flamingos & 2000/4000/8000/16000 Fish Coins",
     health: 300,
     damage: 30,
     critRate: 25,
@@ -258,7 +281,8 @@ module.exports = {
   manatee: {
     name: "Manatee",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 4/8/16/32",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 4/8/16/32 Manatees & 2000/4000/8000/16000 Fish Coins",
     health: 250,
     damage: 40,
     critRate: 25,
@@ -269,7 +293,8 @@ module.exports = {
   turtle: {
     name: "Turtle",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 4/8/16/32",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 4/8/16/32 Turtles & 2000/4000/8000/16000 Fish Coins",
     health: 350,
     damage: 20,
     critRate: 25,
@@ -280,7 +305,8 @@ module.exports = {
   blobfish: {
     name: "Blobfish",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 2/4/8/16",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 2/4/8/16 Blobfish & 4000/8000/16000/32000 Fish Coins",
     health: 240,
     damage: 60,
     critRate: 30,
@@ -291,7 +317,8 @@ module.exports = {
   catfish: {
     name: "Catfish",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 2/4/8/16",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 2/4/8/16 Catfish & 4000/8000/16000/32000 Fish Coins",
     health: 300,
     damage: 48,
     critRate: 30,
@@ -302,7 +329,8 @@ module.exports = {
   dolphin: {
     name: "Dolphin",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 2/4/8/16",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 2/4/8/16 Dolphins & 4000/8000/16000/32000 Fish Coins",
     health: 360,
     damage: 36,
     critRate: 30,
@@ -313,7 +341,8 @@ module.exports = {
   mermaid: {
     name: "Mermaid",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 2/4/8/16",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 2/4/8/16 Mermaids & 4000/8000/16000/32000 Fish Coins",
     health: 420,
     damage: 24,
     critRate: 30,
@@ -324,7 +353,8 @@ module.exports = {
   starfish: {
     name: "Starfish",
     description: "SOON!",
-    levelsRequirements: "Level: 2/3/4/5\nRequires: 2/4/8/16",
+    levelsRequirements:
+      "Level: 2/3/4/5\nRequires: 2/4/8/16 Starfish & 4000/8000/16000/32000 Fish Coins",
     health: 480,
     damage: 12,
     critRate: 30,
