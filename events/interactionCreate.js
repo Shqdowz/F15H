@@ -2,7 +2,6 @@ const { MessageEmbed } = require("discord.js");
 const User = require("../schemas/user");
 
 let embed;
-const cooldowns = [];
 
 module.exports = {
   name: "interactionCreate",
@@ -26,17 +25,11 @@ module.exports = {
       if (Math.ceil(Math.random() * 20) == 20) {
         await User.findOneAndUpdate(
           { _id: userProfile._id },
-          { needVerify: (userProfile.needVerify = true) }
-        );
-
-        await User.findOneAndUpdate(
-          { _id: userProfile._id },
-          { firstInt: (userProfile.firstInt = true) }
-        );
-
-        await User.findOneAndUpdate(
-          { _id: userProfile._id },
-          { commandCounter: (userProfile.commandCounter = 0) }
+          {
+            needVerify: (userProfile.needVerify = true),
+            firstInt: (userProfile.firstInt = true),
+            commandCounter: (userProfile.commandCounter = 0),
+          }
         );
       }
     }
@@ -44,11 +37,10 @@ module.exports = {
     if (userProfile.wrongCodeCounter >= 5) {
       await User.findOneAndUpdate(
         { _id: userProfile._id },
-        { isBlacklisted: (userProfile.isBlacklisted = true) }
-      );
-      await User.findOneAndUpdate(
-        { _id: userProfile._id },
-        { wrongCodeCounter: (userProfile.wrongCodeCounter = 0) }
+        {
+          isBlacklisted: (userProfile.isBlacklisted = true),
+          wrongCodeCounter: (userProfile.wrongCodeCounter = 0),
+        }
       );
     }
     if (userProfile.isBlacklisted) {
@@ -81,17 +73,16 @@ module.exports = {
 
         await User.findOneAndUpdate(
           { _id: userProfile._id },
-          { verifyCode: (userProfile.verifyCode = code) }
+          {
+            verifyCode: (userProfile.verifyCode = code),
+            firstInt: (userProfile.firstInt = false),
+          }
         );
 
         await interaction.reply({
           content: `Please /v (verify) the following code to prove you aren't afk: \`${code}\``,
           ephemeral: true,
         });
-        await User.findOneAndUpdate(
-          { _id: userProfile._id },
-          { firstInt: (userProfile.firstInt = false) }
-        );
       } else if (interaction.commandName != "v" && !userProfile.firstInt) {
         await User.findOneAndUpdate(
           { _id: userProfile._id },
@@ -114,7 +105,7 @@ module.exports = {
           const logEmbed = new MessageEmbed()
             .setTitle("Blacklist")
             .setDescription(
-              `${interaction.user} (${interaction.user.id}) got auto-blacklisted by the anti-afk system.`
+              `${interaction.user.tag} (id: ${interaction.user.id}) got auto-blacklisted by the anti-afk system.`
             )
             .setColor("#000000")
             .setTimestamp();
@@ -135,62 +126,67 @@ module.exports = {
         }
       }
     } else {
-      if (cooldowns.includes(interaction.user.id)) {
+      const timeLeft =
+        Math.round((userProfile.globalCooldown - Date.now()) / 100) / 10;
+
+      if (timeLeft >= 0) {
         await interaction.reply({
-          content: `You are currently on cooldown!`,
+          content: `You are on global cooldown! Please wait ${timeLeft} more seconds.`,
           ephemeral: true,
         });
+
+        execute = false;
       } else {
-        cooldowns.push(interaction.user.id);
-        setTimeout(() => {
-          cooldowns.shift();
-        }, 3000);
+        execute = true;
+
+        const cooldown = Date.now() + 3 * 1000;
 
         await User.findOneAndUpdate(
           { _id: userProfile._id },
-          { commandCounter: (userProfile.commandCounter += 1) }
+          { globalCooldown: (userProfile.globalCooldown = cooldown) }
+        );
+      }
+    }
+
+    if (execute) {
+      await User.findOneAndUpdate(
+        { _id: userProfile._id },
+        { commandCounter: (userProfile.commandCounter += 1) }
+      );
+
+      if (userProfile.experience > userProfile.neededExperience) {
+        await User.findOneAndUpdate(
+          { _id: userProfile._id },
+          {
+            experience: (userProfile.experience -=
+              userProfile.neededExperience),
+            level: (userProfile.level += 1),
+            neededExperience: (userProfile.neededExperience += 250),
+          }
         );
 
-        if (userProfile.experience > userProfile.neededExperience) {
-          await User.findOneAndUpdate(
-            { _id: userProfile._id },
-            {
-              experience: (userProfile.experience -=
-                userProfile.neededExperience),
-            }
-          );
-          await User.findOneAndUpdate(
-            { _id: userProfile._id },
-            { level: (userProfile.level += 1) }
-          );
-          await User.findOneAndUpdate(
-            { _id: userProfile._id },
-            { neededExperience: (userProfile.neededExperience += 250) }
-          );
+        embed = new MessageEmbed()
+          .setTitle("Level up!")
+          .setDescription(
+            `Congratulations ${interaction.user.tag}, you advanced to level ${userProfile.level}!`
+          )
+          .setColor("#ADD8E6")
+          .setTimestamp();
 
-          embed = new MessageEmbed()
-            .setTitle("Level up!")
-            .setDescription(
-              `Congratulations ${interaction.user.tag}, you advanced to level ${userProfile.level}!`
-            )
-            .setColor("#ADD8E6")
-            .setTimestamp();
+        await interaction.channel.send({
+          content: `${interaction.user}`,
+          embeds: [embed],
+        });
+      }
 
-          await interaction.channel.send({
-            content: `${interaction.user}`,
-            embeds: [embed],
-          });
-        }
-
-        try {
-          await command.execute(interaction, client);
-        } catch (error) {
-          console.error(error);
-          await interaction.reply({
-            content: "There was an error while executing this command!",
-            ephemeral: true,
-          });
-        }
+      try {
+        await command.execute(interaction, client);
+      } catch (error) {
+        console.error(error);
+        await interaction.reply({
+          content: "There was an error while executing this command!",
+          ephemeral: true,
+        });
       }
     }
   },
