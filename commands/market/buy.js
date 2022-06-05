@@ -34,16 +34,16 @@ module.exports = {
         if (userProfile.exquisiteRod === "Locked! 🔒") {
           if (userProfile.fishCoins >= 2000) {
             if (
-              userProfile.butterfish >= 10 &&
-              userProfile.clownfish >= 10 &&
-              userProfile.duck >= 10 &&
-              userProfile.penguin >= 10 &&
-              userProfile.squid >= 10
+              userProfile.butterfish >= 5 &&
+              userProfile.clownfish >= 5 &&
+              userProfile.duck >= 5 &&
+              userProfile.penguin >= 5 &&
+              userProfile.squid >= 5
             ) {
               embed = new MessageEmbed()
                 .setTitle("Purchase successful!")
                 .setDescription(
-                  "You bought the Exquisite rod for 2000 <:FishCoin:937423381756772364> &  10 of each uncommon fish! Equip it with `/equip exquisite`."
+                  "You bought the Exquisite rod for 2000 <:FishCoin:937423381756772364> &  5 of each uncommon fish! Equip it with `/equip exquisite`."
                 )
                 .setFooter({ text: `Performed by ${interaction.user.tag}` })
                 .setColor("#ADD8E6")
@@ -53,11 +53,11 @@ module.exports = {
                 { _id: userProfile._id },
                 {
                   fishCoins: (userProfile.fishCoins -= 2000),
-                  butterfish: (userProfile.butterfish -= 10),
-                  clownfish: (userProfile.clownfish -= 10),
-                  duck: (userProfile.duck -= 10),
-                  penguin: (userProfile.penguin -= 10),
-                  squid: (userProfile.squid -= 10),
+                  butterfish: (userProfile.butterfish -= 5),
+                  clownfish: (userProfile.clownfish -= 5),
+                  duck: (userProfile.duck -= 5),
+                  penguin: (userProfile.penguin -= 5),
+                  squid: (userProfile.squid -= 5),
                   exquisiteRod: (userProfile.exquisiteRod = "Unlocked! 🔓"),
                 }
               );
@@ -78,16 +78,16 @@ module.exports = {
           if (userProfile.exquisiteRod === "Unlocked! 🔓") {
             if (userProfile.fishCoins >= 6000) {
               if (
-                userProfile.crab >= 10 &&
-                userProfile.orca >= 10 &&
-                userProfile.otter >= 10 &&
-                userProfile.shark >= 10 &&
-                userProfile.whale >= 10
+                userProfile.crab >= 5 &&
+                userProfile.orca >= 5 &&
+                userProfile.otter >= 5 &&
+                userProfile.shark >= 5 &&
+                userProfile.whale >= 5
               ) {
                 embed = new MessageEmbed()
                   .setTitle("Purchase successful!")
                   .setDescription(
-                    "You bought the Precious rod for 6000 <:FishCoin:937423381756772364> &  10 of each rare fish! Equip it with `/equip precious`."
+                    "You bought the Precious rod for 6000 <:FishCoin:937423381756772364> &  5 of each rare fish! Equip it with `/equip precious`."
                   )
                   .setFooter({ text: `Performed by ${interaction.user.tag}` })
                   .setColor("#ADD8E6")
@@ -97,11 +97,11 @@ module.exports = {
                   { _id: userProfile._id },
                   {
                     fishCoins: (userProfile.fishCoins -= 6000),
-                    crab: (userProfile.crab -= 10),
-                    orca: (userProfile.orca -= 10),
-                    otter: (userProfile.otter -= 10),
-                    shark: (userProfile.shark -= 10),
-                    whale: (userProfile.whale -= 10),
+                    crab: (userProfile.crab -= 5),
+                    orca: (userProfile.orca -= 5),
+                    otter: (userProfile.otter -= 5),
+                    shark: (userProfile.shark -= 5),
+                    whale: (userProfile.whale -= 5),
                     preciousRod: (userProfile.preciousRod = "Unlocked! 🔓"),
                   }
                 );
@@ -125,16 +125,16 @@ module.exports = {
           if (userProfile.preciousRod === "Unlocked! 🔓") {
             if (userProfile.fishCoins >= 18000) {
               if (
-                userProfile.jellyfish >= 10 &&
-                userProfile.octopus >= 10 &&
-                userProfile.seahorse >= 10 &&
-                userProfile.seal >= 10 &&
-                userProfile.walrus >= 10
+                userProfile.jellyfish >= 5 &&
+                userProfile.octopus >= 5 &&
+                userProfile.seahorse >= 5 &&
+                userProfile.seal >= 5 &&
+                userProfile.walrus >= 5
               ) {
                 embed = new MessageEmbed()
                   .setTitle("Purchase successful!")
                   .setDescription(
-                    "You bought the Luxurious rod for 18000 <:FishCoin:937423381756772364> &  10 of each epic fish! Equip it with `/equip luxurious`."
+                    "You bought the Luxurious rod for 18000 <:FishCoin:937423381756772364> &  5 of each epic fish! Equip it with `/equip luxurious`."
                   )
                   .setFooter({ text: `Performed by ${interaction.user.tag}` })
                   .setColor("#ADD8E6")
@@ -144,11 +144,11 @@ module.exports = {
                   { _id: userProfile._id },
                   {
                     fishCoins: (userProfile.fishCoins -= 18000),
-                    jellyfish: (userProfile.jellyfish -= 10),
-                    octopus: (userProfile.octopus -= 10),
-                    seahorse: (userProfile.seahorse -= 10),
-                    seal: (userProfile.seal -= 10),
-                    walrus: (userProfile.walrus -= 10),
+                    jellyfish: (userProfile.jellyfish -= 5),
+                    octopus: (userProfile.octopus -= 5),
+                    seahorse: (userProfile.seahorse -= 5),
+                    seal: (userProfile.seal -= 5),
+                    walrus: (userProfile.walrus -= 5),
                     luxuriousRod: (userProfile.luxuriousRod = "Unlocked! 🔓"),
                   }
                 );
@@ -172,16 +172,16 @@ module.exports = {
           if (userProfile.luxuriousRod === "Unlocked! 🔓") {
             if (userProfile.fishCoins >= 54000) {
               if (
-                userProfile.coral >= 10 &&
-                userProfile.crocodile >= 10 &&
-                userProfile.flamingo >= 10 &&
-                userProfile.manatee >= 10 &&
-                userProfile.turtle >= 10
+                userProfile.coral >= 5 &&
+                userProfile.crocodile >= 5 &&
+                userProfile.flamingo >= 5 &&
+                userProfile.manatee >= 5 &&
+                userProfile.turtle >= 5
               ) {
                 embed = new MessageEmbed()
                   .setTitle("Purchase successful!")
                   .setDescription(
-                    "You bought the Divine rod for 54000 <:FishCoin:937423381756772364> &  10 of each mythic fish! Equip it with `/equip divine`."
+                    "You bought the Divine rod for 54000 <:FishCoin:937423381756772364> &  5 of each mythic fish! Equip it with `/equip divine`."
                   )
                   .setFooter({ text: `Performed by ${interaction.user.tag}` })
                   .setColor("#ADD8E6")
@@ -191,11 +191,11 @@ module.exports = {
                   { _id: userProfile._id },
                   {
                     fishCoins: (userProfile.fishCoins -= 54000),
-                    coral: (userProfile.coral -= 10),
-                    crocodile: (userProfile.crocodile -= 10),
-                    flamingo: (userProfile.flamingo -= 10),
-                    manatee: (userProfile.manatee -= 10),
-                    turtle: (userProfile.turtle -= 10),
+                    coral: (userProfile.coral -= 5),
+                    crocodile: (userProfile.crocodile -= 5),
+                    flamingo: (userProfile.flamingo -= 5),
+                    manatee: (userProfile.manatee -= 5),
+                    turtle: (userProfile.turtle -= 5),
                     divineRod: (userProfile.divineRod = "Unlocked! 🔓"),
                   }
                 );
@@ -233,7 +233,7 @@ module.exports = {
       });
     } else if (error == "!enoughFish") {
       await interaction.reply({
-        content: `You need 10 of each ${rarity} fish to buy this item!`,
+        content: `You need 5 of each ${rarity} fish to buy this item!`,
         ephemeral: true,
       });
     } else if (embed) {
