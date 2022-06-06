@@ -2,6 +2,8 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
+// Initialization (change on restart)
+
 let rf, fishName;
 const commonFish = ["cod", "herring", "pufferfish", "salmon", "shrimp"];
 const uncommonFish = ["butterfish", "clownfish", "duck", "penguin", "squid"];
@@ -35,7 +37,7 @@ module.exports = {
         ephemeral: true,
       });
     } else {
-      // Initialization
+      // Initialization (change on command)
 
       let reward, amount;
 

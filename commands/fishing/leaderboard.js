@@ -2,6 +2,8 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
+// Initialization (change on restart)
+
 let top, embed;
 
 module.exports = {
@@ -14,8 +16,13 @@ module.exports = {
         .setDescription("The category to view")
         .setRequired(true)
     ),
-  async execute(interaction, client) {
+  async execute(interaction) {
+    // Option
+
     const category = interaction.options.getString("category").toLowerCase();
+
+    // Code
+
     switch (category) {
       case "coins":
         top = await User.find({}).sort({ fishCoins: -1 });

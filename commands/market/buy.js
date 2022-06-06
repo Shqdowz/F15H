@@ -2,6 +2,8 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
+// Initialization (change on restart)
+
 let rarity, embed, amountShort;
 
 module.exports = {
@@ -19,9 +21,11 @@ module.exports = {
 
     const item = interaction.options.getNumber("item");
 
-    // Initialization
+    // Database
 
     const userProfile = await client.createUser(interaction.member);
+
+    // Initialization (change on command)
 
     let error;
 

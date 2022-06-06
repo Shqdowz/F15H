@@ -5,7 +5,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("invite")
     .setDescription("Invite the bot to your server"),
-  async execute(interaction, client) {
+  async execute(interaction) {
     const embed = new MessageEmbed()
       .setTitle(`F15H bot invite link`)
       .setDescription(

@@ -13,19 +13,17 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction, client) {
-    // Database
-
-    const userProfile = await client.createUser(interaction.member);
-
     // Option
 
     let stars = interaction.options.getNumber("stars");
 
-    // Initialization
+    // Database
+
+    const userProfile = await client.createUser(interaction.member);
+
+    // Initialization (change on command)
 
     let error, success, reward, amount;
-
-    // Embeds
 
     // Code
 

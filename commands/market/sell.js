@@ -2,6 +2,8 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
+// Initialization (change on restart)
+
 let embed;
 const fish = [
   "cod",
@@ -53,16 +55,16 @@ module.exports = {
         .setRequired(false)
     ),
   async execute(interaction, client) {
-    // Database
-
-    const userProfile = await client.createUser(interaction.member);
-
     // Options
 
     const type = interaction.options.getString("type").toLowerCase();
     let amount = interaction.options.getString("amount");
 
-    // Initialization
+    // Database
+
+    const userProfile = await client.createUser(interaction.member);
+
+    // Initialization (change on command)
 
     let coins =
       userProfile.cod +

@@ -8,9 +8,11 @@ module.exports = {
     .setName("fish")
     .setDescription("Fish with your fishing rod"),
   async execute(interaction, client) {
-    // Initialization
+    // Database
 
     const userProfile = await client.createUser(interaction.member);
+
+    // Initialization (change on command)
 
     const rod = `${userProfile.equippedRod}Rod`;
 

@@ -5,7 +5,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("loot")
     .setDescription("Displays Loot Box drop rates"),
-  async execute(interaction, client) {
+  async execute(interaction) {
     // Embed
 
     const loot = new MessageEmbed()

@@ -5,7 +5,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("rules")
     .setDescription("Displays the bot rules"),
-  async execute(interaction, client) {
+  async execute(interaction) {
     const embed = new MessageEmbed()
       .setTitle("F15H bot rules")
       .setDescription(

@@ -1,8 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
-const User = require("../../schemas/user");
-
-let inventoryEmbed, row;
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -28,9 +25,11 @@ module.exports = {
       : interaction.user;
     let page = interaction.options.getNumber("page");
 
-    // Initialization
+    // Database
 
     const userProfile = await client.createUser(user);
+
+    // Initialization (change on command)
 
     const fishNames = [
       "Cod",
@@ -163,60 +162,26 @@ module.exports = {
       .setColor("#ADD8E6")
       .setTimestamp();
 
-    // const inventory1_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("nothing")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(true),
-    //   new MessageButton()
-    //     .setCustomId("inventory2")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false)
-    // );
-
-    // const inventory2_ = new MessageActionRow().addComponents(
-    //   new MessageButton()
-    //     .setCustomId("inventory1")
-    //     .setLabel("Previous page")
-    //     .setEmoji("⬅️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(false),
-    //   new MessageButton()
-    //     .setCustomId("nothing")
-    //     .setLabel("Next page")
-    //     .setEmoji("➡️")
-    //     .setStyle("PRIMARY")
-    //     .setDisabled(true)
-    // );
-
     // Code
 
     if (page === 1 || page === 2) {
       switch (page) {
         case 1:
           embed = inventory1;
-          //row = inventory1_;
           break;
         case 2:
           embed = inventory2;
-          //row = inventory2_;
           break;
       }
 
       await interaction.reply({
         content: `${interaction.user}`,
         embeds: [embed],
-        //components: [row],
       });
     } else if (!page) {
       await interaction.reply({
         content: `${interaction.user}`,
         embeds: [inventory1],
-        //components: [inventory1_],
       });
     } else {
       await interaction.reply({
@@ -224,37 +189,5 @@ module.exports = {
         ephemeral: true,
       });
     }
-
-    // const collector = interaction.channel.createMessageComponentCollector({
-    //   componentType: "BUTTON",
-    // });
-
-    // collector.on("collect", async (i) => {
-    //   if (i.user.id === interaction.user.id) {
-    //     switch (i.customId) {
-    //       case "inventory1":
-    //         inventoryEmbed = inventory1;
-    //         row = inventory1_;
-    //         break;
-    //       case "inventory2":
-    //         inventoryEmbed = inventory2;
-    //         row = inventory2_;
-    //         break;
-    //     }
-
-    //     try {
-    //       await i.update({
-    //         content: `${interaction.user}`,
-    //         embeds: [inventoryEmbed],
-    //         components: [row],
-    //       });
-    //     } catch (err) {}
-    //   } else {
-    //     i.reply({
-    //       content: `These aren't your buttons!`,
-    //       ephemeral: true,
-    //     });
-    //   }
-    // });
   },
 };

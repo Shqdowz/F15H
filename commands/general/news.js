@@ -5,7 +5,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("news")
     .setDescription("View the latest news"),
-  async execute(interaction, client) {
+  async execute(interaction) {
     const embed = new MessageEmbed()
       .setTitle(`The latest F15H news`)
       .addFields(

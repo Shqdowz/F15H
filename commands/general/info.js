@@ -13,7 +13,11 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction) {
+    // Option
+
     const fish = interaction.options.getString("fish").toLowerCase();
+
+    // Code
 
     try {
       const embed = new MessageEmbed()

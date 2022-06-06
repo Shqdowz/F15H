@@ -2,6 +2,8 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
+// Initialization (change on restart)
+
 let embed, success;
 
 module.exports = {
@@ -12,9 +14,15 @@ module.exports = {
       option.setName("rod").setDescription("The rod to equip").setRequired(true)
     ),
   async execute(interaction, client) {
+    // Option
+
     const rod = interaction.options.getString("rod").toLowerCase();
 
+    // Database
+
     const userProfile = await client.createUser(interaction.member);
+
+    // Code
 
     if (
       rod == "common" ||

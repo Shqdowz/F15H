@@ -2,6 +2,8 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
+// Initialization (change on restart)
+
 let embed, rf;
 const commonFish = ["cod", "herring", "pufferfish", "salmon", "shrimp"];
 const uncommonFish = ["butterfish", "clownfish", "duck", "penguin", "squid"];
@@ -19,9 +21,15 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction, client) {
+    // Option
+
     const code = interaction.options.getString("code");
 
+    // Database
+
     const userProfile = await client.createUser(interaction.member);
+
+    // Code
 
     switch (code) {
       case "F15Hlaunch":

@@ -12,10 +12,17 @@ module.exports = {
         .setRequired(false)
     ),
   async execute(interaction, client) {
+    // Option
+
     let user = interaction.options.getUser("user")
       ? interaction.options.getUser("user")
       : interaction.user;
+
+    // Database
+
     const userProfile = await client.createUser(user);
+
+    // Embed
 
     let embed = new MessageEmbed()
       .setTitle(`${user.tag}'s profile`)
@@ -44,6 +51,9 @@ module.exports = {
       .setFooter({ text: `Requested by ${interaction.user.tag}` })
       .setColor("#ADD8E6")
       .setTimestamp();
+
+    // Code
+
     await interaction.reply({
       content: `${interaction.user}`,
       embeds: [embed],

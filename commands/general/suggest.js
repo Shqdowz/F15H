@@ -12,10 +12,16 @@ module.exports = {
         .setRequired(true)
     ),
   async execute(interaction, client) {
+    // Option
+
     const suggestion = interaction.options.getString("suggestion");
+
+    // Initialization (change on command)
 
     const guild = client.guilds.cache.get("937018874572972112");
     const channel = "967880555540664370";
+
+    // Embed
 
     const embed = new MessageEmbed()
       .setTitle(
@@ -25,6 +31,8 @@ module.exports = {
       .setFooter({ text: `✅ = will be added` })
       .setColor("#ADD8E6")
       .setTimestamp();
+
+    // Code
 
     const reply = await guild.channels.cache.get(channel).send({
       embeds: [embed],

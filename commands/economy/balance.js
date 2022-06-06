@@ -18,7 +18,7 @@ module.exports = {
       ? interaction.options.getUser("user")
       : interaction.user;
 
-    // Initialization
+    // Database
 
     const userProfile = await client.createUser(user);
 

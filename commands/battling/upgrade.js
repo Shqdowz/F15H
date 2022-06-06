@@ -2,6 +2,8 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 const User = require("../../schemas/user");
 
+// Initialization (change on restart)
+
 let error, amountShort;
 
 module.exports = {
@@ -19,9 +21,11 @@ module.exports = {
 
     const fish = interaction.options.getString("fish").toLowerCase();
 
-    // Initialization
+    // Database
 
     const userProfile = await client.createUser(interaction.member);
+
+    // Initialization (change on command)
 
     const fishName = fish.charAt(0).toUpperCase() + fish.slice(1);
     const fishLevel = `${fish}Level`;

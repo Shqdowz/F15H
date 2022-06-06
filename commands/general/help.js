@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 
+// Initialization (change on restart)
+
 let helpEmbed;
 
 module.exports = {

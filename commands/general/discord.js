@@ -5,7 +5,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("discord")
     .setDescription("Join the official F15H discord server"),
-  async execute(interaction, client) {
+  async execute(interaction) {
     const embed = new MessageEmbed()
       .setTitle(`F15H discord server link`)
       .setDescription(
