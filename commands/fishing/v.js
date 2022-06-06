@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const User = require("../../schemas/user");
 
+// Initialization (change on restart)
+
 const legendaryFish = ["blobfish", "catfish", "dolphin", "mermaid", "starfish"];
 
 module.exports = {
@@ -18,7 +20,7 @@ module.exports = {
 
     const code = interaction.options.getString("code");
 
-    // Initialization
+    // Database
 
     const userProfile = await client.createUser(interaction.member);
 
