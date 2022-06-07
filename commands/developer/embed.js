@@ -93,10 +93,8 @@ module.exports = {
       .setColor("ADD8E6");
 
     const updatelog = new MessageEmbed()
-      .setTitle("v1.2")
-      .setDescription(
-        "• `/info` - Added the Fish Coins cost of upgrades\n• Implemented a new and more reliable cooldown system\n• `/checkin` - Added the check-in command\n• `/sell` - QOL update\n• Lowered the fish requirement for Fishing Rods to 5 of each of a rarity instead of 10\n• `/loot` - Added the ability to view Loot Box drop rates\n• `/open` - Added the ability to open Loot Boxes"
-      )
+      .setTitle("v1.3")
+      .setDescription("soon")
       .setColor("ADD8E6")
       .setTimestamp();
 
