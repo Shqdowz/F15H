@@ -17,6 +17,10 @@ module.exports = {
         {
           name: "29-5-2022",
           value: "Update v1.1 is live!",
+        },
+        {
+          name: "7-6-2022",
+          value: "Update v1.2 is live!",
         }
       )
       .setFooter({ text: `Reported at: 25-5-2022` })

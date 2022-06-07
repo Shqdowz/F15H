@@ -34,6 +34,8 @@ module.exports = {
       }
     }
 
+    let execute;
+
     if (userProfile.wrongCodeCounter >= 5) {
       await User.findOneAndUpdate(
         { _id: userProfile._id },
