@@ -37,7 +37,7 @@ module.exports = {
           },
           {
             name: "Market",
-            value: `Sell price: ${f[fish].sell} <:FishCoin:937423381756772364> Fish Coin(s)\nBuy price: Auction House exclusive\nTrading: ${f[fish].trade} every 6 hours`,
+            value: `Sell price: ${f[fish].sell} <:FishCoin:937423381756772364> Fish Coin(s)\nBuy price: Auction House exclusive\nTrading: ${f[fish].trade} every 24 hours`,
           }
         )
         .setFooter({ text: `Requested by ${interaction.user.tag}` })
