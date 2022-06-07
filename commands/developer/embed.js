@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { MessageEmbed } = require("discord.js");
 
+// Initialization (change on restart)
+
 let embed;
 
 module.exports = {
@@ -25,7 +27,7 @@ module.exports = {
     const cEmbed = interaction.options.getString("embed").toLowerCase();
     const channel = interaction.options.getChannel("channel");
 
-    // Initialization
+    // Initialization (change on command)
 
     let content;
 
@@ -91,9 +93,9 @@ module.exports = {
       .setColor("ADD8E6");
 
     const updatelog = new MessageEmbed()
-      .setTitle("v1.1")
+      .setTitle("v1.2")
       .setDescription(
-        "• `/help` - Updated some help pages\n• `/v` - Added a reward when you get a certain code :)\n• `/upgrade` - Made upgrades cost Fish Coins\n• `/shop` - Updated the embed\n• `/buy` - Made fishing rods cost fish\n\nOther: optimizations to make my own life coding the bot better :p"
+        "• `/info` - Added the Fish Coins cost of upgrades\n• Implemented a new and more reliable cooldown system\n• `/checkin` - Added the check-in command\n• `/sell` - QOL update\n• Lowered the fish requirement for Fishing Rods to 5 of each of a rarity instead of 10\n• `/loot` - Added the ability to view Loot Box drop rates\n• `/open` - Added the ability to open Loot Boxes"
       )
       .setColor("ADD8E6")
       .setTimestamp();
