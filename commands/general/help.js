@@ -161,8 +161,9 @@ module.exports = {
           value: "`/shop` - Displays the shop.",
         },
         {
-          name: "Trade",
-          value: "`/trade <user> <fish> <fish>` - Trade fish with other users.",
+          name: "Trade (SOON!)",
+          value:
+            "`/trade <user> <fish> <amount> <fish> <amount>` - Trade fish with other users.",
         }
       )
       .setFooter({ text: `Page 3/7 | Requested by ${interaction.user.tag}` })
