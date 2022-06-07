@@ -8,6 +8,11 @@ const userSchema = new mongoose.Schema({
 
   firstTime: { type: Boolean, default: true },
 
+  // Cooldowns
+
+  globalCooldown: { type: Number, default: 1 },
+  checkinCooldown: { type: Number, default: 1 },
+
   // Anti-AFK
 
   commandCounter: { type: Number, default: 0 },
@@ -172,6 +177,10 @@ const userSchema = new mongoose.Schema({
   preciousRod: { type: String, default: "Locked! 🔒" },
   luxuriousRod: { type: String, default: "Locked! 🔒" },
   divineRod: { type: String, default: "Locked! 🔒" },
+
+  // Check in
+
+  day: { type: Number, default: 1 },
 
   // Gift codes
 
