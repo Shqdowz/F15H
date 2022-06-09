@@ -128,12 +128,12 @@ module.exports = {
         }
       }
     } else {
-      const timeLeft =
+      const secondsLeft =
         Math.round((userProfile.globalCooldown - Date.now()) / 100) / 10;
 
-      if (timeLeft >= 0) {
+      if (secondsLeft >= 0) {
         await interaction.reply({
-          content: `You are on global cooldown! Please wait ${timeLeft} more seconds.`,
+          content: `You are on global cooldown! Please wait ${secondsLeft} more seconds.`,
           ephemeral: true,
         });
 

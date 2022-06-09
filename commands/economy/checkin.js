@@ -30,7 +30,7 @@ module.exports = {
       //   Math.round((userProfile.checkinCooldown - Date.now()) / 6000) / 10;
 
       const hoursLeft =
-        Math.round((userProfile.checkinCooldown - Date.now()) / 144000) / 10;
+        Math.round((userProfile.checkinCooldown - Date.now()) / 36000) / 10;
 
       if (secondsLeft >= 0) {
         await interaction.reply({
@@ -44,14 +44,14 @@ module.exports = {
 
         // Code
 
-        if (Date.now() > userProfile.checkinCooldown + 10000) {
+        if (Date.now() > userProfile.checkinCooldown + 60 * 60 * 24 * 1000) {
           await User.findOneAndUpdate(
             { _id: userProfile._id },
             { day: (userProfile.day = 1) }
           );
         }
 
-        const cooldown = Date.now() + 60 * 24 * 24 * 1000;
+        const cooldown = Date.now() + 60 * 60 * 24 * 1000;
 
         await User.findOneAndUpdate(
           { _id: userProfile._id },
