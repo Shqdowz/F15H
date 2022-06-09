@@ -29,7 +29,7 @@ module.exports = {
     //   Math.round((userProfile.checkinCooldown - Date.now()) / 6000) / 10;
 
     const hoursLeft =
-      Math.round((userProfile.checkinCooldown - Date.now()) / 36000) / 10;
+      Math.round((userProfile.checkinCooldown - Date.now()) / 360000) / 10;
 
     if (secondsLeft >= 0) {
       await interaction.reply({
